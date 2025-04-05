@@ -1,7 +1,7 @@
 // @ts-check
 /** @type {import('@vivliostyle/cli').VivliostyleConfigSchema} */
 const vivliostyleConfig = {
-  title: 'nclc-leti-tectelit-leti-lukup-cet', // populated into 'publication.json', default to 'title' of the first entry or 'name' in 'package.json'.
+  title: '言将机戦人等定引之字言集', // populated into 'publication.json', default to 'title' of the first entry or 'name' in 'package.json'.
   author: '日本机戦連盟', // default to 'author' in 'package.json' or undefined
   // language: 'la',
   // readingProgression: 'rtl', // reading progression direction, 'ltr' or 'rtl'.
@@ -16,10 +16,10 @@ const vivliostyleConfig = {
     //   theme: '@vivliostyle/theme-whatever' // theme can be set individually. default to root 'theme'
     // },
 
-    'ヤ.html',
+    '口.html',
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
   // entryContext: './manuscripts', // default to '.' (relative to 'vivliostyle.config.js')
-  output: [ "../nclc-leti-tectelit-leti-lukup-cet.pdf" ] // path to generate draft file(s). default to '{title}.pdf'
+  output: [ "../言将机戦人等定引之字言集.pdf" ] // path to generate draft file(s). default to '{title}.pdf'
   //   './output.pdf', // the output format will be inferred from the name.
   //   {
   //     path: './book',
