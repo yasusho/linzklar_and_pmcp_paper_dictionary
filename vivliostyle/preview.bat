@@ -1,1 +1,1 @@
-npx vivliostyle preview -m
+npx vivliostyle preview

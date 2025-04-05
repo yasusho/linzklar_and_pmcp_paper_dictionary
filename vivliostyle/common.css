@@ -1,11 +1,21 @@
 :root {
     column-count: 2;
-    --scale: 0.98;
+    --scale: 0.93;
 }
 
-.entry-word-ja {
-    /* 親見出し（日本語） */
-    font-size: calc(12pt * var(--scale));
+.entry-word-pronunciation {
+    font-size: calc(9pt * var(--scale));
+    font-weight: bold;
+    font-family: "Source Han Serif Heavy";
+}
+
+div.sample-sentence {
+    font-size: calc(9pt * var(--scale));
+    margin-top: 1.5mm;
+}
+
+.entry-word-transcription {
+    font-size: calc(9pt * var(--scale));
     font-weight: bold;
     font-family: "Source Han Serif Heavy";
 }
@@ -15,6 +25,12 @@
     font-size: calc(12pt * var(--scale));
     font-weight: normal;
     font-family: "acil_lujot";
+}
+
+.entry-word-linzklar {
+    font-size: calc(12pt * var(--scale));
+    font-weight: normal;
+    font-family: "linzklar_rounded";
 }
 
 .linzklar_rounded_glyph {
@@ -30,7 +46,7 @@
 }
 
 .sub-entry {
-    margin-left: 5mm;
+    margin-left: 4.5mm;
 }
 
 .sub-entry-word-ja {
@@ -60,6 +76,32 @@
     font-family: "Source Han Serif";
     line-height: 1.05;
 }
+
+.sample-sentence-linzklar {
+    font-size: calc(10pt * var(--scale));
+    font-family: "linzklar_rounded";
+    line-height: 1.05;
+}
+
+.sample-sentence-pronunciation {
+    font-size: calc(6pt * var(--scale));
+    font-family: "Source Han Serif";
+    line-height: 1.05;
+}
+
+.sample-sentence-transcription {
+    font-size: calc(9pt * var(--scale));
+    font-family: "Source Han Serif";
+    line-height: 1.05;
+}
+
+.sample-sentence-translation {
+    font-size: calc(9pt * var(--scale));
+    font-family: "Source Han Serif";
+    line-height: 1.05;
+    margin-left: 4.5mm;
+}
+
 
 
 .definition {
