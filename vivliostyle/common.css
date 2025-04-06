@@ -12,6 +12,12 @@
     margin-top: 2.2mm;
     font-size: calc(12pt * var(--scale));
 }
+
+.entry > span {
+    display: inline-block;
+    break-inside: avoid;
+}
+
 .entry-word-pronunciation {
     font-size: calc(9pt * var(--scale));
     font-weight: bold;
