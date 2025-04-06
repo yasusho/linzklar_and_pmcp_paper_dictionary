@@ -7,6 +7,7 @@ const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'u
 
 build("1_12_口");
 build("1_13_筆");
+build("1_14_門");
 
 function build(main_index) {
 
