@@ -5,13 +5,13 @@
   ],
   "type": "Book",
   "conformsTo": "https://github.com/vivliostyle/vivliostyle-cli",
-  "name": "nclc-leti-tectelit-leti-lukup-cet",
+  "name": "言将机戦人等定引之字言集",
   "author": "日本机戦連盟",
-  "dateModified": "2025-04-05T18:51:38.528Z",
+  "dateModified": "2025-04-06T08:21:46.614Z",
   "readingOrder": [
     {
       "url": "%E5%8F%A3.html",
-      "name": "nclc-leti-tectelit-leti-lukup-cet"
+      "name": "言将机戦人等定引之字言集"
     }
   ],
   "resources": [],

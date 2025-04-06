@@ -2,10 +2,15 @@
     column-count: 2;
     --scale: 0.93;
 }
+.char-entry {
+    margin-top: 2.2mm;
+    margin-bottom: -2mm;
+}
 
 .entry {
     break-inside: avoid;
-    margin-top: 2mm;
+    margin-top: 2.2mm;
+    font-size: calc(12pt * var(--scale));
 }
 .entry-word-pronunciation {
     font-size: calc(9pt * var(--scale));
@@ -25,10 +30,16 @@
     font-family: "linzklar_rounded";
 }
 
+.char-entry-linzklar {
+    font-size: calc(24pt * var(--scale));
+    font-weight: normal;
+    font-family: "linzklar_rounded";
+}
+
 .sub {
     margin-top: -1mm;
     line-height: 1;
-    margin-left: 4.5mm;
+    margin-left: 3.5mm;
 }
 
 .sub-POS {
@@ -72,7 +83,7 @@ div.sample-sentence {
     font-size: calc(9pt * var(--scale));
     font-family: "Source Han Serif";
     line-height: 1.05;
-    margin-left: 4.5mm;
+    margin-left: 3.5mm;
 }
 
 header {
