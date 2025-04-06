@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+const PRONUNCIATIONS = [];
 build("1_12_口");
 build("1_13_筆");
 
@@ -40,7 +41,13 @@ ${Object.entries(guide_words).map(([key, value]) => `    @page:nth(${key}) {
 
 ${entries.map(gen_entry).join("\n\n")}`, { encoding: 'utf8' });
 
+fs.writeFileSync(`PRONUNCIATIONS.tsv`, PRONUNCIATIONS.map(([linzklar, pronunciation]) => `${linzklar}\t${pronunciation}`).join("\n"), { encoding: 'utf8' });
+
 function gen_entry({ linzklar, pronunciation, definitions, sentences, variants_官字, variants_風字 }) {
+    const PRONS =  pronunciation.split(/(?<=[⤴→·])/);
+    for (let i = 0; i < linzklar.length; i++) {
+        PRONUNCIATIONS.push([linzklar[i], PRONS[i]]);
+    }
     sentences = sentences ?? [];
     definitions = definitions ?? [];
     if ([...linzklar].length === 1) {
@@ -80,6 +87,10 @@ function gen_definitions(definitions) {
 }
 
 function gen_sample_sentence({ linzklar, pronunciation, translations }) {
+    const PRONS =  pronunciation.split(/(?<=[⤴→·])/);
+    for (let i = 0; i < linzklar.length; i++) {
+        PRONUNCIATIONS.push([linzklar[i], PRONS[i]]);
+    }
     return `        <div class="sample-sentence">
             <span class="sample-sentence-linzklar">${linzklar}</span> <span class="sample-sentence-pronunciation" lang="ja">${pronunciation}</span>
             <span class="sample-sentence-transcription" lang="ja">【${linzklar}】</span>
