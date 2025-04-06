@@ -95,32 +95,37 @@ ${entry({
     ]
 })}
 
-<div class="entry">
-    <span class="entry-word-linzklar">口刀</span> <span class="entry-word-pronunciation" lang="ja">ヤㇺ→ガウ⤴</span> <span class="entry-word-transcription" lang="ja">【口刀】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">歯、牙</span><br>
-    </div>
-</div>
+${entry({
+    linzklar: "口刀",
+    pronunciation: "ヤㇺ→ガウ⤴",
+    definitions: [
+        { POS: "[名詞]", definition: "歯、牙" },
+    ],
+    sentences: [
+    ]
+})}
 
-<div class="entry">
-    <span class="entry-word-linzklar">口煙</span> <span class="entry-word-pronunciation" lang="ja">ヤㇺ→ロウ→</span> <span class="entry-word-transcription" lang="ja">【口煙】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[離合詞]</span> <span class="sub-definition" lang="ja">喫煙する</span><br>
-        <div class="sample-sentence">
-            <span class="sample-sentence-linzklar">口皇草煙</span> <span class="sample-sentence-pronunciation" lang="ja">ヤㇺ→タㇺ⤴コㇳ·ロウ→</span>
-            <span class="sample-sentence-transcription" lang="ja">【口皇草煙】</span> 
-            <div class="sample-sentence-translation" lang="ja">タムコㇳ (麻薬の一種) を吸う。</div>
-        </div>
-    </div>
-</div>
+${entry({
+    linzklar: "口煙",
+    pronunciation: "ヤㇺ→ロウ→",
+    definitions: [
+        { POS: "[離合詞]", definition: "喫煙する" },
+    ],
+    sentences: [
+        { linzklar: "口皇草煙", pronunciation: "ヤㇺ→タㇺ⤴コㇳ·ロウ→", translations: ["タムコㇳ (麻薬の一種) を吸う。"] },
+    ]
+})}
 
-<div class="entry">
-    <span class="entry-word-linzklar">顔口</span> <span class="entry-word-pronunciation" lang="ja">ザン→ヤㇺ→</span> <span class="entry-word-transcription" lang="ja">【顔口】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">口</span><br>
-        <span class="sub-definition" lang="ja">名詞として口を指す場合は主にこちらを用いる。</span><br>
-    </div>
-</div>
+${entry({
+    linzklar: "顔口",
+    pronunciation: "ザン→ヤㇺ→",
+    definitions: [
+        { POS: "[名詞]", definition: "口" },
+        { POS: "", definition: "名詞として口を指す場合は主にこちらを用いる。" }
+    ],
+    sentences: [
+    ]
+})}
 
 <div class="char-entry">
     <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/平.png" style="height: 1em"><img src="../SY_handwriting/風字/平.png" style="height: 1em"></span> 
