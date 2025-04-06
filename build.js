@@ -38,6 +38,8 @@ ${Object.entries(guide_words).map(([key, value]) => `    @page:nth(${key}) {
 ${entries.map(gen_entry).join("\n\n")}`, { encoding: 'utf8' });
 
 function gen_entry({ linzklar, pronunciation, definitions, sentences, variants_官字, variants_風字 }) {
+    sentences = sentences ?? [];
+    definitions = definitions ?? [];
     if ([...linzklar].length === 1) {
         const 官字_list = variants_官字 ? [linzklar, ...variants_官字] : [linzklar];
         const 風字_list = variants_風字 ? [linzklar, ...variants_風字] : [linzklar];
