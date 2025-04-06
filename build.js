@@ -32,22 +32,17 @@ fs.writeFileSync("vivliostyle/口.html", `<link rel="stylesheet" href="common.cs
 
 <!-- <header><img src="./ヤ_見出し.svg" style="width: 100%"></header> -->
 
-<div class="char-entry">
-    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/口.png" style="height: 1em"><img src="../SY_handwriting/風字/口.png" style="height: 1em"></span> 
-</div>
-
-<div class="entry">
-    <span class="entry-word-pronunciation" lang="ja">ヤㇺ→　(俗に) ヤウン→</span> <span class="entry-word-transcription" lang="ja">【口】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">(稀に)口</span><br>
-        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">食べる、飲む、吸う</span><br>
-        <div class="sample-sentence">
-            <span class="sample-sentence-linzklar">我口米</span> <span class="sample-sentence-pronunciation" lang="ja">パイ⤴ヤㇺ→モウ→</span> 
-            <span class="sample-sentence-transcription" lang="ja">【我口米】</span>  
-            <div class="sample-sentence-translation" lang="ja">私は米を食べる。</div>
-        </div>
-    </div>
-</div>
+${entry({
+    linzklar: "口",
+    pronunciation: "ヤㇺ→　(俗に) ヤウン→",
+    definitions: [
+        { POS: "[名詞]", definition: "(稀に)口" },
+        { POS: "[動詞]", definition: "食べる、飲む、吸う" },
+    ],
+    sentences: [
+        { linzklar: "我口米", pronunciation: "パイ⤴ヤㇺ→モウ→", translations: ["私は米を食べる。"] },
+    ]
+})}
 
 ${entry({
     linzklar: "口物",
@@ -185,6 +180,18 @@ ${entry({
 </div>`, { encoding: 'utf8' });
 
 function entry({ linzklar, pronunciation, definitions, sentences }) {
+    if ([...linzklar].length === 1) {
+    return `<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/${linzklar}.png" style="height: 1em"><img src="../SY_handwriting/風字/${linzklar}.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">${pronunciation}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>
+    <div class="sub">
+${gen_definitions(definitions)}
+${sentences.map(gen_sample_sentence).join("")}    </div>
+</div>`
+    }
     return `<div class="entry">
     <span class="entry-word-linzklar">${linzklar}</span> <span class="entry-word-pronunciation" lang="ja">${pronunciation}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>
     <div class="sub">
