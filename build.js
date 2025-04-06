@@ -49,25 +49,31 @@ fs.writeFileSync("vivliostyle/口.html", `<link rel="stylesheet" href="common.cs
     </div>
 </div>
 
-${entry()}
+${entry({
+    linzklar: "口物",
+    pronunciation: "ヤㇺ→ク·",
+    definitions: [
+        { POS: "[名詞]", definition: "食べ物、食料" },
+        { POS: "[動詞]", definition: "食べる、食事する" },
+    ],
+    sentences: [
+        { linzklar: "此倉口物貧", pronunciation: "カー→リー→ヤㇺ→ク·ヘイ⤴", translations: ["この倉庫は食べ物が少ない。"] },
+        { linzklar: "何時我等口物", pronunciation: "ナン⤴カㇰ·パイ⤴ゲゥ·ヤㇺ⤴ク·", translations: ["いつ私たちは食事しますか？", "何度私たちは食事しますか？"] },
+    ]
+})}
 
-<div class="entry">
-    <span class="entry-word-linzklar">口水</span> <span class="entry-word-pronunciation" lang="ja">ヤㇺ→ヌア⤴</span> <span class="entry-word-transcription" lang="ja">【口水】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[離合詞]</span> <span class="sub-definition" lang="ja">飲む</span><br>
-        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">飲み水、飲み物</span><br>
-        <div class="sample-sentence">
-            <span class="sample-sentence-linzklar">我口清水</span> <span class="sample-sentence-pronunciation" lang="ja">パイ⤴ヤㇺ→リン·ヌア⤴</span>
-            <span class="sample-sentence-transcription" lang="ja">【我口清水】</span>
-            <div class="sample-sentence-translation" lang="ja">私は綺麗な水を飲む。</div>
-        </div>
-        <div class="sample-sentence">
-            <span class="sample-sentence-linzklar">与我口水</span> <span class="sample-sentence-pronunciation" lang="ja">トゥイ⤴パイ⤴ヤㇺ→ヌア⤴</span>
-            <span class="sample-sentence-transcription" lang="ja">【与我口水】</span>
-            <div class="sample-sentence-translation" lang="ja">水をくれ。</div>
-        </div> 
-    </div>
-</div>
+${entry({
+    linzklar: "口水",
+    pronunciation: "ヤㇺ→ヌア⤴",
+    definitions: [
+        { POS: "[離合詞]", definition: "飲む" },
+        { POS: "[名詞]", definition: "飲み水、飲み物" },
+    ],
+    sentences: [
+        { linzklar: "我口清水", pronunciation: "パイ⤴ヤㇺ→リン·ヌア⤴", translations: ["私は綺麗な水を飲む。"] },
+        { linzklar: "与我口水", pronunciation: "トゥイ⤴パイ⤴ヤㇺ→ヌア⤴", translations: ["水をくれ。"] },
+    ]
+})}
 
 <div class="entry">
     <span class="entry-word-linzklar">口銭処</span> <span class="entry-word-pronunciation" lang="ja">ヤㇺ→ズー→ホェ·</span> <span class="entry-word-transcription" lang="ja">【口銭処】</span>
@@ -167,17 +173,7 @@ ${entry()}
     </div>
 </div>`, { encoding: 'utf8' });
 
-function entry() {
-    const linzklar = "口物";
-    const pronunciation = "ヤㇺ→ク·";
-    const definitions = [
-        { POS: "[名詞]", definition: "食べ物、食料" },
-        { POS: "[動詞]", definition: "食べる、食事する" },
-    ];
-    const sentences = [
-        { linzklar: "此倉口物貧", pronunciation: "カー→リー→ヤㇺ→ク·ヘイ⤴", translations: ["この倉庫は食べ物が少ない。"] },
-        { linzklar: "何時我等口物", pronunciation: "ナン⤴カㇰ·パイ⤴ゲゥ·ヤㇺ⤴ク·", translations: ["いつ私たちは食事しますか？", "何度私たちは食事しますか？"] },
-    ];
+function entry({ linzklar, pronunciation, definitions, sentences }) {
     return `<div class="entry">
     <span class="entry-word-linzklar">${linzklar}</span> <span class="entry-word-pronunciation" lang="ja">${pronunciation}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>
     <div class="sub">
