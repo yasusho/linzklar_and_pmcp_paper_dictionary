@@ -75,19 +75,25 @@ ${entry({
     ]
 })}
 
-<div class="entry">
-    <span class="entry-word-linzklar">口銭処</span> <span class="entry-word-pronunciation" lang="ja">ヤㇺ→ズー→ホェ·</span> <span class="entry-word-transcription" lang="ja">【口銭処】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">飲食店、レストラン、食堂</span><br>
-    </div>
-</div>
+${entry({
+    linzklar: "口銭処",
+    pronunciation: "ヤㇺ→ズー→ホェ·",
+    definitions: [
+        { POS: "[名詞]", definition: "飲食店、レストラン、食堂" },
+    ],
+    sentences: [
+    ]
+})}
 
-<div class="entry">
-    <span class="entry-word-linzklar">口件之囲</span> <span class="entry-word-pronunciation" lang="ja">ヤㇺ→ウォウ→ア·ピアー⤴</span> <span class="entry-word-transcription" lang="ja">【口件之囲】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">ダイニングルーム、食事室</span><br>
-    </div>
-</div>
+${entry({
+    linzklar: "口件之囲",
+    pronunciation: "ヤㇺ→ウォウ→ア·ピアー⤴",
+    definitions: [
+        { POS: "[名詞]", definition: "ダイニングルーム、食事室" },
+    ],
+    sentences: [
+    ]
+})}
 
 <div class="entry">
     <span class="entry-word-linzklar">口刀</span> <span class="entry-word-pronunciation" lang="ja">ヤㇺ→ガウ⤴</span> <span class="entry-word-transcription" lang="ja">【口刀】</span>
@@ -178,8 +184,7 @@ function entry({ linzklar, pronunciation, definitions, sentences }) {
     <span class="entry-word-linzklar">${linzklar}</span> <span class="entry-word-pronunciation" lang="ja">${pronunciation}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>
     <div class="sub">
 ${gen_definitions(definitions)}
-${sentences.map(gen_sample_sentence).join("\n")}
-    </div>
+${sentences.map(gen_sample_sentence).join("")}    </div>
 </div>`
 }
 
@@ -199,5 +204,6 @@ function gen_sample_sentence({ linzklar, pronunciation, translations }) {
             <span class="sample-sentence-transcription" lang="ja">【${linzklar}】</span>
 ${translations.map(tr => `            <div class="sample-sentence-translation" lang="ja">${tr}</div>\n`).join('')
 
-        }        </div>`
+        }        </div>
+`
 }
