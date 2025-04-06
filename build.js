@@ -1,17 +1,22 @@
 const fs = require('fs');
 
-const guide_words = JSON.parse(fs.readFileSync(`GUIDE_WORDS_口.json`, { encoding: 'utf-8' }));
+build("1_12_口");
+build("1_13_筆");
 
-const entries = fs.readFileSync("EDIT_ME.jsonl", { encoding: 'utf8' })
+function build(main_index) {
+
+const guide_words = JSON.parse(fs.readFileSync(`GUIDE_WORDS_${main_index}.json`, { encoding: 'utf-8' }));
+
+const entries = fs.readFileSync(`entries_${main_index}.jsonl`, { encoding: 'utf8' })
     .trimEnd()
     .split(/\r?\n/)
     .map(line => JSON.parse(line));
 
-fs.writeFileSync("vivliostyle/口.html", `<link rel="stylesheet" href="common.css">
+fs.writeFileSync(`vivliostyle/${main_index}.html`, `<link rel="stylesheet" href="common.css">
 
 <style>
     @page:left { 
-        background-image: url("爪見出し/口_left.png");
+        background-image: url("爪見出し/${main_index}_left.png");
         background-size: 472px 665px;
         background-repeat: no-repeat;
         @top-left { font-family: "linzklar_rounded"; font-size: 14pt; } /* 左ページでは左の柱見出しのみ */
@@ -19,7 +24,7 @@ fs.writeFileSync("vivliostyle/口.html", `<link rel="stylesheet" href="common.cs
     }
 
     @page:right { 
-        background-image: url("爪見出し/口_right.png");
+        background-image: url("爪見出し/${main_index}_right.png");
         background-size: 472px 665px;
         background-repeat: no-repeat;
         @top-left { font-family: "linzklar_rounded"; font-size: 0pt; }
@@ -32,8 +37,6 @@ ${Object.entries(guide_words).map(([key, value]) => `    @page:nth(${key}) {
         @top-right { content: "${value.right}"; }
     }
 `).join('\n')}</style>
-
-<!-- <header><img src="./ヤ_見出し.svg" style="width: 100%"></header> -->
 
 ${entries.map(gen_entry).join("\n\n")}`, { encoding: 'utf8' });
 
@@ -84,4 +87,5 @@ ${translations.map(tr => `            <div class="sample-sentence-translation" l
 
         }        </div>
 `
+}
 }

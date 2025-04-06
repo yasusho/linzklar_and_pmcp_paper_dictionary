@@ -16,7 +16,8 @@ const vivliostyleConfig = {
     //   theme: '@vivliostyle/theme-whatever' // theme can be set individually. default to root 'theme'
     // },
 
-    '口.html',
+    '1_12_口.html',
+    '1_13_筆.html',
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
   // entryContext: './manuscripts', // default to '.' (relative to 'vivliostyle.config.js')
   output: [ "../言将机戦人等定引之字言集.pdf" ] // path to generate draft file(s). default to '{title}.pdf'

@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="common.css">
+
+<style>
+    @page:left { 
+        background-image: url("爪見出し/1_13_筆_left.png");
+        background-size: 472px 665px;
+        background-repeat: no-repeat;
+        @top-left { font-family: "linzklar_rounded"; font-size: 14pt; } /* 左ページでは左の柱見出しのみ */
+        @top-right { font-family: "linzklar_rounded"; font-size: 0pt; }
+    }
+
+    @page:right { 
+        background-image: url("爪見出し/1_13_筆_right.png");
+        background-size: 472px 665px;
+        background-repeat: no-repeat;
+        @top-left { font-family: "linzklar_rounded"; font-size: 0pt; }
+        @top-right { font-family: "linzklar_rounded"; font-size: 14pt; }  /* 右ページでは右の柱見出しのみ */
+    }
+    
+    /* それぞれのページ指定では柱見出しを両側に指定しておき、上記ルールにより片方だけ潰す */
+    @page:nth(1) {
+        @top-left { content: "筆"; }
+        @top-right { content: "筆"; }
+    }
+</style>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/筆.png" style="height: 1em"><img src="../SY_handwriting/風字/筆.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">クア⤴</span> <span class="entry-word-transcription" lang="ja">【筆】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">書く</span><br>
+    </div>
+</div>
