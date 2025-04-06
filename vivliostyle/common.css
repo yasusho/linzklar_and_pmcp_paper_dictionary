@@ -62,6 +62,11 @@ div.sample-sentence {
     margin-top: 1.5mm;
 }
 
+.sample-sentence > span {
+    display: inline-block;
+    break-inside: avoid;
+}
+
 .sample-sentence-linzklar {
     font-size: calc(10pt * var(--scale));
     font-family: "linzklar_rounded";
