@@ -16,7 +16,7 @@
 {"linzklar":"目書","pronunciation":"ター→アㇰ→","definitions":[{"POS":"[離合詞]","definition":"読書する"}]}	
 {"linzklar":"互目","pronunciation":"ホァㇳ→ター→","definitions":[{"POS":"[動詞]","definition":"会う"}]}	
 {"linzklar":"内","pronunciation":"","definitions":[]}	
-{"linzklar":"全","pronunciation":"ベゥ→","definitions":[{"POS":"[連体詞]","definition":"全ての"},{"POS":"[名詞]","definition":"全て"}]}	
+{"linzklar":"全","pronunciation":"ベゥ→","definitions":[{"POS":"[連体詞]","definition":"全ての"},{"POS":"[名詞]","definition":"全て"},{"POS":"[副詞]","definition":"最も"}]}	
 {"linzklar":"全人","pronunciation":"ベゥ→スㇰ⤴","definitions":[{"POS":"[名詞]","definition":"全員"}]}	
 {"linzklar":"全地","pronunciation":"ベゥ→ホェㇷ゚⤴","definitions":[{"POS":"[名詞]","definition":"世界"},{"POS":"[連体詞]","definition":"世界中の"}]}	
 {"linzklar":"全闇","pronunciation":"ベゥ→ホェㇳ·","definitions":[{"POS":"[時間詞]","definition":"夜通し"}]}	
@@ -53,3 +53,13 @@
 {"linzklar":"与学人","pronunciation":"トゥイ⤴ヌイ⤴スㇰ⤴","definitions":[{"POS":"[名詞]","definition":"先生、教員"}]}	
 {"linzklar":"与学書","pronunciation":"トゥイ⤴ヌイ⤴アㇰ→","definitions":[{"POS":"[名詞]","definition":"教科書、教本"}]}	
 {"linzklar":"天与","pronunciation":"ズュㇳ⤴トゥイ⤴","definitions":[{"POS":"[名詞]","definition":"才能"}]}	
+{"linzklar":"巫","pronunciation":"トゥㇰ⤴","definitions":[{"POS":"[名詞]","definition":"呪術師、宗教従事者、（セッカイクの）巫"}]}	
+{"linzklar":"祭","pronunciation":"ガㇳ⤴","definitions":[{"POS":"[名詞]","definition":"祭り、儀式"}]}	
+{"linzklar":"祭火","pronunciation":"ガㇳ⤴カン→","definitions":[{"POS":"[名詞]","definition":"キャンプファイヤー"}]}	
+{"linzklar":"同","pronunciation":"バㇷ゚·","definitions":[{"POS":"[副詞]","definition":"～もまた"},{"POS":"[連体詞]","definition":"同じ"},{"POS":"[状態動詞]","definition":"同じである"}]}	
+{"linzklar":"裁同","pronunciation":"シュー→バㇷ゚·","definitions":[{"POS":"[離合詞]","definition":"～と見なす"}]}	
+{"linzklar":"類","pronunciation":"ズォウ⤴","variants_官字":["属"],"variants_風字":["属"]}	
+{"linzklar":"水類","pronunciation":"ヌア⤴ズォウ⤴","definitions":[{"POS":"[名詞]","definition":"液体"}]}	
+{"linzklar":"此類","pronunciation":"カー→ズォウ⤴","definitions":[{"POS":"[連体詞]","definition":"このような"}]}	
+{"linzklar":"輩","pronunciation":"フォㇰ→","definitions":[{"POS":"[名詞]","definition":"兄弟、姉妹"}]}
+{"linzklar":"輩島","pronunciation":"フォㇰ→ドㇷ゚→","definitions":[{"POS":"[名詞]","definition":"蒼島（ヴェフィス共和国を構成する島の一つ）"}]}
