@@ -32,7 +32,7 @@ fs.writeFileSync("vivliostyle/口.html", `<link rel="stylesheet" href="common.cs
 
 <!-- <header><img src="./ヤ_見出し.svg" style="width: 100%"></header> -->
 
-${entry({
+${gen_entry({
     linzklar: "口",
     pronunciation: "ヤㇺ→　(俗に) ヤウン→",
     definitions: [
@@ -44,7 +44,7 @@ ${entry({
     ]
 })}
 
-${entry({
+${gen_entry({
     linzklar: "口物",
     pronunciation: "ヤㇺ→ク·",
     definitions: [
@@ -57,7 +57,7 @@ ${entry({
     ]
 })}
 
-${entry({
+${gen_entry({
     linzklar: "口水",
     pronunciation: "ヤㇺ→ヌア⤴",
     definitions: [
@@ -70,7 +70,7 @@ ${entry({
     ]
 })}
 
-${entry({
+${gen_entry({
     linzklar: "口銭処",
     pronunciation: "ヤㇺ→ズー→ホェ·",
     definitions: [
@@ -80,7 +80,7 @@ ${entry({
     ]
 })}
 
-${entry({
+${gen_entry({
     linzklar: "口件之囲",
     pronunciation: "ヤㇺ→ウォウ→ア·ピアー⤴",
     definitions: [
@@ -90,7 +90,7 @@ ${entry({
     ]
 })}
 
-${entry({
+${gen_entry({
     linzklar: "口刀",
     pronunciation: "ヤㇺ→ガウ⤴",
     definitions: [
@@ -100,7 +100,7 @@ ${entry({
     ]
 })}
 
-${entry({
+${gen_entry({
     linzklar: "口煙",
     pronunciation: "ヤㇺ→ロウ→",
     definitions: [
@@ -111,7 +111,7 @@ ${entry({
     ]
 })}
 
-${entry({
+${gen_entry({
     linzklar: "顔口",
     pronunciation: "ザン→ヤㇺ→",
     definitions: [
@@ -122,7 +122,7 @@ ${entry({
     ]
 })}
 
-${entry({
+${gen_entry({
     linzklar: "平",
     pronunciation: "オウ→",
     definitions: [
@@ -134,24 +134,20 @@ ${entry({
     ]
 })}
 
+${gen_entry({
+    linzklar: "美",
+    variants_官字: ["麗"],
+    variants_風字: [],
+    pronunciation: "ヘゥㇺ→",
+    definitions: [
+        { POS: "[状態動詞]", definition: "美しい、綺麗だ" },
+    ],
+    sentences: [
+        { linzklar: "美絵在於机", pronunciation: "ヘゥㇺ→レゥㇰ→アイㇺ⤴イェ·セゥㇳ⤴", translations: ["綺麗な絵が机にある。"] },
+    ]
+})}
 
-<div class="char-entry">
-    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/美.png" style="height: 1em"><img src="../SY_handwriting/官字/麗.png" style="height: 1em"><img src="../SY_handwriting/風字/美.png" style="height: 1em"><img src="../SY_handwriting/風字/麗.png" style="height: 1em"></span> 
-</div>
-
-<div class="entry">
-    <span class="entry-word-pronunciation" lang="ja">ヘゥㇺ→</span> <span class="entry-word-transcription" lang="ja">【美】【麗】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">美しい、綺麗だ</span><br>
-        <div class="sample-sentence">
-            <span class="sample-sentence-linzklar">美絵在於机</span> <span class="sample-sentence-pronunciation" lang="ja">ヘゥㇺ→レゥㇰ→アイㇺ⤴イェ·セゥㇳ⤴</span>
-            <span class="sample-sentence-transcription" lang="ja">【美絵在於机】</span> 
-            <div class="sample-sentence-translation" lang="ja">綺麗な絵が机にある。</div>
-        </div>
-    </div>
-</div>
-
-${entry({
+${gen_entry({
     linzklar: "守",
     pronunciation: "ヌㇺ→",
     definitions: [
@@ -162,7 +158,7 @@ ${entry({
     ]
 })}
 
-${entry({
+${gen_entry({
     linzklar: "大守処",
     pronunciation: "マー→ヌㇺ→ホェ·",
     definitions: [
@@ -172,14 +168,20 @@ ${entry({
     ]
 })}`, { encoding: 'utf8' });
 
-function entry({ linzklar, pronunciation, definitions, sentences }) {
+function gen_entry({ linzklar, pronunciation, definitions, sentences, variants_官字, variants_風字 }) {
     if ([...linzklar].length === 1) {
-    return `<div class="char-entry">
-    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/${linzklar}.png" style="height: 1em"><img src="../SY_handwriting/風字/${linzklar}.png" style="height: 1em"></span> 
+        const 官字_list = variants_官字 ? [linzklar, ...variants_官字] : [linzklar];
+        const 風字_list = variants_風字 ? [linzklar, ...variants_風字] : [linzklar];
+
+        return `<div class="char-entry">
+    <span class="char-entry-linzklar">${官字_list.map(官字 => `<img src="../SY_handwriting/官字/${官字}.png" style="height: 1em">`).join("")
+            }${風字_list.map(風字 => `<img src="../SY_handwriting/風字/${風字}.png" style="height: 1em">`).join("")
+            }</span> 
 </div>
 
 <div class="entry">
-    <span class="entry-word-pronunciation" lang="ja">${pronunciation}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>
+    <span class="entry-word-pronunciation" lang="ja">${pronunciation}</span> <span class="entry-word-transcription" lang="ja">${[linzklar, ... new Set([... (variants_官字 ?? []), ...(variants_風字 ?? [])])].map(c => `【${c}】`).join("")
+            }</span>
     <div class="sub">
 ${gen_definitions(definitions)}
 ${sentences.map(gen_sample_sentence).join("")}    </div>
