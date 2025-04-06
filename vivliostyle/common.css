@@ -16,6 +16,7 @@
     font-size: calc(9pt * var(--scale));
     font-weight: bold;
     font-family: "Source Han Serif Heavy";
+    line-break: strict; 
 }
 
 .entry-word-transcription {
@@ -71,6 +72,7 @@ div.sample-sentence {
     font-size: calc(6pt * var(--scale));
     font-family: "Source Han Serif";
     line-height: 1.05;
+    line-break: strict; 
 }
 
 .sample-sentence-transcription {
