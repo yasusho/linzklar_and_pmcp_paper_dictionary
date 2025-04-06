@@ -17,12 +17,12 @@ const vertical_stride = 337;
 const cross_term_1 = 1;
 const cross_term_2 = -8/18;
 
-(async () => {
+async function cut_up(source, rows) {
     for (let i = 19; i >= 0; i--) {
-        for (let j = 0; j < 10; j++) {
+        for (let j = 0; j < rows; j++) {
             await crop({
-                inputFile: '楷1.png',
-                outputFile: `楷1/${String(j).padStart(2, "0")
+                inputFile: `${source}.png`,
+                outputFile: `${source}/${String(j).padStart(2, "0")
                     }-${String(i).padStart(2, "0")
                     }.png`,
                 x: Math.round(i * horizontal_stride + j * cross_term_1 + 13),
@@ -31,4 +31,11 @@ const cross_term_2 = -8/18;
             });
         }
     }
-})();
+}
+
+// cut_up('楷1', 10);
+cut_up('楷2', 6);
+cut_up('楷3', 5);
+cut_up('草1', 10);
+cut_up('草2', 6);
+cut_up('草3', 5);
