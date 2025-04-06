@@ -5,6 +5,7 @@ const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'u
     .split(/\r?\n/)
     .map(line => line.split("\t"));
 
+build("1_10_右");
 build("1_12_口");
 build("1_13_筆");
 build("1_14_門");
