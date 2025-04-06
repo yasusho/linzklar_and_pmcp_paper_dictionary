@@ -1,4 +1,10 @@
 const fs = require('fs');
+
+const entries = fs.readFileSync("EDIT_ME.jsonl", { encoding: 'utf8' })
+    .trimEnd()
+    .split(/\r?\n/)
+    .map(line => JSON.parse(line));
+
 fs.writeFileSync("vivliostyle/口.html", `<link rel="stylesheet" href="common.css">
 
 <style>
@@ -32,141 +38,7 @@ fs.writeFileSync("vivliostyle/口.html", `<link rel="stylesheet" href="common.cs
 
 <!-- <header><img src="./ヤ_見出し.svg" style="width: 100%"></header> -->
 
-${gen_entry({
-    linzklar: "口",
-    pronunciation: "ヤㇺ→　(俗に) ヤウン→",
-    definitions: [
-        { POS: "[名詞]", definition: "(稀に)口" },
-        { POS: "[動詞]", definition: "食べる、飲む、吸う" },
-    ],
-    sentences: [
-        { linzklar: "我口米", pronunciation: "パイ⤴ヤㇺ→モウ→", translations: ["私は米を食べる。"] },
-    ]
-})}
-
-${gen_entry({
-    linzklar: "口物",
-    pronunciation: "ヤㇺ→ク·",
-    definitions: [
-        { POS: "[名詞]", definition: "食べ物、食料" },
-        { POS: "[動詞]", definition: "食べる、食事する" },
-    ],
-    sentences: [
-        { linzklar: "此倉口物貧", pronunciation: "カー→リー→ヤㇺ→ク·ヘイ⤴", translations: ["この倉庫は食べ物が少ない。"] },
-        { linzklar: "何時我等口物", pronunciation: "ナン⤴カㇰ·パイ⤴ゲゥ·ヤㇺ⤴ク·", translations: ["いつ私たちは食事しますか？", "何度私たちは食事しますか？"] },
-    ]
-})}
-
-${gen_entry({
-    linzklar: "口水",
-    pronunciation: "ヤㇺ→ヌア⤴",
-    definitions: [
-        { POS: "[離合詞]", definition: "飲む" },
-        { POS: "[名詞]", definition: "飲み水、飲み物" },
-    ],
-    sentences: [
-        { linzklar: "我口清水", pronunciation: "パイ⤴ヤㇺ→リン·ヌア⤴", translations: ["私は綺麗な水を飲む。"] },
-        { linzklar: "与我口水", pronunciation: "トゥイ⤴パイ⤴ヤㇺ→ヌア⤴", translations: ["水をくれ。"] },
-    ]
-})}
-
-${gen_entry({
-    linzklar: "口銭処",
-    pronunciation: "ヤㇺ→ズー→ホェ·",
-    definitions: [
-        { POS: "[名詞]", definition: "飲食店、レストラン、食堂" },
-    ],
-    sentences: [
-    ]
-})}
-
-${gen_entry({
-    linzklar: "口件之囲",
-    pronunciation: "ヤㇺ→ウォウ→ア·ピアー⤴",
-    definitions: [
-        { POS: "[名詞]", definition: "ダイニングルーム、食事室" },
-    ],
-    sentences: [
-    ]
-})}
-
-${gen_entry({
-    linzklar: "口刀",
-    pronunciation: "ヤㇺ→ガウ⤴",
-    definitions: [
-        { POS: "[名詞]", definition: "歯、牙" },
-    ],
-    sentences: [
-    ]
-})}
-
-${gen_entry({
-    linzklar: "口煙",
-    pronunciation: "ヤㇺ→ロウ→",
-    definitions: [
-        { POS: "[離合詞]", definition: "喫煙する" },
-    ],
-    sentences: [
-        { linzklar: "口皇草煙", pronunciation: "ヤㇺ→タㇺ⤴コㇳ·ロウ→", translations: ["タムコㇳ (麻薬の一種) を吸う。"] },
-    ]
-})}
-
-${gen_entry({
-    linzklar: "顔口",
-    pronunciation: "ザン→ヤㇺ→",
-    definitions: [
-        { POS: "[名詞]", definition: "口" },
-        { POS: "", definition: "名詞として口を指す場合は主にこちらを用いる。" }
-    ],
-    sentences: [
-    ]
-})}
-
-${gen_entry({
-    linzklar: "平",
-    pronunciation: "オウ→",
-    definitions: [
-        { POS: "[名詞]", definition: "板" },
-        { POS: "[状態動詞]", definition: "平らである" },
-    ],
-    sentences: [
-        { linzklar: "此道極平", pronunciation: "カー→ポウ→キㇳ·オウ→", translations: ["この道はすごく平らだ。"] },
-    ]
-})}
-
-${gen_entry({
-    linzklar: "美",
-    variants_官字: ["麗"],
-    variants_風字: [],
-    pronunciation: "ヘゥㇺ→",
-    definitions: [
-        { POS: "[状態動詞]", definition: "美しい、綺麗だ" },
-    ],
-    sentences: [
-        { linzklar: "美絵在於机", pronunciation: "ヘゥㇺ→レゥㇰ→アイㇺ⤴イェ·セゥㇳ⤴", translations: ["綺麗な絵が机にある。"] },
-    ]
-})}
-
-${gen_entry({
-    linzklar: "守",
-    pronunciation: "ヌㇺ→",
-    definitions: [
-        { POS: "[動詞]", definition: "守る" },
-    ],
-    sentences: [
-        { linzklar: "兵守国", pronunciation: "カウㇰ⤴ヌㇺ→ズィㇷ゚→", translations: ["兵が国を守る。"] },
-    ]
-})}
-
-${gen_entry({
-    linzklar: "大守処",
-    pronunciation: "マー→ヌㇺ→ホェ·",
-    definitions: [
-        { POS: "[名詞]", definition: "ヌママ（アイル共和国タウポ郡の大都市）" },
-    ],
-    sentences: [
-    ]
-})}`, { encoding: 'utf8' });
+${entries.map(gen_entry).join("\n\n")}`, { encoding: 'utf8' });
 
 function gen_entry({ linzklar, pronunciation, definitions, sentences, variants_官字, variants_風字 }) {
     if ([...linzklar].length === 1) {
