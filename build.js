@@ -168,18 +168,36 @@ ${entry()}
 </div>`, { encoding: 'utf8' });
 
 function entry() {
+    const linzklar = "口物";
+    const pronunciation = "ヤㇺ→ク·";
+    const definitions = [
+        { POS: "[名詞]", definition: "食べ物、食料" },
+        { POS: "[動詞]", definition: "食べる、食事する" },
+    ];
+    const sentences = [
+        { linzklar: "此倉口物貧", pronunciation: "カー→リー→ヤㇺ→ク·ヘイ⤴", translations: ["この倉庫は食べ物が少ない。"] },
+        { linzklar: "何時我等口物", pronunciation: "ナン⤴カㇰ·パイ⤴ゲゥ·ヤㇺ⤴ク·", translations: ["いつ私たちは食事しますか？", "何度私たちは食事しますか？"] },
+    ];
     return `<div class="entry">
-    <span class="entry-word-linzklar">口物</span> <span class="entry-word-pronunciation" lang="ja">ヤㇺ→ク·</span> <span class="entry-word-transcription" lang="ja">【口物】</span>
+    <span class="entry-word-linzklar">${linzklar}</span> <span class="entry-word-pronunciation" lang="ja">${pronunciation}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>
     <div class="sub">
-        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">食べ物、食料</span><br>
-        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">食べる、食事する</span><br>
-${sample_sentence({ linzklar: "此倉口物貧", pronunciation: "カー→リー→ヤㇺ→ク·ヘイ⤴", translations: ["この倉庫は食べ物が少ない。"] })}
-${sample_sentence({ linzklar: "何時我等口物", pronunciation: "ナン⤴カㇰ·パイ⤴ゲゥ·ヤㇺ⤴ク·", translations: ["いつ私たちは食事しますか？", "何度私たちは食事しますか？"] })}
+${gen_definitions(definitions)}
+${sentences.map(gen_sample_sentence).join("\n")}
     </div>
 </div>`
 }
 
-function sample_sentence({ linzklar, pronunciation, translations }) {
+function gen_definitions(definitions) {
+    return definitions.map(({ POS, definition }) => {
+        if (POS) {
+            return `        <span class="sub-POS" lang="ja">${POS}</span> <span class="sub-definition" lang="ja">${definition}</span><br>`
+        } else {
+            return `        <span class="sub-definition" lang="ja">${definition}</span><br>`
+        }
+    }).join("\n")
+}
+
+function gen_sample_sentence({ linzklar, pronunciation, translations }) {
     return `        <div class="sample-sentence">
             <span class="sample-sentence-linzklar">${linzklar}</span> <span class="sample-sentence-pronunciation" lang="ja">${pronunciation}</span>
             <span class="sample-sentence-transcription" lang="ja">【${linzklar}】</span>
