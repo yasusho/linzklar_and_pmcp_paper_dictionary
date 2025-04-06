@@ -52,13 +52,10 @@ function gen_pronunciation(linzklar) {
         const entry = pronunciation_table.find(([c_, _]) => c_ === c);
         if (entry) {
             return entry[1];
-        } else if (entry === "") {
-            console.log(`Empty pronunciation found for ${c}`);
-            return `<span style="color: red">発音なし:${c}</span>`;
-        } else if (entry === undefined) {
+        } else {
             console.log(`Missing pronunciation for ${c}. Provide it in the PRONUNCIATIONS.tsv file.`);
             return `<span style="color: red">発音を提供せよ:${c}</span>`;
-        }
+        } 
     }).join("");
 }
 
