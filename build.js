@@ -1,5 +1,10 @@
 const fs = require('fs');
 
+const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'utf-8' })
+    .trimEnd()
+    .split(/\r?\n/)
+    .map(line => line.split("\t"));
+
 build("1_12_口");
 build("1_13_筆");
 
@@ -40,7 +45,25 @@ ${Object.entries(guide_words).map(([key, value]) => `    @page:nth(${key}) {
 
 ${entries.map(gen_entry).join("\n\n")}`, { encoding: 'utf8' });
 
-function gen_entry({ linzklar, pronunciation, definitions, sentences, variants_官字, variants_風字 }) {
+function gen_pronunciation(linzklar) {
+    return [...linzklar].map(c => {
+        // search from the pronunciation table
+        const entry = pronunciation_table.find(([c_, _]) => c_ === c);
+        if (entry) {
+            return entry[1];
+        } else if (entry === "") {
+            console.log(`Empty pronunciation found for ${c}`);
+            return `<span style="color: red">発音なし:${c}</span>`;
+        } else if (entry === undefined) {
+            console.log(`Missing pronunciation for ${c}. Provide it in the PRONUNCIATIONS.tsv file.`);
+            return `<span style="color: red">発音を提供せよ:${c}</span>`;
+        }
+    }).join("");
+}
+
+function gen_entry({ linzklar, vulgar_pronunciation, definitions, sentences, variants_官字, variants_風字 }) {
+    const pronunciation_ = gen_pronunciation(linzklar);
+
     sentences = sentences ?? [];
     definitions = definitions ?? [];
     if ([...linzklar].length === 1) {
@@ -54,7 +77,9 @@ function gen_entry({ linzklar, pronunciation, definitions, sentences, variants_�
 </div>
 
 <div class="entry">
-    <span class="entry-word-pronunciation" lang="ja">${pronunciation}</span> <span class="entry-word-transcription" lang="ja">${[linzklar, ... new Set([... (variants_官字 ?? []), ...(variants_風字 ?? [])])].map(c => `【${c}】`).join("")
+    <span class="entry-word-pronunciation" lang="ja">${pronunciation_}${
+        vulgar_pronunciation ? `　(俗に) ${vulgar_pronunciation}` : ""
+    }</span> <span class="entry-word-transcription" lang="ja">${[linzklar, ... new Set([... (variants_官字 ?? []), ...(variants_風字 ?? [])])].map(c => `【${c}】`).join("")
             }</span>
     <div class="sub">
 ${gen_definitions(definitions)}
@@ -62,7 +87,7 @@ ${sentences.map(gen_sample_sentence).join("")}    </div>
 </div>`
     }
     return `<div class="entry">
-    <span class="entry-word-linzklar">${linzklar}</span> <span class="entry-word-pronunciation" lang="ja">${pronunciation}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>
+    <span class="entry-word-linzklar">${linzklar}</span> <span class="entry-word-pronunciation" lang="ja">${pronunciation_}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>
     <div class="sub">
 ${gen_definitions(definitions)}
 ${sentences.map(gen_sample_sentence).join("")}    </div>
@@ -80,8 +105,10 @@ function gen_definitions(definitions) {
 }
 
 function gen_sample_sentence({ linzklar, pronunciation, translations }) {
+    const pronunciation_ = gen_pronunciation(linzklar);
+
     return `        <div class="sample-sentence">
-            <span class="sample-sentence-linzklar">${linzklar}</span> <span class="sample-sentence-pronunciation" lang="ja">${pronunciation}</span>
+            <span class="sample-sentence-linzklar">${linzklar}</span> <span class="sample-sentence-pronunciation" lang="ja">${pronunciation_}</span>
             <span class="sample-sentence-transcription" lang="ja">【${linzklar}】</span>
 ${translations.map(tr => `            <div class="sample-sentence-translation" lang="ja">${tr}</div>\n`).join('')
 
