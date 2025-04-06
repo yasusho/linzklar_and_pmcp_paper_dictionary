@@ -122,22 +122,17 @@ ${entry({
     ]
 })}
 
-<div class="char-entry">
-    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/平.png" style="height: 1em"><img src="../SY_handwriting/風字/平.png" style="height: 1em"></span> 
-</div>
-
-<div class="entry">
-    <span class="entry-word-pronunciation" lang="ja">オウ→</span> <span class="entry-word-transcription" lang="ja">【平】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">板</span><br>
-        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">平らである</span><br>
-        <div class="sample-sentence">
-            <span class="sample-sentence-linzklar">此道極平</span> <span class="sample-sentence-pronunciation" lang="ja">カー→ポウ→キㇳ·オウ→</span> 
-            <span class="sample-sentence-transcription" lang="ja">【此道極平】</span> 
-            <div class="sample-sentence-translation" lang="ja">この道はすごく平らだ。</div>
-        </div>
-    </div>
-</div>
+${entry({
+    linzklar: "平",
+    pronunciation: "オウ→",
+    definitions: [
+        { POS: "[名詞]", definition: "板" },
+        { POS: "[状態動詞]", definition: "平らである" },
+    ],
+    sentences: [
+        { linzklar: "此道極平", pronunciation: "カー→ポウ→キㇳ·オウ→", translations: ["この道はすごく平らだ。"] },
+    ]
+})}
 
 
 <div class="char-entry">
@@ -156,28 +151,26 @@ ${entry({
     </div>
 </div>
 
-<div class="char-entry">
-    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/守.png" style="height: 1em"><img src="../SY_handwriting/風字/守.png" style="height: 1em"></span> 
-</div>
+${entry({
+    linzklar: "守",
+    pronunciation: "ヌㇺ→",
+    definitions: [
+        { POS: "[動詞]", definition: "守る" },
+    ],
+    sentences: [
+        { linzklar: "兵守国", pronunciation: "カウㇰ⤴ヌㇺ→ズィㇷ゚→", translations: ["兵が国を守る。"] },
+    ]
+})}
 
-<div class="entry">
-    <span class="entry-word-pronunciation" lang="ja">ヌㇺ→</span> <span class="entry-word-transcription" lang="ja">【守】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">守る</span><br>
-        <div class="sample-sentence">
-            <span class="sample-sentence-linzklar">兵守国</span> <span class="sample-sentence-pronunciation" lang="ja">カウㇰ⤴ヌㇺ→ズィㇷ゚→</span> 
-            <span class="sample-sentence-transcription" lang="ja">【兵守国】</span> 
-            <div class="sample-sentence-translation" lang="ja">兵が国を守る。</div>
-        </div>
-    </div>
-</div>
-
-<div class="entry">
-    <span class="entry-word-linzklar">大守処</span> <span class="entry-word-pronunciation" lang="ja">マー→ヌㇺ→ホェ·</span> <span class="entry-word-transcription" lang="ja">【大守処】</span>
-    <div class="sub">
-        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">ヌママ（アイル共和国タウポ郡の大都市）</span>
-    </div>
-</div>`, { encoding: 'utf8' });
+${entry({
+    linzklar: "大守処",
+    pronunciation: "マー→ヌㇺ→ホェ·",
+    definitions: [
+        { POS: "[名詞]", definition: "ヌママ（アイル共和国タウポ郡の大都市）" },
+    ],
+    sentences: [
+    ]
+})}`, { encoding: 'utf8' });
 
 function entry({ linzklar, pronunciation, definitions, sentences }) {
     if ([...linzklar].length === 1) {
