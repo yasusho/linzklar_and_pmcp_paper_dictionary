@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+const guide_words = JSON.parse(fs.readFileSync(`GUIDE_WORDS_口.json`, { encoding: 'utf-8' }));
+
 const entries = fs.readFileSync("EDIT_ME.jsonl", { encoding: 'utf8' })
     .trimEnd()
     .split(/\r?\n/)
@@ -25,16 +27,11 @@ fs.writeFileSync("vivliostyle/口.html", `<link rel="stylesheet" href="common.cs
     }
     
     /* それぞれのページ指定では柱見出しを両側に指定しておき、上記ルールにより片方だけ潰す */
-    @page:nth(1) {
-        @top-left { content: "口"; }
-        @top-right { content: "守"; }
+${Object.entries(guide_words).map(([key, value]) => `    @page:nth(${key}) {
+        @top-left { content: "${value.left}"; }
+        @top-right { content: "${value.right}"; }
     }
-
-    @page:nth(2) {
-        @top-left { content: "口"; }
-        @top-right { content: "守"; }
-    }
-</style>
+`).join('\n')}</style>
 
 <!-- <header><img src="./ヤ_見出し.svg" style="width: 100%"></header> -->
 
