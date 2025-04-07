@@ -29,14 +29,37 @@ build("1_12_口");
 build("1_13_筆");
 build("1_14_門");
 
+function group_entries_tsv(ungrouped) {
+    // First, group by the first column (linzklar)
+    // But keep the order of the original array
+    const grouped = ungrouped.reduce((acc, entry) => {
+        const [linzklar, second_column, third_column] = entry;
+        if (acc[acc.length - 1]?.linzklar !== linzklar) {
+            acc.push({ linzklar, definitions: [], sentences: [] });
+        }
+        if (second_column === "" && third_column === "") {
+            // ignore
+            return acc;
+        } else if (second_column.startsWith("[") || second_column === "") {
+            acc[acc.length - 1].definitions.push({ POS: second_column, definition: third_column });            
+        } else {
+            acc[acc.length - 1].sentences.push({ linzklar: second_column, translations: third_column.split("|") });
+        }
+        return acc;
+    }, []);
+    return grouped;
+}
+
 function build(main_index) {
 
 const guide_words = JSON.parse(fs.readFileSync(`GUIDE_WORDS_${main_index}.json`, { encoding: 'utf-8' }));
 
-const entries = fs.readFileSync(`entries_${main_index}.jsonl`, { encoding: 'utf8' })
+const entries_tsv = fs.readFileSync(`entries_${main_index}.tsv`, { encoding: 'utf8' })
     .trimEnd()
     .split(/\r?\n/)
-    .map(line => JSON.parse(line));
+    .map(line => line.split("\t"));
+
+const entries =  group_entries_tsv(entries_tsv);
 
 fs.writeFileSync(`vivliostyle/${main_index}.html`, `<link rel="stylesheet" href="common.css">
 
