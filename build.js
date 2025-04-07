@@ -1,5 +1,24 @@
 const fs = require('fs');
 
+const variant_table = fs.readFileSync("VARIANTS.tsv", { encoding: 'utf-8' })
+    .trimEnd()
+    .split(/\r?\n/)
+    .map(line => line.split("\t"))
+    .slice(1);
+
+const variant_map = new Map(variant_table.map(([linzklar, variants_官字, variants_風字]) => {
+    return [linzklar, { variants_官字: [...variants_官字], variants_風字: [...variants_風字] }]
+}));
+
+const vulgar_table = fs.readFileSync("VULGAR.tsv", { encoding: 'utf-8' })
+    .trimEnd()
+    .split(/\r?\n/)
+    .map(line => line.split("\t"));
+
+const vulgar_map = new Map(vulgar_table.map(([linzklar, vulgar_pronunciation]) => {
+    return [linzklar, { vulgar_pronunciation }]
+}));
+
 const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'utf-8' })
     .trimEnd()
     .split(/\r?\n/)
@@ -10,14 +29,37 @@ build("1_12_口");
 build("1_13_筆");
 build("1_14_門");
 
+function group_entries_tsv(ungrouped) {
+    // First, group by the first column (linzklar)
+    // But keep the order of the original array
+    const grouped = ungrouped.reduce((acc, entry) => {
+        const [linzklar, second_column, third_column] = entry;
+        if (acc[acc.length - 1]?.linzklar !== linzklar) {
+            acc.push({ linzklar, definitions: [], sentences: [] });
+        }
+        if (second_column === "" && third_column === "") {
+            // ignore
+            return acc;
+        } else if (second_column.startsWith("[") || second_column === "") {
+            acc[acc.length - 1].definitions.push({ POS: second_column, definition: third_column });            
+        } else {
+            acc[acc.length - 1].sentences.push({ linzklar: second_column, translations: third_column.split("|") });
+        }
+        return acc;
+    }, []);
+    return grouped;
+}
+
 function build(main_index) {
 
 const guide_words = JSON.parse(fs.readFileSync(`GUIDE_WORDS_${main_index}.json`, { encoding: 'utf-8' }));
 
-const entries = fs.readFileSync(`entries_${main_index}.jsonl`, { encoding: 'utf8' })
+const entries_tsv = fs.readFileSync(`entries_${main_index}.tsv`, { encoding: 'utf8' })
     .trimEnd()
     .split(/\r?\n/)
-    .map(line => JSON.parse(line));
+    .map(line => line.split("\t"));
+
+const entries =  group_entries_tsv(entries_tsv);
 
 fs.writeFileSync(`vivliostyle/${main_index}.html`, `<link rel="stylesheet" href="common.css">
 
@@ -60,14 +102,19 @@ function gen_pronunciation(linzklar) {
     }).join("");
 }
 
-function gen_entry({ linzklar, vulgar_pronunciation, definitions, sentences, variants_官字, variants_風字 }) {
+function gen_entry({ linzklar, definitions, sentences }) {
     const pronunciation_ = gen_pronunciation(linzklar);
 
     sentences = sentences ?? [];
     definitions = definitions ?? [];
     if ([...linzklar].length === 1) {
+        const variants_官字 = variant_map.get(linzklar)?.variants_官字;
+        const variants_風字 = variant_map.get(linzklar)?.variants_風字;
+
         const 官字_list = variants_官字 ? [linzklar, ...variants_官字] : [linzklar];
         const 風字_list = variants_風字 ? [linzklar, ...variants_風字] : [linzklar];
+
+        const vulgar_pronunciation = vulgar_map.get(linzklar)?.vulgar_pronunciation;
 
         return `<div class="char-entry">
     <span class="char-entry-linzklar">${官字_list.map(官字 => `<img src="../SY_handwriting/官字/${官字}.png" style="height: 1em">`).join("")
