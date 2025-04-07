@@ -10,6 +10,15 @@ const variant_map = new Map(variant_table.map(([linzklar, variants_官字, varia
     return [linzklar, { variants_官字: [...variants_官字], variants_風字: [...variants_風字] }]
 }));
 
+const vulgar_table = fs.readFileSync("VULGAR.tsv", { encoding: 'utf-8' })
+    .trimEnd()
+    .split(/\r?\n/)
+    .map(line => line.split("\t"));
+
+const vulgar_map = new Map(vulgar_table.map(([linzklar, vulgar_pronunciation]) => {
+    return [linzklar, { vulgar_pronunciation }]
+}));
+
 const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'utf-8' })
     .trimEnd()
     .split(/\r?\n/)
@@ -70,7 +79,7 @@ function gen_pronunciation(linzklar) {
     }).join("");
 }
 
-function gen_entry({ linzklar, vulgar_pronunciation, definitions, sentences }) {
+function gen_entry({ linzklar, definitions, sentences }) {
     const pronunciation_ = gen_pronunciation(linzklar);
 
     sentences = sentences ?? [];
@@ -81,6 +90,8 @@ function gen_entry({ linzklar, vulgar_pronunciation, definitions, sentences }) {
 
         const 官字_list = variants_官字 ? [linzklar, ...variants_官字] : [linzklar];
         const 風字_list = variants_風字 ? [linzklar, ...variants_風字] : [linzklar];
+
+        const vulgar_pronunciation = vulgar_map.get(linzklar)?.vulgar_pronunciation;
 
         return `<div class="char-entry">
     <span class="char-entry-linzklar">${官字_list.map(官字 => `<img src="../SY_handwriting/官字/${官字}.png" style="height: 1em">`).join("")
