@@ -7,7 +7,7 @@
 {"linzklar":"口煙","definitions":[{"POS":"[離合詞]","definition":"喫煙する"}],"sentences":[{"linzklar":"口皇草煙","translations":["タムコㇳ (麻薬の一種) を吸う。"]}]}
 {"linzklar":"顔口","definitions":[{"POS":"[名詞]","definition":"口"},{"POS":"","definition":"名詞として口を指す場合は主にこちらを用いる。"}],"sentences":[]}
 {"linzklar":"平","definitions":[{"POS":"[名詞]","definition":"板"},{"POS":"[状態動詞]","definition":"平らである"}],"sentences":[{"linzklar":"此道極平","translations":["この道はすごく平らだ。"]}]}
-{"linzklar":"美","variants_官字":["麗"],"variants_風字":[],"definitions":[{"POS":"[状態動詞]","definition":"美しい、綺麗だ"}],"sentences":[{"linzklar":"美絵在於机","translations":["綺麗な絵が机にある。"]}]}
+{"linzklar":"美","definitions":[{"POS":"[状態動詞]","definition":"美しい、綺麗だ"}],"sentences":[{"linzklar":"美絵在於机","translations":["綺麗な絵が机にある。"]}]}
 {"linzklar":"守","definitions":[{"POS":"[動詞]","definition":"守る"}],"sentences":[{"linzklar":"兵守国","translations":["兵が国を守る。"]}]}
 {"linzklar":"大守処","definitions":[{"POS":"[名詞]","definition":"ヌママ（アイル共和国タウポ郡の大都市）"}],"sentences":[]}
 {"linzklar":"目","definitions":[{"POS":"[動詞]","definition":"見る"},{"POS":"[名詞]","definition":"(稀に)目"}]}	
@@ -58,7 +58,7 @@
 {"linzklar":"祭火","definitions":[{"POS":"[名詞]","definition":"キャンプファイヤー"}]}	
 {"linzklar":"同","definitions":[{"POS":"[副詞]","definition":"～もまた"},{"POS":"[連体詞]","definition":"同じ"},{"POS":"[状態動詞]","definition":"同じである"}]}	
 {"linzklar":"裁同","definitions":[{"POS":"[離合詞]","definition":"～と見なす"}]}	
-{"linzklar":"類","variants_官字":["属"],"variants_風字":["属"]}	
+{"linzklar":"類"}	
 {"linzklar":"水類","definitions":[{"POS":"[名詞]","definition":"液体"}]}	
 {"linzklar":"此類","definitions":[{"POS":"[連体詞]","definition":"このような"}]}	
 {"linzklar":"輩","definitions":[{"POS":"[名詞]","definition":"兄弟、姉妹"}]}

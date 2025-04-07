@@ -1,5 +1,15 @@
 const fs = require('fs');
 
+const variant_table = fs.readFileSync("VARIANTS.tsv", { encoding: 'utf-8' })
+    .trimEnd()
+    .split(/\r?\n/)
+    .map(line => line.split("\t"))
+    .slice(1);
+
+const variant_map = new Map(variant_table.map(([linzklar, variants_官字, variants_風字]) => {
+    return [linzklar, { variants_官字: [...variants_官字], variants_風字: [...variants_風字] }]
+}));
+
 const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'utf-8' })
     .trimEnd()
     .split(/\r?\n/)
@@ -60,12 +70,15 @@ function gen_pronunciation(linzklar) {
     }).join("");
 }
 
-function gen_entry({ linzklar, vulgar_pronunciation, definitions, sentences, variants_官字, variants_風字 }) {
+function gen_entry({ linzklar, vulgar_pronunciation, definitions, sentences }) {
     const pronunciation_ = gen_pronunciation(linzklar);
 
     sentences = sentences ?? [];
     definitions = definitions ?? [];
     if ([...linzklar].length === 1) {
+        const variants_官字 = variant_map.get(linzklar)?.variants_官字;
+        const variants_風字 = variant_map.get(linzklar)?.variants_風字;
+
         const 官字_list = variants_官字 ? [linzklar, ...variants_官字] : [linzklar];
         const 風字_list = variants_風字 ? [linzklar, ...variants_風字] : [linzklar];
 
