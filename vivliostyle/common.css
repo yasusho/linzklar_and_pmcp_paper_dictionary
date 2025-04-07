@@ -37,6 +37,12 @@
     font-family: "linzklar_rounded";
 }
 
+.inline-linzklar {
+    font-size: calc(9pt * var(--scale));
+    font-weight: normal;
+    font-family: "linzklar_rounded";
+}
+
 .char-entry-linzklar {
     font-size: calc(24pt * var(--scale));
     font-weight: normal;

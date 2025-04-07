@@ -16,6 +16,7 @@ const vivliostyleConfig = {
     //   theme: '@vivliostyle/theme-whatever' // theme can be set individually. default to root 'theme'
     // },
 
+    '1_01_処.html',
     '1_10_右.html',
     '1_12_口.html',
     '1_13_筆.html',

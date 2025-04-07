@@ -1,0 +1,826 @@
+<link rel="stylesheet" href="common.css">
+
+<style>
+    @page:left { 
+        background-image: url("爪見出し/1_01_処_left.png");
+        background-size: 472px 665px;
+        background-repeat: no-repeat;
+        @top-left { font-family: "linzklar_rounded"; font-size: 14pt; } /* 左ページでは左の柱見出しのみ */
+        @top-right { font-family: "linzklar_rounded"; font-size: 0pt; }
+    }
+
+    @page:right { 
+        background-image: url("爪見出し/1_01_処_right.png");
+        background-size: 472px 665px;
+        background-repeat: no-repeat;
+        @top-left { font-family: "linzklar_rounded"; font-size: 0pt; }
+        @top-right { font-family: "linzklar_rounded"; font-size: 14pt; }  /* 右ページでは右の柱見出しのみ */
+    }
+    
+    /* それぞれのページ指定では柱見出しを両側に指定しておき、上記ルールにより片方だけ潰す */
+    @page:nth(1) {
+        @top-left { content: "処"; }
+        @top-right { content: "小"; }
+    }
+
+    @page:nth(2) {
+        @top-left { content: "挽"; }
+        @top-right { content: "軸"; }
+    }
+
+    @page:nth(3) {
+        @top-left { content: "翰"; }
+        @top-right { content: "遠"; }
+    }
+
+    @page:nth(4) {
+        @top-left { content: "助"; }
+        @top-right { content: "馬"; }
+    }
+
+    @page:nth(5) {
+        @top-left { content: "層"; }
+        @top-right { content: "謝"; }
+    }
+
+    @page:nth(6) {
+        @top-left { content: "謝"; }
+        @top-right { content: "正"; }
+    }
+</style>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/処.png" style="height: 1em"><img src="../SY_handwriting/風字/処.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ホェ·</span> <span class="entry-word-transcription" lang="ja">【処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[接尾辞]</span> <span class="sub-definition" lang="ja">～する場所</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">此処</span> <span class="entry-word-pronunciation" lang="ja">カー→ホェ·</span> <span class="entry-word-transcription" lang="ja">【此処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[場所詞]</span> <span class="sub-definition" lang="ja">ここ</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">其処</span> <span class="entry-word-pronunciation" lang="ja">チェー→ホェ·</span> <span class="entry-word-transcription" lang="ja">【其処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[場所詞]</span> <span class="sub-definition" lang="ja">そこ、あそこ</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">何処</span> <span class="entry-word-pronunciation" lang="ja">ナン⤴ホェ·</span> <span class="entry-word-transcription" lang="ja">【何処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[場所詞]</span> <span class="sub-definition" lang="ja">どこ</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">或処</span> <span class="entry-word-pronunciation" lang="ja">スエゥ→ホェ·</span> <span class="entry-word-transcription" lang="ja">【或処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[場所詞]</span> <span class="sub-definition" lang="ja">どこか</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">酒処</span> <span class="entry-word-pronunciation" lang="ja">ノウ→ホェ·</span> <span class="entry-word-transcription" lang="ja">【酒処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">バー、酒場</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">労処</span> <span class="entry-word-pronunciation" lang="ja">ナイㇷ゚⤴ホェ·</span> <span class="entry-word-transcription" lang="ja">【労処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">職場</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">草処</span> <span class="entry-word-pronunciation" lang="ja">コㇳ·ホェ·</span> <span class="entry-word-transcription" lang="ja">【草処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">草地</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">木処</span> <span class="entry-word-pronunciation" lang="ja">ホゥㇷ゚→ホェ·</span> <span class="entry-word-transcription" lang="ja">【木処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">森</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">学処</span> <span class="entry-word-pronunciation" lang="ja">ヌイ⤴ホェ·</span> <span class="entry-word-transcription" lang="ja">【学処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">学校</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">上学処</span> <span class="entry-word-pronunciation" lang="ja">ザウ⤴ヌイ⤴ホェ·</span> <span class="entry-word-transcription" lang="ja">【上学処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">大学</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">銭処</span> <span class="entry-word-pronunciation" lang="ja">ズー→ホェ·</span> <span class="entry-word-transcription" lang="ja">【銭処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">店</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">茶銭処</span> <span class="entry-word-pronunciation" lang="ja">ティアー⤴ズー→ホェ·</span> <span class="entry-word-transcription" lang="ja">【茶銭処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">茶店</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">書銭処</span> <span class="entry-word-pronunciation" lang="ja">アㇰ→ズー→ホェ·</span> <span class="entry-word-transcription" lang="ja">【書銭処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">本屋</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">寝銭処</span> <span class="entry-word-pronunciation" lang="ja">ホㇰ→ズー→ホェ·</span> <span class="entry-word-transcription" lang="ja">【寝銭処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">ホテル</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">口銭処</span> <span class="entry-word-pronunciation" lang="ja">ヤㇺ→ズー→ホェ·</span> <span class="entry-word-transcription" lang="ja">【口銭処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">飲食店、レストラン、食堂</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">大守処</span> <span class="entry-word-pronunciation" lang="ja">マー→ヌㇺ→ホェ·</span> <span class="entry-word-transcription" lang="ja">【大守処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">ヌママ（アイル共和国タウポ郡の大都市）</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">筆処</span> <span class="entry-word-pronunciation" lang="ja">クア⤴ホェ·</span> <span class="entry-word-transcription" lang="ja">【筆処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[場所詞]</span> <span class="sub-definition" lang="ja">クワケ（アイル共和国クワケ郡の大都市）</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/五.png" style="height: 1em"><img src="../SY_handwriting/風字/五.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ウン→</span> <span class="entry-word-transcription" lang="ja">【五】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[連体詞]</span> <span class="sub-definition" lang="ja">5つの</span><br>
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">(音楽)基準音の3半音下の音</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">学処在十五万片於我家</span> <span class="sample-sentence-pronunciation" lang="ja">ヌイ⤴ホェ·アイㇺ⤴ヌン→ウン→ウェゥ→ツオウ→イェ·パイ⤴ムㇳ⤴</span>
+            <span class="sample-sentence-transcription" lang="ja">【学処在十五万片於我家】</span>
+            <div class="sample-sentence-translation" lang="ja">学校は我が家から15万ツォウ(8.3キロメートル)のところにある。</div>
+        </div>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/小.png" style="height: 1em"><img src="../SY_handwriting/風字/小.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ニー→</span> <span class="entry-word-transcription" lang="ja">【小】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">小さい</span><br>
+        <span class="sub-POS" lang="ja">[連体詞]</span> <span class="sub-definition" lang="ja">小さい</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">小木</span> <span class="entry-word-pronunciation" lang="ja">ニー→ホゥㇷ゚→</span> <span class="entry-word-transcription" lang="ja">【小木】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">低木</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">小銭</span> <span class="entry-word-pronunciation" lang="ja">ニー→ズー→</span> <span class="entry-word-transcription" lang="ja">【小銭】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">安価だ、低額だ、安い</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">小静</span> <span class="entry-word-pronunciation" lang="ja">ニー→ナー→</span> <span class="entry-word-transcription" lang="ja">【小静】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">ちまちましている</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">大遠小周</span> <span class="entry-word-pronunciation" lang="ja">マー→トゥアイ⤴ニー→セイ⤴</span> <span class="entry-word-transcription" lang="ja">【大遠小周】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[成句]</span> <span class="sub-definition" lang="ja">大きな目標とは手の届かないところにあり、小さな目標はすぐ近くにあるため、身の回りの人々やことがらを大切にすることが大事であるということ。</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/挽.png" style="height: 1em"><img src="../SY_handwriting/風字/挽.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ホァー→</span> <span class="entry-word-transcription" lang="ja">【挽】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">粉にする、挽く、(墨を)磨る</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">挽時</span> <span class="entry-word-pronunciation" lang="ja">ホァー→カㇰ·</span> <span class="entry-word-transcription" lang="ja">【挽時】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">1日の1000分の1</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">挽墨</span> <span class="entry-word-pronunciation" lang="ja">ホァー→フォウ⤴</span> <span class="entry-word-transcription" lang="ja">【挽墨】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[離合詞]</span> <span class="sub-definition" lang="ja">墨を磨る</span><br>
+        <span class="sub-POS" lang="ja">[連体詞]</span> <span class="sub-definition" lang="ja">真面目な</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">甘挽</span> <span class="entry-word-pronunciation" lang="ja">トゥㇺ→ホァー→</span> <span class="entry-word-transcription" lang="ja">【甘挽】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">砂糖、粉糖</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/短.png" style="height: 1em"><img src="../SY_handwriting/風字/短.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ロㇳ⤴</span> <span class="entry-word-transcription" lang="ja">【短】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">短い</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">我短於汝</span> <span class="sample-sentence-pronunciation" lang="ja">パイ⤴ロㇳ⤴イェ·ムアー⤴</span>
+            <span class="sample-sentence-transcription" lang="ja">【我短於汝】</span>
+            <div class="sample-sentence-translation" lang="ja">僕は君よりも背が低い。</div>
+        </div>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/軸.png" style="height: 1em"><img src="../SY_handwriting/風字/軸.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ラー→</span> <span class="entry-word-transcription" lang="ja">【軸】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">棒</span><br>
+        <span class="sub-POS" lang="ja">[接頭詞]</span> <span class="sub-definition" lang="ja">中核的な、中心的な</span><br>
+        <span class="sub-POS" lang="ja">[接尾詞]</span> <span class="sub-definition" lang="ja">～の中心、～の中核</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">軸人</span> <span class="entry-word-pronunciation" lang="ja">ラー→スㇰ⤴</span> <span class="entry-word-transcription" lang="ja">【軸人】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">中心人物、(カードゲームの)親</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">軸言</span> <span class="entry-word-pronunciation" lang="ja">ラー→チェㇷ゚→</span> <span class="entry-word-transcription" lang="ja">【軸言】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">第一言語、母語</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">軸律</span> <span class="entry-word-pronunciation" lang="ja">ラー→ヤㇰ→</span> <span class="entry-word-transcription" lang="ja">【軸律】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">憲法</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">軸付</span> <span class="entry-word-pronunciation" lang="ja">ラー→クン⤴</span> <span class="entry-word-transcription" lang="ja">【軸付】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">(計算機)インストラクションポインタ、実行中の命令のアドレスを示すレジスタ</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">国軸</span> <span class="entry-word-pronunciation" lang="ja">ズィㇷ゚→ラー→</span> <span class="entry-word-transcription" lang="ja">【国軸】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">首都、国の中心地</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">言軸</span> <span class="entry-word-pronunciation" lang="ja">チェㇷ゚→ラー→</span> <span class="entry-word-transcription" lang="ja">【言軸】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">話題</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">銭軸</span> <span class="entry-word-pronunciation" lang="ja">ズー→ラー→</span> <span class="entry-word-transcription" lang="ja">【銭軸】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">会社</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">手軸</span> <span class="entry-word-pronunciation" lang="ja">ホㇷ゚→ラー→</span> <span class="entry-word-transcription" lang="ja">【手軸】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">指</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">値軸</span> <span class="entry-word-pronunciation" lang="ja">マㇰ⤴ラー→</span> <span class="entry-word-transcription" lang="ja">【値軸】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">(セッカイクの)点棒</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">心軸</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→ラー→</span> <span class="entry-word-transcription" lang="ja">【心軸】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">心臓</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">裁軸</span> <span class="entry-word-pronunciation" lang="ja">シュー→ラー→</span> <span class="entry-word-transcription" lang="ja">【裁軸】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">意思決定機関、(計算機の)CPU</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">国論集此冠国之上端裁軸</span> <span class="sample-sentence-pronunciation" lang="ja">ズィㇷ゚→ツイ→ダㇳ⤴カー→アイ⤴ズィㇷ゚→ア·ザウ⤴タウ⤴シュー→ラー→</span>
+            <span class="sample-sentence-transcription" lang="ja">【国論集此冠国之上端裁軸】</span>
+            <div class="sample-sentence-translation" lang="ja">国会はアイル共和国の最高意思決定機関である。</div>
+        </div>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">獣軸</span> <span class="entry-word-pronunciation" lang="ja">ザウㇷ゚→ラー→</span> <span class="entry-word-transcription" lang="ja">【獣軸】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">(セッカイクの)王</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/翰.png" style="height: 1em"><img src="../SY_handwriting/官字/纂.png" style="height: 1em"><img src="../SY_handwriting/風字/翰.png" style="height: 1em"><img src="../SY_handwriting/風字/纂.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">クアイ→</span> <span class="entry-word-transcription" lang="ja">【翰】【纂】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">クヮイ（人名）</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/周.png" style="height: 1em"><img src="../SY_handwriting/風字/周.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">セイ⤴</span> <span class="entry-word-transcription" lang="ja">【周】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[前置詞]</span> <span class="sub-definition" lang="ja">～の近くに、～の近くで</span><br>
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">～に近い</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">我家極周学処</span> <span class="sample-sentence-pronunciation" lang="ja">パイ⤴ムㇳ⤴キㇳ·セイ⤴ヌイ⤴ホェ·</span>
+            <span class="sample-sentence-transcription" lang="ja">【我家極周学処】</span>
+            <div class="sample-sentence-translation" lang="ja">我が家は学校にとても近い。</div>
+        </div>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">周此日</span> <span class="entry-word-pronunciation" lang="ja">セイ⤴カー→キアー→</span> <span class="entry-word-transcription" lang="ja">【周此日】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[時間詞]</span> <span class="sub-definition" lang="ja">最近、近頃</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">周此日果銭上行</span> <span class="sample-sentence-pronunciation" lang="ja">セイ⤴カー→キアー→トゥアー→ズー→ザウ⤴モㇰ→</span>
+            <span class="sample-sentence-transcription" lang="ja">【周此日果銭上行】</span>
+            <div class="sample-sentence-translation" lang="ja">最近、果物の値段が上がっている。</div>
+        </div>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">周言</span> <span class="entry-word-pronunciation" lang="ja">セイ⤴チェㇷ゚→</span> <span class="entry-word-transcription" lang="ja">【周言】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">翻訳する</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">周言人</span> <span class="entry-word-pronunciation" lang="ja">セイ⤴チェㇷ゚→スㇰ⤴</span> <span class="entry-word-transcription" lang="ja">【周言人】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">翻訳者</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">周人</span> <span class="entry-word-pronunciation" lang="ja">セイ⤴スㇰ⤴</span> <span class="entry-word-transcription" lang="ja">【周人】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">(カードゲームの)子</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">星周</span> <span class="entry-word-pronunciation" lang="ja">ペゥㇳ⤴セイ⤴</span> <span class="entry-word-transcription" lang="ja">【星周】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">1年が経つ</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">行星周</span> <span class="entry-word-pronunciation" lang="ja">モㇰ→ペゥㇳ⤴セイ⤴</span> <span class="entry-word-transcription" lang="ja">【行星周】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[離合詞]</span> <span class="sub-definition" lang="ja">～歳である、～という年齢である</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">彼加我行終同星周</span> <span class="sample-sentence-pronunciation" lang="ja">チャㇷ゚⤴アㇳ·パイ⤴モㇰ→タ·バㇷ゚·ペゥㇳ⤴セイ⤴</span>
+            <span class="sample-sentence-transcription" lang="ja">【彼加我行終同星周】</span>
+            <div class="sample-sentence-translation" lang="ja">彼は私と同じ年齢である。</div>
+        </div>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">大遠小周</span> <span class="entry-word-pronunciation" lang="ja">マー→トゥアイ⤴ニー→セイ⤴</span> <span class="entry-word-transcription" lang="ja">【大遠小周】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[成句]</span> <span class="sub-definition" lang="ja">大きな目標とは手の届かないところにあり、小さな目標はすぐ近くにあるため、身の回りの人々やことがらを大切にすることが大事であるということ。</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/広.png" style="height: 1em"><img src="../SY_handwriting/風字/広.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">チエー→</span> <span class="entry-word-transcription" lang="ja">【広】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">広い</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">広別</span> <span class="entry-word-pronunciation" lang="ja">チエー→パウ⤴</span> <span class="entry-word-transcription" lang="ja">【広別】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">縦横比、アスペクト比</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">広島</span> <span class="entry-word-pronunciation" lang="ja">チエー→ドㇷ゚→</span> <span class="entry-word-transcription" lang="ja">【広島】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">シュカメニョーイシュケ島（リナエスト・オルス共和国を構成する島の一つ）</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">広在</span> <span class="entry-word-pronunciation" lang="ja">チエー→アイㇺ⤴</span> <span class="entry-word-transcription" lang="ja">【広在】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">遍在している、至る所にある</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">御広</span> <span class="entry-word-pronunciation" lang="ja">アㇺ·チエー→</span> <span class="entry-word-transcription" lang="ja">【御広】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">広報する、広める、広告する</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/遠.png" style="height: 1em"><img src="../SY_handwriting/風字/遠.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">トゥアイ⤴</span> <span class="entry-word-transcription" lang="ja">【遠】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">遠い</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">大遠小周</span> <span class="entry-word-pronunciation" lang="ja">マー→トゥアイ⤴ニー→セイ⤴</span> <span class="entry-word-transcription" lang="ja">【大遠小周】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[成句]</span> <span class="sub-definition" lang="ja">大きな目標とは手の届かないところにあり、小さな目標はすぐ近くにあるため、身の回りの人々やことがらを大切にすることが大事であるということ。</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/助.png" style="height: 1em"><img src="../SY_handwriting/官字/救.png" style="height: 1em"><img src="../SY_handwriting/風字/助.png" style="height: 1em"><img src="../SY_handwriting/風字/救.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ワイㇷ゚⤴</span> <span class="entry-word-transcription" lang="ja">【助】【救】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">手助けする、手伝う、助ける、救う</span><br>
+        <span class="sub-POS" lang="ja">[節要求動詞]</span> <span class="sub-definition" lang="ja">～が～するのを手助けする、～が～するのを手伝う</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">我助彼学牌言</span> <span class="sample-sentence-pronunciation" lang="ja">パイ⤴ワイㇷ゚⤴チャㇷ゚⤴ヌイ⤴ペゥㇰ⤴チェㇷ゚→</span>
+            <span class="sample-sentence-transcription" lang="ja">【我助彼学牌言】</span>
+            <div class="sample-sentence-translation" lang="ja">私は彼がパイグ語を学ぶのを手伝う。</div>
+        </div>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">助友</span> <span class="entry-word-pronunciation" lang="ja">ワイㇷ゚⤴ヒー→</span> <span class="entry-word-transcription" lang="ja">【助友】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">（セッカイクの役）助友</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">助処</span> <span class="entry-word-pronunciation" lang="ja">ワイㇷ゚⤴ホェ·</span> <span class="entry-word-transcription" lang="ja">【助処】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">カイッペ（アイル共和国の都市名）</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">受助</span> <span class="entry-word-pronunciation" lang="ja">グㇰ⤴ワイㇷ゚⤴</span> <span class="entry-word-transcription" lang="ja">【受助】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">援助を受ける、支援される</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">貧銭之国須受助</span> <span class="sample-sentence-pronunciation" lang="ja">ヘイ⤴ズー→ア·ズィㇷ゚→リュ·グㇰ⤴ワイㇷ゚⤴</span>
+            <span class="sample-sentence-transcription" lang="ja">【貧銭之国須受助】</span>
+            <div class="sample-sentence-translation" lang="ja">貧しい国には援助が必要だ。</div>
+        </div>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/民.png" style="height: 1em"><img src="../SY_handwriting/風字/民.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ビアー→</span> <span class="entry-word-transcription" lang="ja">【民】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">人々、民衆、民</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">筆民集</span> <span class="entry-word-pronunciation" lang="ja">クア⤴ビアー→ダㇳ⤴</span> <span class="entry-word-transcription" lang="ja">【筆民集】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">（アイル共和国の）総務省</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">官民</span> <span class="entry-word-pronunciation" lang="ja">ユー→ビアー→</span> <span class="entry-word-transcription" lang="ja">【官民】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">役人と民衆、政府と民衆</span><br>
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">あらゆる社会階層の人々</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">官民迷</span> <span class="entry-word-pronunciation" lang="ja">ユー→ビアー→バウ⤴</span> <span class="entry-word-transcription" lang="ja">【官民迷】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[主語＋動詞]</span> <span class="sub-definition" lang="ja">統一の規範が無く、何を採用すべきか役人も民衆も戸惑っている様子。</span><br>
+        <span class="sub-definition" lang="ja">何か規則や規範などの統一化を図るときに、毎回のように登場する決まり文句。</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/網.png" style="height: 1em"><img src="../SY_handwriting/風字/網.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">トゥㇰ⤴</span> <span class="entry-word-transcription" lang="ja">【網】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">網</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">網別</span> <span class="entry-word-pronunciation" lang="ja">トゥㇰ⤴パウ⤴</span> <span class="entry-word-transcription" lang="ja">【網別】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">濾し分ける</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">網律</span> <span class="entry-word-pronunciation" lang="ja">トゥㇰ⤴ヤㇰ→</span> <span class="entry-word-transcription" lang="ja">【網律】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">国家の役割の規定と市民の権利の規定が同一文書に入るような憲法</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">魚網</span> <span class="entry-word-pronunciation" lang="ja">ムイ→トゥㇰ⤴</span> <span class="entry-word-transcription" lang="ja">【魚網】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">漁網</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/馬.png" style="height: 1em"><img src="../SY_handwriting/官字/瑪.png" style="height: 1em"><img src="../SY_handwriting/風字/馬.png" style="height: 1em"><img src="../SY_handwriting/風字/瑪.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">マウン→</span> <span class="entry-word-transcription" lang="ja">【馬】【瑪】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">馬、(セッカイクの)馬</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">馬虎之別</span> <span class="entry-word-pronunciation" lang="ja">マウン→ダウ⤴ア·パウ⤴</span> <span class="entry-word-transcription" lang="ja">【馬虎之別】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">知る人ぞ知る、分かる人には分かる</span><br>
+        <span class="sub-definition" lang="ja">燐字を知っている者は <span class="inline-linzklar">馬</span>【馬】と <span class="inline-linzklar">虎</span>【虎】の字を容易に区別できることから、慣れていれば区別ができるが、不慣れな者には区別が難しいようなことを表す。</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">馬弓兵</span> <span class="entry-word-pronunciation" lang="ja">マウン→グア⤴カウㇰ⤴</span> <span class="entry-word-transcription" lang="ja">【馬弓兵】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">(特にヴェフィスの)騎馬兵、(セッカイクの役)馬弓兵</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/層.png" style="height: 1em"><img src="../SY_handwriting/風字/層.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ギュー→</span> <span class="entry-word-transcription" lang="ja">【層】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">層、(建物の)階</span><br>
+        <span class="sub-POS" lang="ja">[助数詞]</span> <span class="sub-definition" lang="ja">～階</span><br>
+        <span class="sub-POS" lang="ja">[連体詞]</span> <span class="sub-definition" lang="ja">重なった</span><br>
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">(掛け算を唱えるときの)掛ける</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">我囲在於四層</span> <span class="sample-sentence-pronunciation" lang="ja">パイ⤴ピアー⤴アイㇺ⤴イェ·アㇷ゚→ギュー→</span>
+            <span class="sample-sentence-transcription" lang="ja">【我囲在於四層】</span>
+            <div class="sample-sentence-translation" lang="ja">私の部屋は4階にある。</div>
+        </div>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">二層三此六</span> <span class="sample-sentence-pronunciation" lang="ja">イㇰ⤴ギュー→オㇺ⤴カー→ネゥㇳ⤴</span>
+            <span class="sample-sentence-transcription" lang="ja">【二層三此六】</span>
+            <div class="sample-sentence-translation" lang="ja">2×3=6</div>
+        </div>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">層積</span> <span class="entry-word-pronunciation" lang="ja">ギュー→ショㇺ→</span> <span class="entry-word-transcription" lang="ja">【層積】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">(ブロックなどを)積み重ねる</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">層付</span> <span class="entry-word-pronunciation" lang="ja">ギュー→クン⤴</span> <span class="entry-word-transcription" lang="ja">【層付】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">(紙などを)重ねる、重ね合わせる</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">層術</span> <span class="entry-word-pronunciation" lang="ja">ギュー→ズィㇳ→</span> <span class="entry-word-transcription" lang="ja">【層術】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">掛け算</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/棚.png" style="height: 1em"><img src="../SY_handwriting/風字/棚.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ヒュー⤴</span> <span class="entry-word-transcription" lang="ja">【棚】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">棚</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">棚絵</span> <span class="entry-word-pronunciation" lang="ja">ヒュー⤴レゥㇰ→</span> <span class="entry-word-transcription" lang="ja">【棚絵】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">表(ひょう)、テーブル</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">書棚</span> <span class="entry-word-pronunciation" lang="ja">アㇰ→ヒュー⤴</span> <span class="entry-word-transcription" lang="ja">【書棚】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">本棚</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/豆.png" style="height: 1em"><img src="../SY_handwriting/風字/豆.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">クオㇳ→</span> <span class="entry-word-transcription" lang="ja">【豆】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">(さやに実る)豆</span><br>
+        <span class="sub-definition" lang="ja">コーヒーなどは <span class="inline-linzklar">種</span>【種】。</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">地豊豆</span> <span class="entry-word-pronunciation" lang="ja">ホェㇷ゚⤴ホウ→クオㇳ→</span> <span class="entry-word-transcription" lang="ja">【地豊豆】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">落花生、ピーナッツ</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">豆覆</span> <span class="entry-word-pronunciation" lang="ja">クオㇳ→コウ→</span> <span class="entry-word-transcription" lang="ja">【豆覆】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">コッコ（地名）</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/直.png" style="height: 1em"><img src="../SY_handwriting/風字/直.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ヨウ→</span> <span class="entry-word-transcription" lang="ja">【直】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">定規</span><br>
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">規則、規範</span><br>
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">真っすぐだ、まともだ</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">値直</span> <span class="entry-word-pronunciation" lang="ja">マㇰ⤴ヨウ→</span> <span class="entry-word-transcription" lang="ja">【値直】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">(セッカイクの)得点板、点尺</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/謝.png" style="height: 1em"><img src="../SY_handwriting/風字/謝.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">クアイ→</span> <span class="entry-word-transcription" lang="ja">【謝】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">謝る、謝罪する、詫びる</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">謝石</span> <span class="entry-word-pronunciation" lang="ja">クアイ→ズュー⤴</span> <span class="entry-word-transcription" lang="ja">【謝石】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">慇懃だ、高貴だが威張らない</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">清王謝石</span> <span class="entry-word-pronunciation" lang="ja">リン·ヨ·クアイ→ズュー⤴</span> <span class="entry-word-transcription" lang="ja">【清王謝石】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[成句]</span> <span class="sub-definition" lang="ja">（リン王が、石につまづいて転んだ際に、自分の身よりも自身が蹴った石に謝罪したという逸話から）高貴だが威張らない様子。</span><br>
+    </div>
+</div>
+
+<div class="char-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/正.png" style="height: 1em"><img src="../SY_handwriting/風字/正.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="entry-word-pronunciation" lang="ja">ティㇳ→</span> <span class="entry-word-transcription" lang="ja">【正】</span>
+    <div class="sub">
+
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">正清</span> <span class="entry-word-pronunciation" lang="ja">ティㇳ→リン·</span> <span class="entry-word-transcription" lang="ja">【正清】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[状態動詞]</span> <span class="sub-definition" lang="ja">整っている、きちんとしている</span><br>
+    </div>
+</div>

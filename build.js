@@ -24,6 +24,7 @@ const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'u
     .split(/\r?\n/)
     .map(line => line.split("\t"));
 
+build("1_01_処");
 build("1_10_右");
 build("1_12_口");
 build("1_13_筆");
@@ -39,7 +40,7 @@ function group_entries_tsv(ungrouped) {
         if (acc[acc.length - 1]?.linzklar !== linzklar) {
             acc.push({ linzklar, definitions: [], sentences: [] });
         }
-        if (second_column === "" && third_column === "") {
+        if (!second_column && !third_column) {
             // ignore
             return acc;
         } else if (second_column.startsWith("[") || second_column === "") {
