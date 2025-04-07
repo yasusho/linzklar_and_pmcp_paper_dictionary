@@ -29,6 +29,7 @@ build("1_12_口");
 build("1_13_筆");
 build("1_14_門");
 build("2_13_傾");
+build("2_14_針");
 
 function group_entries_tsv(ungrouped) {
     // First, group by the first column (linzklar)
