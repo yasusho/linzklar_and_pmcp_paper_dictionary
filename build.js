@@ -34,6 +34,7 @@ build("2_03_ノノ");
 build("2_05_四");
 build("2_13_傾");
 build("2_14_針");
+build("2_15_神十位");
 
 function group_entries_tsv(ungrouped) {
     // First, group by the first column (linzklar)
