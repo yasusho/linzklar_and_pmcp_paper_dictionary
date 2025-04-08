@@ -22,6 +22,7 @@ const vivliostyleConfig = {
     '1_13_筆.html',
     '1_14_門.html',
     '2_02_常.html',
+    '2_03_ノノ.html',
     '2_13_傾.html',
     '2_14_針.html',
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
