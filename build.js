@@ -127,7 +127,8 @@ function gen_entry({ linzklar, definitions, sentences }) {
 
         const vulgar_pronunciation = vulgar_map.get(linzklar)?.vulgar_pronunciation;
 
-        return `<div class="char-entry">
+        return `<div class="group-char-entry-with-the-following">
+<div class="char-entry">
     <span class="char-entry-linzklar">${官字_list.map(官字 => `<img src="../SY_handwriting/官字/${官字}.png" style="height: 1em">`).join("")
             }${風字_list.map(風字 => `<img src="../SY_handwriting/風字/${風字}.png" style="height: 1em">`).join("")
             }</span> 
@@ -141,7 +142,8 @@ function gen_entry({ linzklar, definitions, sentences }) {
     <div class="sub">
 ${gen_definitions(definitions)}
 ${sentences.map(gen_sample_sentence).join("")}    </div>
-</div>`
+</div>
+</div> <!-- .group-char-entry-with-the-following -->`;
     }
     return `<div class="entry">
     <span class="entry-word-linzklar">${linzklar}</span> <span class="entry-word-pronunciation" lang="ja">${pronunciation_}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>

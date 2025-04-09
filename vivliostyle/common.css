@@ -2,6 +2,11 @@
     column-count: 2;
     --scale: 0.93;
 }
+
+.group-char-entry-with-the-following {
+    break-inside: avoid;
+}
+
 .char-entry {
     margin-top: 2.2mm;
     margin-bottom: -2mm;
