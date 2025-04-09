@@ -32,6 +32,7 @@ build("1_14_門");
 build("2_02_常");
 build("2_03_ノノ");
 build("2_05_四");
+build("2_12_フ");
 build("2_13_傾");
 build("2_14_針");
 build("2_15_神十位");
@@ -104,7 +105,7 @@ function gen_pronunciation(linzklar) {
             return entry[1];
         } else {
             console.log(`Missing pronunciation for ${c}. Provide it in the PRONUNCIATIONS.tsv file.`);
-            return `<span style="color: red">発音を提供せよ:${c}</span>`;
+            return `<span style="color: red">発音を提供せよ:【${c}】</span>`;
         } 
     }).join("");
 }

@@ -24,6 +24,7 @@ const vivliostyleConfig = {
     '2_02_常.html',
     '2_03_ノノ.html',
     '2_05_四.html',
+    '2_12_フ.html',
     '2_13_傾.html',
     '2_14_針.html',
     '2_15_神十位.html',
