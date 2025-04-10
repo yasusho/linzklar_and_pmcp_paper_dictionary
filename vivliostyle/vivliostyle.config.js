@@ -21,6 +21,7 @@ const vivliostyleConfig = {
     '1_12_口.html',
     '1_13_筆.html',
     '1_14_門.html',
+    '2_01_ノ一.html',
     '2_02_常.html',
     '2_03_ノノ.html',
     '2_05_四.html',

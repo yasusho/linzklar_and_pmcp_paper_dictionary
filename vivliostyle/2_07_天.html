@@ -20,7 +20,12 @@
     /* それぞれのページ指定では柱見出しを両側に指定しておき、上記ルールにより片方だけ潰す */
     @page:nth(1) {
         @top-left { content: "天"; }
-        @top-right { content: "天"; }
+        @top-right { content: "星"; }
+    }
+
+    @page:nth(2) {
+        @top-left { content: "星"; }
+        @top-right { content: "雪"; }
     }
 </style>
 
