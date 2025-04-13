@@ -33,29 +33,22 @@
      inkscape:current-layer="svg5" />
   <defs
      id="defs2" />
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.00001"
-     id="rect1"
-     width="264.58334"
-     height="264.58334"
-     x="0"
-     y="0"
-     ry="0" />
+  
   <path
-     style="fill:#000000;fill-opacity:1;stroke:#e0a567;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
      d="M 35.271028,112.91757 H 113.38845"
      id="path1309" />
   <path
-     style="fill:none;fill-opacity:1;stroke:#e0a567;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
      d="m 74.329746,80.232198 v 33.352112 c 0,33.34069 -30.357483,70.51971 -53.67274,70.51971"
      id="path1518" />
   <path
-     style="fill:none;stroke:#e0a567;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
      d="M 220.70415,80.462892 V 184.35183 l -18.31953,-12.72785"
      id="path6397"
      sodipodi:nodetypes="ccc" />
   <path
-     style="fill:none;stroke:#e0a567;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
      d="M 241.69237,107.16799 161.7863,122.81492"
      id="path6401"
      sodipodi:nodetypes="cc" />

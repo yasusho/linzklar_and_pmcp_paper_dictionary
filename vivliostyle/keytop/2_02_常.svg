@@ -35,21 +35,14 @@
      showguides="true" />
   <defs
      id="defs2" />
-<rect
-     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.00001"
-     id="rect1"
-     width="264.58334"
-     height="264.58334"
-     x="0"
-     y="0"
-     ry="0" />
+
   <path
-     style="fill:none;fill-opacity:1;stroke:#6ee068;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
      d="M 135.83937,106.58716 V 243.92145"
      id="path2437"
      sodipodi:nodetypes="cc" />
   <path
-     style="fill:none;stroke:#6ee068;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
      d="M 207.87611,26.21112 C 163.19518,89.899626 96.821585,142.32109 40.059504,172.33602"
      id="path38116"
      sodipodi:nodetypes="cc" />

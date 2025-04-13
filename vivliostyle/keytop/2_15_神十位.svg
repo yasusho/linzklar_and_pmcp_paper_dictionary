@@ -33,24 +33,17 @@
      inkscape:current-layer="svg5" />
   <defs
      id="defs2" />
-  <rect
-     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.00001"
-     id="rect1"
-     width="264.58334"
-     height="264.58334"
-     x="0"
-     y="0"
-     ry="0" />
+  
   <path
-     style="fill:none;stroke:#d2d2d2;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
      d="m 138.17902,151.54303 h 73.4006 l -14.4708,31.83832 h 30.62676 c 0,0 -12.55977,42.23557 -20.13309,56.87586 l -22.33436,-22.44217"
      id="path5879" />
   <path
-     style="fill:none;stroke:#d2d2d2;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
      d="m 44.721868,145.44629 c -1.437662,12.07319 -5.162197,28.87839 -7.895086,40.08982 v 0 h 60.549651 c -0.801119,33.03751 -4.572581,43.28211 -12.336281,60.32622 l -18.287399,-23.57"
      id="path5881" />
   <path
-     style="fill:none;stroke:#d2d2d2;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
      d="M 98.538002,24.0941 H 162.64212 L 98.453632,79.346793 c -18.89581,14.354033 -8.895569,33.255587 8.181048,33.255577 l 69.64412,-2e-5 -11.89915,-23.104857"
      id="path3527"
      sodipodi:nodetypes="cccscc" />

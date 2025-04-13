@@ -34,14 +34,7 @@
      inkscape:current-layer="svg5" />
   <defs
      id="defs2" />
-<rect
-     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.00001"
-     id="rect1"
-     width="264.58334"
-     height="264.58334"
-     x="0"
-     y="0"
-     ry="0" />
+
   <g
      id="layer1"
      transform="matrix(0.90374459,0,0,0.90332037,13.15174,8.3689974)"
@@ -55,7 +48,7 @@
          transform="translate(2.2392198e-4,270.93325)"
          style="stroke-width:1.25932">
         <path
-           style="fill:none;fill-opacity:1;stroke:#8b67e0;stroke-width:18.8897;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:18.8897;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
            d="m -2380.4292,189.781 133.0371,-164.616019 -247.5985,0"
            id="path1542"
            sodipodi:nodetypes="ccc" />

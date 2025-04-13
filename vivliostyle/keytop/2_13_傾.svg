@@ -69,20 +69,13 @@
   </sodipodi:namedview>
   <defs
      id="defs2" />
-<rect
-     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.00001"
-     id="rect1"
-     width="264.58334"
-     height="264.58334"
-     x="0"
-     y="0"
-     ry="0" />
+
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:none;stroke:#8b67e0;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
        d="M 220.70104,20.637503 78.913423,66.597926 c 0,0 1.541817,135.848684 -33.934251,176.818744"
        id="path1441"
        sodipodi:nodetypes="ccc" />
