@@ -17,6 +17,7 @@ const vivliostyleConfig = {
     // },
 
     '1_01_処.html',
+    '1_09_二.html',
     '1_10_右.html',
     '1_12_口.html',
     '1_13_筆.html',

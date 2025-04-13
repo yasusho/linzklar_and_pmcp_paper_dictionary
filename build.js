@@ -30,6 +30,7 @@ const contraction_pronunciation_table = fs.readFileSync("CONTRACTIONS.tsv", { en
     .map(line => line.split("\t"));
 
 build("1_01_処");
+build("1_09_二");
 build("1_10_右");
 build("1_12_口");
 build("1_13_筆");
