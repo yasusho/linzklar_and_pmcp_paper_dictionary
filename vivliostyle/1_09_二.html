@@ -19,8 +19,13 @@
     
     /* それぞれのページ指定では柱見出しを両側に指定しておき、上記ルールにより片方だけ潰す */
     @page:nth(1) {
-        @top-left { content: "右"; }
-        @top-right { content: "筒"; }
+        @top-left { content: "一"; }
+        @top-right { content: "二"; }
+    }
+
+    @page:nth(2) {
+        @top-left { content: "刀"; }
+        @top-right { content: "三"; }
     }
 </style>
 

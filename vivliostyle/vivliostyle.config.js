@@ -27,6 +27,7 @@ const vivliostyleConfig = {
     '2_01_ノ一.html',
     '2_02_常.html',
     '2_03_ノノ.html',
+    '2_04_之.html',
     '2_05_四.html',
     '2_07_天.html',
     '2_09_再.html',
