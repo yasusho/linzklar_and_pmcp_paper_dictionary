@@ -24,11 +24,17 @@ const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'u
     .split(/\r?\n/)
     .map(line => line.split("\t"));
 
+const contraction_pronunciation_table = fs.readFileSync("CONTRACTIONS.tsv", { encoding: 'utf-8' })
+    .trimEnd()
+    .split(/\r?\n/)
+    .map(line => line.split("\t"));
+
 build("1_01_処");
 build("1_10_右");
 build("1_12_口");
 build("1_13_筆");
 build("1_14_門");
+build("1_15_函包箱");
 build("2_01_ノ一");
 build("2_02_常");
 build("2_03_ノノ");
@@ -81,7 +87,7 @@ fs.writeFileSync(`vivliostyle/${main_index}.html`, `<link rel="stylesheet" href=
         background-image: url("爪見出し/${main_index}_left.png");
         background-size: 472px 665px;
         background-repeat: no-repeat;
-        @top-left { font-family: "linzklar_rounded"; font-size: 14pt; } /* 左ページでは左の柱見出しのみ */
+        @top-left { font-family: "linzklar_rounded"; font-size: 12pt; } /* 左ページでは左の柱見出しのみ */
         @top-right { font-family: "linzklar_rounded"; font-size: 0pt; }
     }
 
@@ -90,7 +96,7 @@ fs.writeFileSync(`vivliostyle/${main_index}.html`, `<link rel="stylesheet" href=
         background-size: 472px 665px;
         background-repeat: no-repeat;
         @top-left { font-family: "linzklar_rounded"; font-size: 0pt; }
-        @top-right { font-family: "linzklar_rounded"; font-size: 14pt; }  /* 右ページでは右の柱見出しのみ */
+        @top-right { font-family: "linzklar_rounded"; font-size: 12pt; }  /* 右ページでは右の柱見出しのみ */
     }
     
     /* それぞれのページ指定では柱見出しを両側に指定しておき、上記ルールにより片方だけ潰す */
@@ -103,6 +109,17 @@ ${Object.entries(guide_words).map(([key, value]) => `    @page:nth(${key}) {
 ${entries.map(gen_entry).join("\n\n")}`, { encoding: 'utf8' });
 
 function gen_pronunciation(linzklar) {
+    if (linzklar.startsWith("«") && linzklar.endsWith("»")) {
+        // contraction
+        const contraction = linzklar.slice(1, -1);
+        const entry = contraction_pronunciation_table.find(([c_, _]) => c_ === contraction);
+        if (entry) {
+            return entry[1];
+        } else {
+            console.log(`Missing pronunciation for ${c}. Provide it in the PRONUNCIATIONS.tsv file.`);
+            return `<span style="color: red">発音を提供せよ:【${c}】</span>`;
+        }
+    }
     return [...linzklar].map(c => {
         // search from the pronunciation table
         const entry = pronunciation_table.find(([c_, _]) => c_ === c);
@@ -115,8 +132,9 @@ function gen_pronunciation(linzklar) {
     }).join("");
 }
 
-function gen_entry({ linzklar, definitions, sentences }) {
-    const pronunciation_ = gen_pronunciation(linzklar);
+function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
+    const pronunciation_ = gen_pronunciation(linzklar_);
+    const linzklar = linzklar_.replace(/«(.+?)»/g, "$1"); // remove the contraction markers
 
     sentences = sentences ?? [];
     definitions = definitions ?? [];
