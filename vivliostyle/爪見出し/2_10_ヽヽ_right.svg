@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="8.6911192"
-     inkscape:cx="439.24147"
-     inkscape:cy="414.27346"
+     inkscape:zoom="3.0727747"
+     inkscape:cx="356.84361"
+     inkscape:cy="373.76642"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -359,24 +359,24 @@
      id="rect1"
      width="9.9002113"
      height="10.47"
-     x="115.09979"
+     x="118.1"
      y="101.227" />
   <rect
      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16323"
      id="rect1-2"
      width="7.198"
      height="7.198"
-     x="116.451"
+     x="119.4512"
      y="102.763"
      ry="0" />
   <path
      style="fill:none;stroke:#ffffff;stroke-width:0.408076;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-     d="m 117.90294,104.7665 1.14985,2.58651"
+     d="m 120.90315,104.7665 1.14985,2.58651"
      id="path1314"
      sodipodi:nodetypes="cc" />
   <path
      style="fill:none;stroke:#ffffff;stroke-width:0.408076;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-     d="m 120.65804,104.7665 1.14984,2.58651"
+     d="m 123.65825,104.7665 1.14984,2.58651"
      id="path1"
      sodipodi:nodetypes="cc" />
 </svg>
