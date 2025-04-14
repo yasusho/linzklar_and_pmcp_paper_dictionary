@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="125mm"
-   height="176mm"
-   viewBox="0 0 125 176"
+   width="128mm"
+   height="182mm"
+   viewBox="0 0 128 182"
    version="1.1"
    id="svg1"
    sodipodi:docname="1_10_右_right.svg"
@@ -352,11 +352,11 @@
   </defs>
   <path
      style="fill:#000000;stroke:#000000;stroke-width:0.66264;stroke-opacity:1;paint-order:fill markers stroke"
-     d="M 10.354167,7.0005 H 115.35417"
+     d="m 11.5,7.0 h 105"
      id="path16" />
   <g
      id="g2"
-     transform="translate(115.09979,-20.940294)">
+     transform="translate(118.09979,-20.940294)">
     <rect
        style="fill:#000000;stroke:none;stroke-width:0.199521;stroke-opacity:1;paint-order:fill markers stroke"
        id="rect2"

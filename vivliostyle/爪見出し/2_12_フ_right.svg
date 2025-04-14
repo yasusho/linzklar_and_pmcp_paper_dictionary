@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="125mm"
-   height="176mm"
-   viewBox="0 0 125 176"
+   width="128mm"
+   height="182mm"
+   viewBox="0 0 128 182"
    version="1.1"
    id="svg1"
    sodipodi:docname="2_12_フ_right.svg"
@@ -352,35 +352,35 @@
   </defs>
   <path
      style="fill:#000000;stroke:#000000;stroke-width:0.66264;stroke-opacity:1;paint-order:fill markers stroke"
-     d="M 10.354167,7.0005 H 115.35417"
+     d="m 11.5,7.0 h 105"
      id="path16" />
   <rect
      style="fill:#000000;stroke:none;stroke-width:0.199521;stroke-opacity:1;paint-order:fill markers stroke"
      id="rect1"
      width="9.9002113"
      height="10.47"
-     x="115.09979"
+     x="118.1"
      y="122.167" />
   <rect
      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16323"
      id="rect1-5"
      width="7.198"
      height="7.198"
-     x="116.451"
+     x="119.4512"
      y="123.703"
      ry="0" />
   <g
      id="layer1"
-     transform="matrix(0.02458641,0,0,0.02457486,116.80879,123.93068)"
-     style="stroke-width:1.10677;stroke:#ffffff">
+     transform="matrix(0.02458641,0,0,0.02457486,119.809,123.93068)"
+     style="stroke:#ffffff;stroke-width:1.10677">
     <g
        id="g1548"
        transform="matrix(0.87889368,0,0,0.87881835,2215.8539,-224.87202)"
-       style="stroke-width:1.25932;stroke:#ffffff">
+       style="stroke:#ffffff;stroke-width:1.25932">
       <g
          id="g1544"
          transform="translate(2.2392198e-4,270.93325)"
-         style="stroke-width:1.25932;stroke:#ffffff">
+         style="stroke:#ffffff;stroke-width:1.25932">
         <path
            style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:18.8897;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
            d="m -2380.4292,189.781 133.0371,-164.616019 h -247.5985"

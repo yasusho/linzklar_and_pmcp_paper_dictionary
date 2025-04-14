@@ -87,7 +87,7 @@ fs.writeFileSync(`vivliostyle/${main_index}.html`, `<link rel="stylesheet" href=
 <style>
     @page:left { 
         background-image: url("爪見出し/${main_index}_left.png");
-        background-size: 472px 665px;
+        background-size: 483.8px 687.9px;
         background-repeat: no-repeat;
         @top-left { font-family: "linzklar_rounded"; font-size: 12pt; } /* 左ページでは左の柱見出しのみ */
         @top-right { font-family: "linzklar_rounded"; font-size: 0pt; }
@@ -95,7 +95,7 @@ fs.writeFileSync(`vivliostyle/${main_index}.html`, `<link rel="stylesheet" href=
 
     @page:right { 
         background-image: url("爪見出し/${main_index}_right.png");
-        background-size: 472px 665px;
+        background-size: 483.8px 687.9px;
         background-repeat: no-repeat;
         @top-left { font-family: "linzklar_rounded"; font-size: 0pt; }
         @top-right { font-family: "linzklar_rounded"; font-size: 12pt; }  /* 右ページでは右の柱見出しのみ */
