@@ -1,5 +1,4 @@
 const fs = require('fs');
-const fetch_ = require("node-fetch");
 
 const variant_table = fs.readFileSync("VARIANTS.tsv", { encoding: 'utf-8' })
     .trimEnd()
@@ -58,22 +57,17 @@ build("2_13_傾");
 build("2_14_針");
 build("2_15_神十位");
 
-// Fetch the latest non_dummy_glyph_list.json and check if there are any dummy glyphs required to be added to the font in the future.
-fetch("https://yasusho.github.io/linmarn_font_project/rounded/fixed/!non_dummy_glyph_list.json")
-    .then(res => res.json())
-    .then(json => {
-        // json is the array of all permissible glyphs in the font
-        const glyphs = json;
-        const required_glyphs = new Set([...LINZKLARS_IN_ROUNDED]);
-        const missing_glyphs = [...required_glyphs].filter(g => !glyphs.includes(g));
-        if (missing_glyphs.length > 0) {
-            console.log(`Required glyphs for linzklar_rounded: ${missing_glyphs.join(", ")}`);
-            console.log("Please replace the dummy glyphs, add them to the font and regenerate the font.");
-        } else {
-            console.log("All required glyphs are present in the linzklar_rounded font.");
-        }
-    })
-    .catch(err => console.error(err));
+{
+    const glyphs = fs.readFileSync("non_dummy_glyph_list.json", { encoding: 'utf-8' });
+    const required_glyphs = new Set([...LINZKLARS_IN_ROUNDED]);
+    const missing_glyphs = [...required_glyphs].filter(g => !glyphs.includes(g));
+    if (missing_glyphs.length > 0) {
+        console.log(`Required glyphs for linzklar_rounded: ${missing_glyphs.join(", ")}`);
+        console.log("Please replace the dummy glyphs, add them to the font and regenerate the font.");
+    } else {
+        console.log("All required glyphs are present in the linzklar_rounded font.");
+    }
+}
 
 
 function group_entries_tsv(ungrouped) {
