@@ -1,4 +1,5 @@
 const fs = require('fs');
+const fetch_ = require("node-fetch");
 
 const variant_table = fs.readFileSync("VARIANTS.tsv", { encoding: 'utf-8' })
     .trimEnd()
@@ -29,6 +30,8 @@ const contraction_pronunciation_table = fs.readFileSync("CONTRACTIONS.tsv", { en
     .split(/\r?\n/)
     .map(line => line.split("\t"));
 
+let LINZKLARS_IN_ROUNDED = "";
+
 build("1_01_処");
 build("1_05_ナ而");
 build("1_07_一？");
@@ -54,6 +57,24 @@ build("2_12_フ");
 build("2_13_傾");
 build("2_14_針");
 build("2_15_神十位");
+
+// Fetch the latest non_dummy_glyph_list.json and check if there are any dummy glyphs required to be added to the font in the future.
+fetch("https://yasusho.github.io/linmarn_font_project/rounded/fixed/!non_dummy_glyph_list.json")
+    .then(res => res.json())
+    .then(json => {
+        // json is the array of all permissible glyphs in the font
+        const glyphs = json;
+        const required_glyphs = new Set([...LINZKLARS_IN_ROUNDED]);
+        const missing_glyphs = [...required_glyphs].filter(g => !glyphs.includes(g));
+        if (missing_glyphs.length > 0) {
+            console.log(`Required glyphs for linzklar_rounded: ${missing_glyphs.join(", ")}`);
+            console.log("Please replace the dummy glyphs, add them to the font and regenerate the font.");
+        } else {
+            console.log("All required glyphs are present in the linzklar_rounded font.");
+        }
+    })
+    .catch(err => console.error(err));
+
 
 function group_entries_tsv(ungrouped) {
     // First, group by the first column (linzklar)
@@ -86,6 +107,10 @@ const entries_tsv = fs.readFileSync(`entries_${main_index}.tsv`, { encoding: 'ut
     .map(line => line.split("\t"));
 
 const entries =  group_entries_tsv(entries_tsv);
+
+Object.entries(guide_words).forEach(([_key, value]) => {
+    LINZKLARS_IN_ROUNDED += value.left + value.right;
+});
 
 fs.writeFileSync(`vivliostyle/${main_index}.html`, `<link rel="stylesheet" href="common.css">
 
@@ -172,6 +197,9 @@ ${sentences.map(gen_sample_sentence).join("")}    </div>
 </div>
 </div> <!-- .group-char-entry-with-the-following -->`;
     }
+
+    LINZKLARS_IN_ROUNDED += linzklar;
+
     return `<div class="entry">
     <span class="entry-word-linzklar">${linzklar}</span> <span class="entry-word-pronunciation" lang="ja">${pronunciation_}</span> <span class="entry-word-transcription" lang="ja">【${linzklar}】</span>
     <div class="sub">
@@ -181,6 +209,11 @@ ${sentences.map(gen_sample_sentence).join("")}    </div>
 }
 
 function gen_definitions(definitions) {
+    definitions.forEach(({ definition }) => {
+        const test = /<span class="inline-linzklar">([^<]*)<\/span>/.exec(definition);
+        test && (LINZKLARS_IN_ROUNDED += test[1]);
+    });
+
     return definitions.map(({ POS, definition }) => {
         if (POS) {
             return `        <span class="sub-POS" lang="ja">${POS}</span> <span class="sub-definition" lang="ja">${definition}</span><br>`
@@ -190,7 +223,8 @@ function gen_definitions(definitions) {
     }).join("\n")
 }
 
-function gen_sample_sentence({ linzklar, pronunciation, translations }) {
+function gen_sample_sentence({ linzklar, translations }) {
+    LINZKLARS_IN_ROUNDED += linzklar;
     const pronunciation_ = gen_pronunciation(linzklar);
 
     return `        <div class="sample-sentence">
