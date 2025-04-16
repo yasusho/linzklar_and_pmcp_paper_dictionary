@@ -31,6 +31,7 @@ const contraction_pronunciation_table = fs.readFileSync("CONTRACTIONS.tsv", { en
 
 build("1_01_処");
 build("1_05_ナ而");
+build("1_07_一？");
 build("1_08_上");
 build("1_09_二");
 build("1_10_右");
