@@ -19,6 +19,7 @@ const vivliostyleConfig = {
     'index.html',
 
     '1_01_処.html',
+    '1_08_上.html',
     '1_09_二.html',
     '1_10_右.html',
     '1_12_口.html',
