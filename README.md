@@ -1,8 +1,14 @@
 # 燐字紙辞書組版
 
+## PDF を見たい人のための注意
+
+リポジトリ内の `言将机戦人等定引之字言集.pdf` は多少古いことがある。最新は [Actions の workflow runs](https://github.com/sozysozbot/linzklar_paper_dictionary/actions) の最新を選んで Artifacts の pdf-output をダウンロードして見ること。
+
 ## 全体の流れ
 
+- main_indexes.txt の行に書いてある名前で `entries_*.tsv` を作る
 - `entries_*.tsv` に書く
+- ビルドには柱見出しの情報が必要なので、`GUIDE_WIRDS_*.json` にダミーとして一旦 `{}` とか書いておく
 - `node build.js` により、`vivliostyle/*.html` を作る
 - `cd vivliostyle; npx vivliostyle build -m` により、`言将机戦人等定引之字言集.pdf` が出来上がる。トリムマークが要らないなら `-m` を削る。
 - 満足したら、柱見出しを手動で割り当てるために `GUIDE_WORDS_*.json` を編集し、ビルド作業をもう一度行う
