@@ -24,7 +24,7 @@ const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'u
     .split(/\r?\n/)
     .map(line => line.split("\t"));
 
-const contraction_pronunciation_table = fs.readFileSync("CONTRACTIONS.tsv", { encoding: 'utf-8' })
+const idiomatic_multichar_pronunciation_table = fs.readFileSync("IDIOMATIC_MULTICHARS.tsv", { encoding: 'utf-8' })
     .trimEnd()
     .split(/\r?\n/)
     .map(line => line.split("\t"));
@@ -107,7 +107,7 @@ Object.entries(guide_words).forEach(([_key, value]) => {
     LINZKLARS_IN_ROUNDED += value.left + value.right;
 });
 
-fs.writeFileSync(`vivliostyle/${main_index}.html`, `<link rel="stylesheet" href="common.css">
+const resulting_file_content = `<link rel="stylesheet" href="common.css">
 
 <style>
     @page:left { 
@@ -133,13 +133,20 @@ ${Object.entries(guide_words).map(([key, value]) => `    @page:nth(${key}) {
     }
 `).join('\n')}</style>
 
-${entries.map(gen_entry).join("\n\n")}`, { encoding: 'utf8' });
+${entries.map(gen_entry).join("\n\n")}`;
+
+if (resulting_file_content.includes("«") 
+    || resulting_file_content.includes("»")) {
+console.log("このギュメの使い方は想定していません。hsjoihs に連絡してパーサーを直してもらってください。")
+}
+    
+
+fs.writeFileSync(`vivliostyle/${main_index}.html`, resulting_file_content, { encoding: 'utf8' });
 
 function gen_pronunciation(linzklar) {
     if (linzklar.startsWith("«") && linzklar.endsWith("»")) {
-        // contraction
-        const contraction = linzklar.slice(1, -1);
-        const entry = contraction_pronunciation_table.find(([c_, _]) => c_ === contraction);
+        const idiomatic_multichar = linzklar.slice(1, -1);
+        const entry = idiomatic_multichar_pronunciation_table.find(([c_, _]) => c_ === idiomatic_multichar);
         if (entry) {
             return entry[1];
         } else {
@@ -161,7 +168,7 @@ function gen_pronunciation(linzklar) {
 
 function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
     const pronunciation_ = gen_pronunciation(linzklar_);
-    const linzklar = linzklar_.replace(/«(.+?)»/g, "$1"); // remove the contraction markers
+    const linzklar = linzklar_.replace(/«(.+?)»/g, "$1"); // remove the markers of idiomatic multichar
 
     sentences = sentences ?? [];
     definitions = definitions ?? [];
