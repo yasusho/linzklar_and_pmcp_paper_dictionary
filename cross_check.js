@@ -85,13 +85,14 @@ for (const [key_, { parents }] of GLOBAL_MAP.entries()) {
         // all present; ok
     } else {
         const not_yet_listed = [...new Set([...key].filter(l => !parents.includes(l)))];
-
+        const fix_now = not_yet_listed.filter(l => EXISTING_PARENTS.includes(l));
+        const fix_later = not_yet_listed.filter(l => !EXISTING_PARENTS.includes(l));
         result += JSON.stringify({
             word: key,
             listed: parents,
             not_yet_listed: {
-                now: not_yet_listed.filter(l => EXISTING_PARENTS.includes(l)),
-                later: not_yet_listed.filter(l => !EXISTING_PARENTS.includes(l)),
+                ... (fix_now.length === 0 ? {} : { fix_now }),
+                ... (fix_later.length === 0 ? {} : { fix_later }),
             }
         }) + "\n";
     }
