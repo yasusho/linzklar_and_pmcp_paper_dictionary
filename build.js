@@ -16,8 +16,8 @@ const vulgar_table = fs.readFileSync("VULGAR.tsv", { encoding: 'utf-8' })
     .split(/\r?\n/)
     .map(line => line.split("\t"));
 
-const vulgar_map = new Map(vulgar_table.map(([linzklar, vulgar_pronunciation]) => {
-    return [linzklar, { vulgar_pronunciation }]
+const vulgar_map = new Map(vulgar_table.map(([linzklar, vulgar_latin, vulgar_pronunciation]) => {
+    return [linzklar, { vulgar_latin, vulgar_pronunciation }]
 }));
 
 const pronunciation2_table = fs.readFileSync("PRONUNCIATIONS2.tsv", { encoding: 'utf-8' })
@@ -83,7 +83,7 @@ function group_entries_tsv(ungrouped) {
             // ignore
             return acc;
         } else if (second_column.startsWith("[") || second_column === "") {
-            acc[acc.length - 1].definitions.push({ POS: second_column, definition: third_column });            
+            acc[acc.length - 1].definitions.push({ POS: second_column, definition: third_column });
         } else {
             acc[acc.length - 1].sentences.push({ linzklar: second_column, translations: third_column.split("|") });
         }
@@ -93,21 +93,20 @@ function group_entries_tsv(ungrouped) {
 }
 
 function build(main_index) {
+    const guide_words = JSON.parse(fs.readFileSync(`GUIDE_WORDS_${main_index}.json`, { encoding: 'utf-8' }));
 
-const guide_words = JSON.parse(fs.readFileSync(`GUIDE_WORDS_${main_index}.json`, { encoding: 'utf-8' }));
+    const entries_tsv = fs.readFileSync(`entries_${main_index}.tsv`, { encoding: 'utf8' })
+        .trimEnd()
+        .split(/\r?\n/)
+        .map(line => line.split("\t"));
 
-const entries_tsv = fs.readFileSync(`entries_${main_index}.tsv`, { encoding: 'utf8' })
-    .trimEnd()
-    .split(/\r?\n/)
-    .map(line => line.split("\t"));
+    const entries = group_entries_tsv(entries_tsv);
 
-const entries =  group_entries_tsv(entries_tsv);
+    Object.entries(guide_words).forEach(([_key, value]) => {
+        LINZKLARS_IN_ROUNDED += value.left + value.right;
+    });
 
-Object.entries(guide_words).forEach(([_key, value]) => {
-    LINZKLARS_IN_ROUNDED += value.left + value.right;
-});
-
-const resulting_file_content = `<link rel="stylesheet" href="common.css">
+    const resulting_file_content = `<link rel="stylesheet" href="common.css">
 
 <style>
     @page:left { 
@@ -135,13 +134,14 @@ ${Object.entries(guide_words).map(([key, value]) => `    @page:nth(${key}) {
 
 ${entries.map(gen_entry).join("\n\n")}`;
 
-if (resulting_file_content.includes("«") 
-    || resulting_file_content.includes("»")) {
-console.log("このギュメの使い方は想定していません。hsjoihs に連絡してパーサーを直してもらってください。")
-}
-    
+    if (resulting_file_content.includes("«")
+        || resulting_file_content.includes("»")) {
+        console.log("このギュメの使い方は想定していません。hsjoihs に連絡してパーサーを直してもらってください。")
+    }
 
-fs.writeFileSync(`vivliostyle/${main_index}.html`, resulting_file_content, { encoding: 'utf8' });
+
+    fs.writeFileSync(`vivliostyle/${main_index}.html`, resulting_file_content, { encoding: 'utf8' });
+}
 
 function gen_pronunciation(linzklar) {
     if (linzklar.startsWith("«") && linzklar.endsWith("»")) {
@@ -161,26 +161,29 @@ function gen_pronunciation(linzklar) {
             const latin_pronunciation = entry[1];
             const kana_pronunciation = entry[2];
 
-            if (latin_pronunciation === "" && kana_pronunciation === "") {
-                return "";
-            }
-            
-            // Check that the two are consistent
-            const converted_kana = latin_pronunciation.split(" ").map(latin =>{
-                return to_kana(from_latin(latin))
-            }
-            ).join("");
-            if (converted_kana !== kana_pronunciation) {
-                console.log(`Pronunciation mismatch for ${c}: 
-    ${converted_kana} [converted from ${latin_pronunciation}] does not match with
-    ${kana_pronunciation}`);
-            }
+            check_consistency({ context: c, latin: latin_pronunciation, kana: kana_pronunciation });
             return kana_pronunciation;
         } else {
             console.log(`Missing pronunciation for ${c}. Provide it in the PRONUNCIATIONS.tsv file.`);
             return `<span style="color: red">発音を提供せよ:【${c}】</span>`;
-        } 
+        }
     }).join("");
+}
+
+function check_consistency({ context, latin, kana }) {
+    // If both are falsy, ignore
+    if (!latin && !kana) {
+        return;
+    }
+    const converted_kana = latin.split(" ").map(latin => {
+        return to_kana(from_latin(latin))
+    }
+    ).join("");
+    if (converted_kana !== kana) {
+        console.log(`Pronunciation mismatch for ${context}: 
+${converted_kana} [converted from ${latin}] does not match with
+${kana}`);
+    }
 }
 
 function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
@@ -196,7 +199,11 @@ function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
         const 官字_list = variants_官字 ? [linzklar, ...variants_官字] : [linzklar];
         const 風字_list = variants_風字 ? [linzklar, ...variants_風字] : [linzklar];
 
-        const vulgar_pronunciation = vulgar_map.get(linzklar)?.vulgar_pronunciation;
+        const vulgar_pronunciation_kana = vulgar_map.get(linzklar)?.vulgar_pronunciation;
+        const latin_pronunciation = vulgar_map.get(linzklar)?.vulgar_latin;
+
+        check_consistency({ context: linzklar, latin: latin_pronunciation, kana: vulgar_pronunciation_kana });
+
 
         return `<div class="group-char-entry-with-the-following">
 <div class="char-entry">
@@ -206,9 +213,8 @@ function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
 </div>
 
 <div class="entry">
-    <span class="entry-word-pronunciation" lang="ja">${pronunciation_}${
-        vulgar_pronunciation ? `　(俗に) ${vulgar_pronunciation}` : ""
-    }</span> <span class="entry-word-transcription" lang="ja">${[linzklar, ... new Set([... (variants_官字 ?? []), ...(variants_風字 ?? [])])].map(c => `【${c}】`).join("")
+    <span class="entry-word-pronunciation" lang="ja">${pronunciation_}${vulgar_pronunciation_kana ? `　(俗に) ${vulgar_pronunciation_kana}` : ""
+            }</span> <span class="entry-word-transcription" lang="ja">${[linzklar, ... new Set([... (variants_官字 ?? []), ...(variants_風字 ?? [])])].map(c => `【${c}】`).join("")
             }</span>
     <div class="sub">
 ${gen_definitions(definitions)}
@@ -253,5 +259,4 @@ ${translations.map(tr => `            <div class="sample-sentence-translation" l
 
         }        </div>
 `
-}
 }
