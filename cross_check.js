@@ -1,6 +1,8 @@
 import fs from 'fs';
 
 const GLOBAL_MAP = new Map();
+const EXISTING_PARENTS = [];
+
 populate("1_01_処");
 populate("1_02_下");
 populate("1_05_ナ而");
@@ -29,15 +31,21 @@ populate("2_14_針");
 populate("2_15_神十位");
 
 function populate(main_index) {
+    let current_parent_linzklar;
     const ungrouped = fs.readFileSync(`entries_${main_index}.tsv`, { encoding: 'utf8' })
         .trimEnd()
         .split(/\r?\n/)
         .map(line => line.split("\t"));
 
     const grouped = ungrouped.reduce((acc, entry) => {
-        const [linzklar, second_column, third_column] = entry;
-        if (acc[acc.length - 1]?.linzklar !== linzklar) {
-            acc.push({ linzklar, lines: [] });
+        const [entry_word, second_column, third_column] = entry;
+        if ([...entry_word].length === 1) {
+            current_parent_linzklar = entry_word;
+            EXISTING_PARENTS.push(current_parent_linzklar);
+        }
+
+        if (acc[acc.length - 1]?.entry_word !== entry_word) {
+            acc.push({ entry_word, lines: [], parent: current_parent_linzklar });
         }
         if (!second_column && !third_column) {
             // ignore
@@ -48,20 +56,45 @@ function populate(main_index) {
         }
         return acc;
     }, []);
-    
+
     grouped.forEach(g => {
-        // Check if g.linzklar is already in the map
-        if (GLOBAL_MAP.has(g.linzklar)) {
-            const old_content = GLOBAL_MAP.get(g.linzklar);
+        // Check if g.entry_word is already in the map
+        let parents = [g.parent];
+        if (GLOBAL_MAP.has(g.entry_word)) {
+            const old_content = GLOBAL_MAP.get(g.entry_word).lines;
+            parents = [...new Set([...parents, ...GLOBAL_MAP.get(g.entry_word).parents])]; // Merge parents
 
             // Check if the new content (g.lines) is different from the old content
             if (JSON.stringify(old_content) !== JSON.stringify(g.lines)) {
-                console.log(`Conflict detected for ${g.linzklar}:`);
+                console.log(`Conflict detected for ${g.entry_word}:`);
                 console.log(`Old content: ${JSON.stringify(old_content)}`);
                 console.log(`New content: ${JSON.stringify(g.lines)}`);
             }
         }
-        
-        GLOBAL_MAP.set(g.linzklar, g.lines);
+
+        GLOBAL_MAP.set(g.entry_word, { lines: g.lines, parents });
     });
 }
+
+let result = "";
+
+for (const [key, { parents }] of GLOBAL_MAP.entries()) {
+    // Check if all the linzklars in `key` are present in the parent list
+    if (new Set([...key]).isSubsetOf(new Set(parents))) {
+        // all present; ok
+    } else {
+        const not_yet_listed = [...key].filter(l => !parents.includes(l));
+
+        result += JSON.stringify({
+            word: key,
+            listed: parents,
+            not_yet_listed: {
+                now: not_yet_listed.filter(l => EXISTING_PARENTS.includes(l)),
+                later: not_yet_listed.filter(l => !EXISTING_PARENTS.includes(l)),
+            }
+        }) + "\n";
+    }
+}
+
+fs.writeFileSync("cross_check.jsonl", result, { encoding: 'utf8' });
+console.log("Cross-checking completed. Results written to cross_check.jsonl.");
