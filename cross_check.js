@@ -78,12 +78,13 @@ function populate(main_index) {
 
 let result = "";
 
-for (const [key, { parents }] of GLOBAL_MAP.entries()) {
+for (const [key_, { parents }] of GLOBAL_MAP.entries()) {
+    const key = key_.replaceAll(/[«»]/g, "");
     // Check if all the linzklars in `key` are present in the parent list
     if (new Set([...key]).isSubsetOf(new Set(parents))) {
         // all present; ok
     } else {
-        const not_yet_listed = [...key].filter(l => !parents.includes(l));
+        const not_yet_listed = [...new Set([...key].filter(l => !parents.includes(l)))];
 
         result += JSON.stringify({
             word: key,
