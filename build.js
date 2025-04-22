@@ -1,5 +1,5 @@
-const fs = require('fs');
-const pekzep_syllable = require('pekzep_syllable');
+import fs from 'fs';
+import { to_kana, from_latin } from 'pekzep_syllable';
 
 const variant_table = fs.readFileSync("VARIANTS.tsv", { encoding: 'utf-8' })
     .trimEnd()
@@ -167,7 +167,7 @@ function gen_pronunciation(linzklar) {
             
             // Check that the two are consistent
             const converted_kana = latin_pronunciation.split(" ").map(latin =>{
-                return  pekzep_syllable.to_kana(pekzep_syllable.from_latin(latin))
+                return to_kana(from_latin(latin))
             }
             ).join("");
             if (converted_kana !== kana_pronunciation) {
