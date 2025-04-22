@@ -1,4 +1,5 @@
 const fs = require('fs');
+const pekzep_syllable = require('pekzep_syllable');
 
 const variant_table = fs.readFileSync("VARIANTS.tsv", { encoding: 'utf-8' })
     .trimEnd()
@@ -19,8 +20,7 @@ const vulgar_map = new Map(vulgar_table.map(([linzklar, vulgar_pronunciation]) =
     return [linzklar, { vulgar_pronunciation }]
 }));
 
-const pronunciation_table = fs.readFileSync("PRONUNCIATIONS.tsv", { encoding: 'utf-8' })
-    .trimEnd()
+const pronunciation2_table = fs.readFileSync("PRONUNCIATIONS2.tsv", { encoding: 'utf-8' })
     .split(/\r?\n/)
     .map(line => line.split("\t"));
 
@@ -156,9 +156,26 @@ function gen_pronunciation(linzklar) {
     }
     return [...linzklar].map(c => {
         // search from the pronunciation table
-        const entry = pronunciation_table.find(([c_, _]) => c_ === c);
+        const entry = pronunciation2_table.find(([c_, _]) => c_ === c);
         if (entry) {
-            return entry[1];
+            const latin_pronunciation = entry[1];
+            const kana_pronunciation = entry[2];
+
+            if (latin_pronunciation === "" && kana_pronunciation === "") {
+                return "";
+            }
+            
+            // Check that the two are consistent
+            const converted_kana = latin_pronunciation.split(" ").map(latin =>{
+                return  pekzep_syllable.to_kana(pekzep_syllable.from_latin(latin))
+            }
+            ).join("");
+            if (converted_kana !== kana_pronunciation) {
+                console.log(`Pronunciation mismatch for ${c}: 
+    ${converted_kana} [converted from ${latin_pronunciation}] does not match with
+    ${kana_pronunciation}`);
+            }
+            return kana_pronunciation;
         } else {
             console.log(`Missing pronunciation for ${c}. Provide it in the PRONUNCIATIONS.tsv file.`);
             return `<span style="color: red">発音を提供せよ:【${c}】</span>`;
