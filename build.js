@@ -1,4 +1,7 @@
 const fs = require('fs');
+const pekzep_syllable = require('pekzep_syllable');
+
+console.log(pekzep_syllable.from_latin("pa2"));
 
 const variant_table = fs.readFileSync("VARIANTS.tsv", { encoding: 'utf-8' })
     .trimEnd()
