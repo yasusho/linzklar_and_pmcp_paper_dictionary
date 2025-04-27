@@ -10,6 +10,7 @@ populate("1_07_一？");
 populate("1_08_上");
 populate("1_09_二");
 populate("1_10_右");
+populate("1_11_言日");
 populate("1_12_口");
 populate("1_13_筆");
 populate("1_14_門");
