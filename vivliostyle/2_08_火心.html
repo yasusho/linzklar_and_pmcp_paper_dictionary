@@ -20,26 +20,31 @@
     /* それぞれのページ指定では柱見出しを両側に指定しておき、上記ルールにより片方だけ潰す */
     @page:nth(1) {
         @top-left { content: "火"; }
-        @top-right { content: "油"; }
+        @top-right { content: "赤"; }
     }
 
     @page:nth(2) {
-        @top-left { content: "油"; }
+        @top-left { content: "赤"; }
         @top-right { content: "心"; }
     }
 
     @page:nth(3) {
         @top-left { content: "心"; }
-        @top-right { content: "何"; }
+        @top-right { content: "心"; }
     }
 
     @page:nth(4) {
-        @top-left { content: "何"; }
-        @top-right { content: "識"; }
+        @top-left { content: "心"; }
+        @top-right { content: "悪"; }
     }
 
     @page:nth(5) {
-        @top-left { content: "識"; }
+        @top-left { content: "悪"; }
+        @top-right { content: "噫"; }
+    }
+
+    @page:nth(6) {
+        @top-left { content: "噫"; }
         @top-right { content: "怖"; }
     }
 </style>
@@ -90,6 +95,18 @@
     <span class="entry-word-linzklar">火機</span> <span class="entry-word-pronunciation" lang="ja">カン→キㇰ→</span> <span class="entry-word-transcription" lang="ja">【火機】</span>
     <div class="sub">
         <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">ヒーター</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">火寒</span> <span class="entry-word-pronunciation" lang="ja">カン→ロㇰ→</span> <span class="entry-word-transcription" lang="ja">【火寒】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">体調不良で体温が不安定な状態</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">火寒来終</span> <span class="sample-sentence-pronunciation" lang="ja">カン→ロㇰ→ザㇰ⤴タ·</span>
+            <span class="sample-sentence-transcription" lang="ja">【火寒来終】</span>
+            <div class="sample-sentence-translation" lang="ja">体調を崩した。</div>
+        </div>
     </div>
 </div>
 
@@ -332,6 +349,13 @@
 </div>
 
 <div class="entry">
+    <span class="entry-word-linzklar">心故</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→シㇳ⤴</span> <span class="entry-word-transcription" lang="ja">【心故】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">尋ねる</span><br>
+    </div>
+</div>
+
+<div class="entry">
     <span class="entry-word-linzklar">心軸</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→ラー→</span> <span class="entry-word-transcription" lang="ja">【心軸】</span>
     <div class="sub">
         <span class="sub-POS" lang="ja">[名詞]</span> <span class="sub-definition" lang="ja">心臓</span><br>
@@ -404,6 +428,13 @@
 </div>
 
 <div class="entry">
+    <span class="entry-word-linzklar">心善於別</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→カイㇳ·イェ·パウ→</span> <span class="entry-word-transcription" lang="ja">【心善於別】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[節要求動詞]</span> <span class="sub-definition" lang="ja">～するほうを好む</span><br>
+    </div>
+</div>
+
+<div class="entry">
     <span class="entry-word-linzklar">心来</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→ザㇰ⤴</span> <span class="entry-word-transcription" lang="ja">【心来】</span>
     <div class="sub">
         <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">感じる</span><br>
@@ -437,16 +468,33 @@
 </div>
 
 <div class="entry">
-    <span class="entry-word-linzklar">心無之</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→ムン→ア·</span> <span class="entry-word-transcription" lang="ja">【心無之】</span>
+    <span class="entry-word-linzklar">心真</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→プㇳ·</span> <span class="entry-word-transcription" lang="ja">【心真】</span>
     <div class="sub">
-        <span class="sub-POS" lang="ja">[副詞]</span> <span class="sub-definition" lang="ja">何気なく</span><br>
+        <span class="sub-POS" lang="ja">[節要求動詞＋状態動詞]</span> <span class="sub-definition" lang="ja">～が本当だと信じる</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">心我言真</span> <span class="sample-sentence-pronunciation" lang="ja">ヒアー→パイ⤴チェㇷ゚→プㇳ·</span>
+            <span class="sample-sentence-transcription" lang="ja">【心我言真】</span>
+            <div class="sample-sentence-translation" lang="ja">私の言うことを信じてください。</div>
+        </div>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">汝須心汝力真</span> <span class="sample-sentence-pronunciation" lang="ja">ムアー⤴リュ·ヒアー→ムアー⤴ピュ·プㇳ·</span>
+            <span class="sample-sentence-transcription" lang="ja">【汝須心汝力真】</span>
+            <div class="sample-sentence-translation" lang="ja">あなた自身の力を信じなきゃいけない。</div>
+        </div>
     </div>
 </div>
 
 <div class="entry">
-    <span class="entry-word-linzklar">心善於別</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→カイㇳ·イェ·パウ→</span> <span class="entry-word-transcription" lang="ja">【心善於別】</span>
+    <span class="entry-word-linzklar">心真於</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→プㇳ·イェ·</span> <span class="entry-word-transcription" lang="ja">【心真於】</span>
     <div class="sub">
-        <span class="sub-POS" lang="ja">[節要求動詞]</span> <span class="sub-definition" lang="ja">～するほうを好む</span><br>
+        <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">信じる</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">心無之</span> <span class="entry-word-pronunciation" lang="ja">ヒアー→ムン→ア·</span> <span class="entry-word-transcription" lang="ja">【心無之】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[副詞]</span> <span class="sub-definition" lang="ja">何気なく</span><br>
     </div>
 </div>
 
@@ -744,6 +792,20 @@
 </div>
 
 <div class="entry">
+    <span class="entry-word-linzklar">識言</span> <span class="entry-word-pronunciation" lang="ja">サン⤴チェㇷ゚→</span> <span class="entry-word-transcription" lang="ja">【識言】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[離合詞]</span> <span class="sub-definition" lang="ja">～の言うことが分かる、～の言葉を知っている、～の言語を理解する</span><br>
+        <div class="sample-sentence">
+            <span class="sample-sentence-linzklar">我無識汝之言</span> <span class="sample-sentence-pronunciation" lang="ja">パイ⤴ムン→サン⤴ムアー⤴ア·チェㇷ゚→</span>
+            <span class="sample-sentence-transcription" lang="ja">【我無識汝之言】</span>
+            <div class="sample-sentence-translation" lang="ja">私はあなたの言うことが分からない。</div>
+            <div class="sample-sentence-translation" lang="ja">私はあなたの言葉を知らない。</div>
+            <div class="sample-sentence-translation" lang="ja">私はあなたの言語を理解できない。</div>
+        </div>
+    </div>
+</div>
+
+<div class="entry">
     <span class="entry-word-linzklar">耳識</span> <span class="entry-word-pronunciation" lang="ja">ルアー→サン⤴</span> <span class="entry-word-transcription" lang="ja">【耳識】</span>
     <div class="sub">
         <span class="sub-POS" lang="ja">[動詞]</span> <span class="sub-definition" lang="ja">注意を傾けて聞く</span><br>
@@ -785,6 +847,21 @@
     <div class="sub">
         <span class="sub-POS" lang="ja">[名詞接続詞＋文末助詞]</span> <span class="sub-definition" lang="ja">～のもの</span><br>
         <span class="sub-definition" lang="ja">文末に置かれた <span class="inline-linzklar">之</span>【之】は文末助詞 <span class="inline-linzklar">噫</span>【噫】と同音であり区別がつかないため、「～のもの」で文を終わらせる際はその後ろにさらに文末助詞 <span class="inline-linzklar">噫</span>【噫】を置く。文字で書く際には <span class="inline-linzklar">之</span>【之】のみを書いて済ませてもよい。</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">真噫</span> <span class="entry-word-pronunciation" lang="ja">プㇳ·ア·</span> <span class="entry-word-transcription" lang="ja">【真噫】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[間投詞]</span> <span class="sub-definition" lang="ja">そうです</span><br>
+    </div>
+</div>
+
+<div class="entry">
+    <span class="entry-word-linzklar">無真噫</span> <span class="entry-word-pronunciation" lang="ja">ムン→プㇳ·ア·</span> <span class="entry-word-transcription" lang="ja">【無真噫】</span>
+    <div class="sub">
+        <span class="sub-POS" lang="ja">[間投詞]</span> <span class="sub-definition" lang="ja">そうではありません</span><br>
+        <span class="sub-definition" lang="ja">事務的に否定する場合に使う。日常的には<span class="inline-linzklar">無如其噫</span>【無如其噫】などと言うことが多い。</span><br>
     </div>
 </div>
 
