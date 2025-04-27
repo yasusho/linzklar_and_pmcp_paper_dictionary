@@ -33,11 +33,13 @@ let LINZKLARS_IN_ROUNDED = "";
 
 build("1_01_処");
 build("1_02_下");
+build("1_03_六");
 build("1_05_ナ而");
 build("1_07_一？");
 build("1_08_上");
 build("1_09_二");
 build("1_10_右");
+build("1_11_言日");
 build("1_12_口");
 build("1_13_筆");
 build("1_14_門");

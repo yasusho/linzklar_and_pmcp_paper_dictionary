@@ -10,6 +10,7 @@ populate("1_07_一？");
 populate("1_08_上");
 populate("1_09_二");
 populate("1_10_右");
+populate("1_11_言日");
 populate("1_12_口");
 populate("1_13_筆");
 populate("1_14_門");
@@ -85,13 +86,13 @@ for (const [key_, { parents }] of GLOBAL_MAP.entries()) {
         // all present; ok
     } else {
         const not_yet_listed = [...new Set([...key].filter(l => !parents.includes(l)))];
-        const fix_now = not_yet_listed.filter(l => EXISTING_PARENTS.includes(l));
+        const fix_NOW = not_yet_listed.filter(l => EXISTING_PARENTS.includes(l));
         const fix_later = not_yet_listed.filter(l => !EXISTING_PARENTS.includes(l));
         result += JSON.stringify({
             word: key,
             listed: parents,
             not_yet_listed: {
-                ... (fix_now.length === 0 ? {} : { fix_now }),
+                ... (fix_NOW.length === 0 ? {} : { fix_NOW }),
                 ... (fix_later.length === 0 ? {} : { fix_later }),
             }
         }) + "\n";

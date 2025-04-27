@@ -20,11 +20,13 @@ const vivliostyleConfig = {
 
     '1_01_処.html',
     '1_02_下.html',
+    '1_03_六.html',
     '1_05_ナ而.html',
     '1_07_一？.html',
     '1_08_上.html',
     '1_09_二.html',
     '1_10_右.html',
+    '1_11_言日.html',
     '1_12_口.html',
     '1_13_筆.html',
     '1_14_門.html',
