@@ -214,7 +214,7 @@ function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
 
 
         return `<div class="group-char-entry-with-the-following">
-<div class="char-entry">
+<div class="char-entry" id="u${linzklar.codePointAt(0).toString(16).toLowerCase()}">
     <span class="char-entry-linzklar">${官字_list.map(官字 => `<img src="../SY_handwriting/官字/${官字}.png" style="height: 1em">`).join("")
             }${風字_list.map(風字 => `<img src="../SY_handwriting/風字/${風字}.png" style="height: 1em">`).join("")
             }</span> 
