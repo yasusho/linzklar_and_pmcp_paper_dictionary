@@ -80,6 +80,8 @@ function populate(main_index) {
 
 let result = "";
 
+const fix_now_set = new Set();
+
 for (const [key_, { parents }] of GLOBAL_MAP.entries()) {
     const key = key_.replaceAll(/[«»]/g, "");
     // Check if all the linzklars in `key` are present in the parent list
@@ -89,6 +91,7 @@ for (const [key_, { parents }] of GLOBAL_MAP.entries()) {
         const not_yet_listed = [...new Set([...key].filter(l => !parents.includes(l)))];
         const fix_NOW = not_yet_listed.filter(l => EXISTING_PARENTS.includes(l));
         const fix_later = not_yet_listed.filter(l => !EXISTING_PARENTS.includes(l));
+        fix_now_set.add(...fix_NOW);
         result += JSON.stringify({
             word: key,
             listed: parents,
@@ -98,6 +101,18 @@ for (const [key_, { parents }] of GLOBAL_MAP.entries()) {
             }
         }) + "\n";
     }
+}
+
+for (const s of fix_now_set) {
+    if (!s) continue; 
+    let report = "";
+    for (const [key_, { parents, lines }] of GLOBAL_MAP.entries()) {
+        if (key_.includes(s) && !parents.includes(s)) {
+            // this linzklar is in the key but not in the parents; report this
+            report += lines.map(l => `${key_}\t${l.second_column}\t${l.third_column}`).join("\n") + "\n";
+        }
+    }
+    fs.writeFileSync(`cross_check/${s}.tsv`, report, { encoding: 'utf8' });
 }
 
 fs.writeFileSync("cross_check.jsonl", result, { encoding: 'utf8' });
