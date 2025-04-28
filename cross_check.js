@@ -107,10 +107,9 @@ for (const s of fix_now_set) {
     if (!s) continue; 
     let report = "";
     for (const [key_, { parents, lines }] of GLOBAL_MAP.entries()) {
-        const key = key_.replaceAll(/[«»]/g, "");
-        if (key.includes(s) && !parents.includes(s)) {
+        if (key_.includes(s) && !parents.includes(s)) {
             // this linzklar is in the key but not in the parents; report this
-            report += lines.map(l => `${key}\t${l.second_column}\t${l.third_column}`).join("\n") + "\n";
+            report += lines.map(l => `${key_}\t${l.second_column}\t${l.third_column}`).join("\n") + "\n";
         }
     }
     fs.writeFileSync(`cross_check/${s}.tsv`, report, { encoding: 'utf8' });
