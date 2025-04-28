@@ -21,6 +21,7 @@ const vivliostyleConfig = {
     '1_01_処.html',
     '1_02_下.html',
     '1_03_六.html',
+    '1_04_人.html',
     '1_05_ナ而.html',
     '1_06_一ノ.html',
     '1_07_一？.html',

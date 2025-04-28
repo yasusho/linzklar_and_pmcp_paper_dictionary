@@ -34,6 +34,7 @@ let LINZKLARS_IN_ROUNDED = "";
 build("1_01_処");
 build("1_02_下");
 build("1_03_六");
+build("1_04_人");
 build("1_05_ナ而");
 build("1_06_一ノ");
 build("1_07_一？");
@@ -165,6 +166,10 @@ function gen_pronunciation(linzklar) {
             const kana_pronunciation = entry[2];
 
             check_consistency({ context: c, latin: latin_pronunciation, kana: kana_pronunciation });
+            if (!kana_pronunciation && linzklar.length > 1) {
+                console.log(`Empty pronunciation for ${c}, used in a multichar context ${linzklar}`);
+                return `<span style="color: red">発音が定義されていない字【${c}】の熟語</span>`;
+            }
             return kana_pronunciation;
         } else {
             console.log(`Missing pronunciation for ${c}. Provide it in the PRONUNCIATIONS.tsv file.`);
