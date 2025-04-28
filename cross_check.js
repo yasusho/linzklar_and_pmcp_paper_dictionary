@@ -7,6 +7,7 @@ populate("1_01_処");
 populate("1_02_下");
 populate("1_03_六");
 populate("1_05_ナ而");
+populate("1_06_一ノ");
 populate("1_07_一？");
 populate("1_08_上");
 populate("1_09_二");
