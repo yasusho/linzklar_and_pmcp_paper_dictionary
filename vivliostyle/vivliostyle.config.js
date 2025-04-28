@@ -18,6 +18,9 @@ const vivliostyleConfig = {
 
     'index.html',
 
+    'kana_index.html'
+    ,
+
     '1_01_処.html',
     '1_02_下.html',
     '1_03_六.html',
@@ -48,7 +51,7 @@ const vivliostyleConfig = {
     '2_12_フ.html',
     '2_13_傾.html',
     '2_14_針.html',
-    '2_15_神十位.html',
+    '2_15_神十位.html'
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
   // entryContext: './manuscripts', // default to '.' (relative to 'vivliostyle.config.js')
   output: [ "../言将机戦人等定引之字言集.pdf" ] // path to generate draft file(s). default to '{title}.pdf'
