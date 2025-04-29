@@ -2,6 +2,7 @@
     column-count: 2;
     --scale: 0.93;
 }
+
 body {
     font-family: "Source Han Serif";
 }
@@ -18,12 +19,14 @@ a::after {
     font-size: calc(9pt * var(--scale));
     font-weight: bold;
     font-family: "Source Han Serif Heavy";
-    line-break: strict; 
+    line-break: strict;
 }
 
 .kana-index-linzklar {
     font-size: calc(12pt * var(--scale));
     font-family: "linzklar_rounded";
+    position: relative;
+    top: .2em;
     font-weight: normal;
 }
 
@@ -49,4 +52,6 @@ a {
 .kana-index-latin {
     font-size: calc(8pt * var(--scale));
     font-family: "Source Han Serif";
+    position: relative;
+    top: -.15em;
 }

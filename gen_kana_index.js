@@ -79,8 +79,8 @@ function 行(g) {
 function tr({ linzklar, kana, latin, file_name }) {
     return `<tr>
                 <td><span class="kana-index-ja" lang="ja">${kana}</span></td>
-                <td class="kana-index-latin">(${latin})</td>
-                <td><span class="kana-index-linzklar">${linzklar}</span><span class="kana-index-ja" lang="ja">【${linzklar}】</span></td>
+                <td><span class="kana-index-latin">(${latin})</span></td>
+                <td><span class="kana-index-linzklar">${linzklar}</span></td><td><span class="kana-index-ja" lang="ja">【${linzklar}】</span></td>
                 <td class="link_to_char"><a href="${file_name}.html#u${linzklar.codePointAt(0).toString(16).toLowerCase()}"></a></td>
             </tr>`;
 }
@@ -88,7 +88,7 @@ function tr({ linzklar, kana, latin, file_name }) {
 function tr_2syllable({ linzklar, kana, file_name }) {
     return `<tr>
                 <td colspan="2"><span class="kana-index-ja" lang="ja">${kana}</span></td>
-                <td><span class="kana-index-linzklar">${linzklar}</span><span class="kana-index-ja" lang="ja">【${linzklar}】</span></td>
+                <td><span class="kana-index-linzklar">${linzklar}</span></td><td><span class="kana-index-ja" lang="ja">【${linzklar}】</span></td>
                 <td class="link_to_char"><a href="${file_name}.html#u${linzklar.codePointAt(0).toString(16).toLowerCase()}"></a></td>
             </tr>`;
 }
