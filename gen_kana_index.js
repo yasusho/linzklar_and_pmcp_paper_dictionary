@@ -82,18 +82,10 @@ fs.writeFileSync('vivliostyle/kana_index.html',
             ${tr({linzklar: "道", kana: "ポウ→", latin: "po1", file_name: "1_03_%E5%85%AD"})}
             ${tr({linzklar: "羊", kana: "ポウ→", latin: "po1", file_name: "2_10_%E3%83%BD%E3%83%BD"})}
             ${行('ま')}
-            <tr>
-                <td colspan="2"><span class="kana-index-ja" lang="ja">ムン→ホアイ⤴</span></td>
-                <td><span class="kana-index-linzklar">妙</span><span class="kana-index-ja" lang="ja">【妙】</span></td>
-                <td class="link_to_char"><a href="2_03_%E3%83%8E%E3%83%8E.html#u${"妙".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
+            ${tr_2syllable({linzklar: "妙", kana: "ムン→ホアイ⤴", file_name: "2_03_%E3%83%8E%E3%83%8E"})}
             ${tr({linzklar: "米", kana: "モウ→", latin: "mo1", file_name: "2_14_%E9%87%9D"})}
             ${tr({linzklar: "行", kana: "モㇰ→", latin: "mok1", file_name: "1_03_%E5%85%AD"})}
-            <tr>
-                <td colspan="2"><span class="kana-index-ja" lang="ja">モㇰ→タウン→</span></td>
-                <td><span class="kana-index-linzklar">増</span><span class="kana-index-ja" lang="ja">【増】</span></td>
-                <td class="link_to_char"><a href="1_03_%E5%85%AD.html#u${"増".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
+            ${tr_2syllable({linzklar: "増", kana: "モㇰ→タウン→", file_name: "1_03_%E5%85%AD"})}
         </table>
     </section>
 </body>
@@ -110,5 +102,13 @@ return `<tr>
                 <td class="kana-index-latin">(${latin})</td>
                 <td><span class="kana-index-linzklar">${linzklar}</span><span class="kana-index-ja" lang="ja">【${linzklar}】</span></td>
                 <td class="link_to_char"><a href="${file_name}.html#u${linzklar.codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>`
+            </tr>`;
+}
+
+function tr_2syllable({linzklar, kana, file_name}) {
+    return `<tr>
+                <td colspan="2"><span class="kana-index-ja" lang="ja">${kana}</span></td>
+                <td><span class="kana-index-linzklar">${linzklar}</span><span class="kana-index-ja" lang="ja">【${linzklar}】</span></td>
+                <td class="link_to_char"><a href="${file_name}.html#u${linzklar.codePointAt(0).toString(16).toLowerCase()}"></a></td>
+            </tr>`;
 }
