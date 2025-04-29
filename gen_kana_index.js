@@ -1,8 +1,57 @@
 import fs from 'fs';
 
-fs.writeFileSync('vivliostyle/kana_index.html', 
+const pronunciation2_table = fs.readFileSync("PRONUNCIATIONS2.tsv", { encoding: 'utf-8' })
+    .split(/\r?\n/)
+    .map(line => line.split("\t"));
 
-`<!doctype html>
+function getPercentEncodedFileName(linzklar) {
+    const file_names = fs.readFileSync("main_indexes.txt", { encoding: 'utf-8' })
+        .trim()
+        .split(/\r?\n/);
+    for (const file_name of file_names) {
+        const belongs = fs.readFileSync(`entries_${file_name}.tsv`, { encoding: 'utf-8' }).match(new RegExp(`^${linzklar}\t`, "m"));
+        if (belongs) {
+            return encodeURIComponent(file_name);
+        }
+    }
+    throw new Error(`File name not found for ${linzklar}: cannot generate the index`);
+}
+
+const trlist =
+    pronunciation2_table.flatMap(([linzklar, latin, kana]) => {
+        if (linzklar === "座") {
+            return [];
+        }
+        if (latin.trim().includes(" ")) {
+            // 2-syllable word
+            return [{ initial_kana: kana[0], content: tr_2syllable({ linzklar, kana, file_name: getPercentEncodedFileName(linzklar) }) }]
+        } else {
+            // 1-syllable word
+            return [{ initial_kana: kana[0], content: tr({ linzklar, kana, latin, file_name: getPercentEncodedFileName(linzklar) }) }]
+        }
+    });
+
+// 「ア行」「カ行」などの見出しを追加する
+
+const trlist_with_headers = trlist.flatMap((tr, i) => {
+    // i == 0 の場合は「ア行」見出しを追加
+    if (i === 0) {
+        return [行('ア'), tr.content];
+    }
+
+    const prev_tr = trlist[i - 1];
+    if (tr.initial_kana !== prev_tr.initial_kana 
+        && "アカサタナハマヤラワガザダバパ".includes(tr.initial_kana)
+        && !"アカサタナハマヤラワガザダバパ".includes(prev_tr.initial_kana)
+     ) {
+        return [行(tr.initial_kana), tr.content];
+    }
+    return [tr.content];
+})
+
+fs.writeFileSync('vivliostyle/kana_index.html',
+
+    `<!doctype html>
 <html lang="ja">
 
 <head>
@@ -70,22 +119,7 @@ fs.writeFileSync('vivliostyle/kana_index.html',
     <section class="level1" aria-labelledby="index">
         <h2 id="index">仮名索引</h2>
         <table>
-            ${行('た')}
-            ${tr({linzklar: "味", kana: "トゥイㇰ→", latin: "tuik1", file_name: "1_02_%E4%B8%8B"})}
-            ${tr({linzklar: "残", kana: "トゥエゥㇰ·", latin: "tuek", file_name: "1_04_%E4%BA%BA"})}
-
-            ${行('は')}
-            ${tr({linzklar: "豊", kana: "ホウ→", latin: "ho1", file_name: "2_12_%E3%83%95"})}
-            ${tr({linzklar: "骨", kana: "ホウ⤴", latin: "ho2", file_name: "2_07_%E5%A4%A9"})}
-            ${tr({linzklar: "軟", kana: "ホウ·", latin: "ho", file_name: "1_02_%E4%B8%8B"})}
-            ${tr({linzklar: "満", kana: "ボウ→", latin: "bo1", file_name: "2_04_%E4%B9%8B"})}
-            ${tr({linzklar: "道", kana: "ポウ→", latin: "po1", file_name: "1_03_%E5%85%AD"})}
-            ${tr({linzklar: "羊", kana: "ポウ→", latin: "po1", file_name: "2_10_%E3%83%BD%E3%83%BD"})}
-            ${行('ま')}
-            ${tr_2syllable({linzklar: "妙", kana: "ムン→ホアイ⤴", file_name: "2_03_%E3%83%8E%E3%83%8E"})}
-            ${tr({linzklar: "米", kana: "モウ→", latin: "mo1", file_name: "2_14_%E9%87%9D"})}
-            ${tr({linzklar: "行", kana: "モㇰ→", latin: "mok1", file_name: "1_03_%E5%85%AD"})}
-            ${tr_2syllable({linzklar: "増", kana: "モㇰ→タウン→", file_name: "1_03_%E5%85%AD"})}
+            ${trlist_with_headers.join("\n")}
         </table>
     </section>
 </body>
@@ -96,8 +130,8 @@ function 行(g) {
     return `<tr><td colspan="4"><h3 id="${g}行">${g}行</h3></td></tr>`;
 }
 
-function tr({linzklar, kana, latin, file_name}) {
-return `<tr>
+function tr({ linzklar, kana, latin, file_name }) {
+    return `<tr>
                 <td><span class="kana-index-ja" lang="ja">${kana}</span></td>
                 <td class="kana-index-latin">(${latin})</td>
                 <td><span class="kana-index-linzklar">${linzklar}</span><span class="kana-index-ja" lang="ja">【${linzklar}】</span></td>
@@ -105,7 +139,7 @@ return `<tr>
             </tr>`;
 }
 
-function tr_2syllable({linzklar, kana, file_name}) {
+function tr_2syllable({ linzklar, kana, file_name }) {
     return `<tr>
                 <td colspan="2"><span class="kana-index-ja" lang="ja">${kana}</span></td>
                 <td><span class="kana-index-linzklar">${linzklar}</span><span class="kana-index-ja" lang="ja">【${linzklar}】</span></td>
