@@ -40,12 +40,15 @@ const trlist_with_headers = trlist.flatMap((tr, i) => {
     }
 
     const prev_tr = trlist[i - 1];
-    if (tr.initial_kana !== prev_tr.initial_kana 
-        && "アカサタナハマヤラワガザダバパ".includes(tr.initial_kana)
-        && !"アカサタナハマヤラワガザダバパ".includes(prev_tr.initial_kana)
-     ) {
-        return [行(tr.initial_kana), tr.content];
+
+    const boundaries = "カサタナハマヤラワ";
+
+    for (let j = 0; j < boundaries.length; j++) {
+        if (tr.initial_kana >= boundaries[j] && prev_tr.initial_kana < boundaries[j]) {
+            return [行(boundaries[j]), tr.content];
+        }
     }
+
     return [tr.content];
 })
 
