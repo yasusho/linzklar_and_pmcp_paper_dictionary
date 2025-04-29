@@ -37,7 +37,7 @@ h2 {
 }
 
 h3 {
-    margin-top: 3px;
+    margin-top: 12px;
     margin-bottom: -3px;
     font-size: calc(12pt * var(--scale));
 }
