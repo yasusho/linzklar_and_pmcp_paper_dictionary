@@ -59,67 +59,13 @@ fs.writeFileSync('vivliostyle/kana_index.html',
     <title>仮名索引</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="kana_index.css">
-    <style>
-        :root {
-            column-count: 2;
-            --scale: 0.93;
-        }
-        body {
-            font-family: "Source Han Serif";
-        }
-
-        a::after {
-            content: target-counter(attr(href url), page);
-        }
-
-        .link_to_char {
-            text-align: right;
-        }
-
-        .kana-index-ja {
-            font-size: calc(9pt * var(--scale));
-            font-weight: bold;
-            font-family: "Source Han Serif Heavy";
-            line-break: strict; 
-        }
-
-        .kana-index-linzklar {
-            font-size: calc(12pt * var(--scale));
-            font-family: "linzklar_rounded";
-            font-weight: normal;
-        }
-
-        h2 {
-            float: block-start;
-            float-reference: page;
-            font-size: calc(20pt * var(--scale));
-        }
-
-        h3 {
-            margin-top: 3px;
-            margin-bottom: -3px;
-            font-size: calc(12pt * var(--scale));
-        }
-
-        a {
-            font-size: calc(9pt * var(--scale));
-            font-family: "Source Han Serif";
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .kana-index-latin {
-            font-size: calc(9pt * var(--scale));
-            font-family: "Source Han Serif";
-        }
-    </style>
 </head>
 
 <body>
     <section class="level1" aria-labelledby="index">
         <h2 id="index">仮名索引</h2>
         <table>
-            ${trlist_with_headers.join("\n")}
+            ${trlist_with_headers.join("\n" + " ".repeat(12))}
         </table>
     </section>
 </body>

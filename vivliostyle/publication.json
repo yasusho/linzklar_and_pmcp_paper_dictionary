@@ -7,15 +7,11 @@
   "conformsTo": "https://github.com/vivliostyle/vivliostyle-cli",
   "name": "言将机戦人等定引之字言集",
   "author": "日本机戦連盟",
-  "dateModified": "2025-04-29T01:32:42.747Z",
+  "dateModified": "2025-04-29T02:10:07.445Z",
   "readingOrder": [
     {
       "url": "index.html",
       "name": "言将机戦人等定引之字言集"
-    },
-    {
-      "url": "kana_index.html",
-      "name": "仮名索引"
     },
     {
       "url": "1_01_%E5%87%A6.html",
@@ -136,6 +132,10 @@
     {
       "url": "2_15_%E7%A5%9E%E5%8D%81%E4%BD%8D.html",
       "name": "言将机戦人等定引之字言集"
+    },
+    {
+      "url": "kana_index.html",
+      "name": "仮名索引"
     }
   ],
   "resources": [],
