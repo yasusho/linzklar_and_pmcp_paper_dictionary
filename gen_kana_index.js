@@ -71,12 +71,7 @@ fs.writeFileSync('vivliostyle/kana_index.html',
         <h2 id="index">仮名索引</h2>
         <table>
             ${行('た')}
-            <tr>
-                <td><span class="kana-index-ja" lang="ja">トゥイㇰ→</span></td>
-                <td class="kana-index-latin">(tuik1)</td>
-                <td><span class="kana-index-linzklar">味</span><span class="kana-index-ja" lang="ja">【味】</span></td>
-                <td class="link_to_char"><a href="1_02_%E4%B8%8B.html#u${"味".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
+            ${tr({linzklar: "味", kana: "トゥイㇰ→", latin: "tuik1", file_name: "1_02_%E4%B8%8B"})}
             <tr>
                 <td><span class="kana-index-ja" lang="ja">トゥエゥㇰ·</span>
                 <td class="kana-index-latin">(tuek)</td>
@@ -149,4 +144,13 @@ fs.writeFileSync('vivliostyle/kana_index.html',
 
 function 行(g) {
     return `<tr><td colspan="4"><h3 id="${g}行">${g}行</h3></td></tr>`;
+}
+
+function tr({linzklar, kana, latin, file_name}) {
+return `<tr>
+                <td><span class="kana-index-ja" lang="ja">${kana}</span></td>
+                <td class="kana-index-latin">(${latin})</td>
+                <td><span class="kana-index-linzklar">${linzklar}</span><span class="kana-index-ja" lang="ja">【${linzklar}】</span></td>
+                <td class="link_to_char"><a href="${file_name}.html#u${linzklar.codePointAt(0).toString(16).toLowerCase()}"></a></td>
+            </tr>`
 }
