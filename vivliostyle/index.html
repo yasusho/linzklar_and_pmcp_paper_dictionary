@@ -8,6 +8,17 @@
         body {
             font-family: "Source Han Serif";
         }
+
+        :root {
+            --scale: 0.93;
+        }
+
+        h2 {
+            float: block-start;
+            float-reference: page;
+            font-size: calc(20pt * var(--scale));
+        }
+
         nav {
             break-before: page;
         }
