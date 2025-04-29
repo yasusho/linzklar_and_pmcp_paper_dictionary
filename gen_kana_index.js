@@ -72,65 +72,23 @@ fs.writeFileSync('vivliostyle/kana_index.html',
         <table>
             ${行('た')}
             ${tr({linzklar: "味", kana: "トゥイㇰ→", latin: "tuik1", file_name: "1_02_%E4%B8%8B"})}
-            <tr>
-                <td><span class="kana-index-ja" lang="ja">トゥエゥㇰ·</span>
-                <td class="kana-index-latin">(tuek)</td>
-                <td><span class="kana-index-linzklar">残</span><span class="kana-index-ja" lang="ja">【残】</span></td>
-                <td class="link_to_char"><a href="1_04_%E4%BA%BA.html#u${"残".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
+            ${tr({linzklar: "残", kana: "トゥエゥㇰ·", latin: "tuek", file_name: "1_04_%E4%BA%BA"})}
 
             ${行('は')}
-            <tr>
-                <td><span class="kana-index-ja" lang="ja">ホウ→</span></td>
-                <td class="kana-index-latin">(ho1)</td>
-                <td><span class="kana-index-linzklar">豊</span><span class="kana-index-ja" lang="ja">【豊】</span></td>
-                <td class="link_to_char"><a href="2_12_%E3%83%95.html#u${"豊".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
-            <tr>
-                <td><span class="kana-index-ja" lang="ja">ホウ⤴</span></td>
-                <td class="kana-index-latin">(ho2)</td>
-                <td><span class="kana-index-linzklar">骨</span><span class="kana-index-ja" lang="ja">【骨】</span></td>
-                <td class="link_to_char"><a href="2_07_%E5%A4%A9.html#u${"骨".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
-            <tr>
-                <td><span class="kana-index-ja" lang="ja">ホウ·</td>
-                <td class="kana-index-latin">(ho)</td>
-                <td><span class="kana-index-linzklar">軟</span><span class="kana-index-ja" lang="ja">【軟】</span></td>
-                <td class="link_to_char"><a href="1_02_%E4%B8%8B.html#u${"軟".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
-            <tr><td><span class="kana-index-ja" lang="ja">ボウ→</span></td>
-                <td class="kana-index-latin">(bo1)</td>
-                <td><span class="kana-index-linzklar">満</span><span class="kana-index-ja" lang="ja">【満】</span></td>
-                <td class="link_to_char"><a href="2_04_%E4%B9%8B.html#u${"満".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
-            <tr><td><span class="kana-index-ja" lang="ja">ポウ→</span></td>
-                <td class="kana-index-latin">(po1)</td>
-                <td><span class="kana-index-linzklar">道</span><span class="kana-index-ja" lang="ja">【道】</span></td>
-                <td class="link_to_char"><a href="1_03_%E5%85%AD.html#u${"道".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
-            <tr><td><span class="kana-index-ja" lang="ja">ポウ→</span></td>
-                <td class="kana-index-latin">(po1)</td>
-                <td><span class="kana-index-linzklar">羊</span><span class="kana-index-ja" lang="ja">【羊】</span></td>
-                <td class="link_to_char"><a href="2_10_%E3%83%BD%E3%83%BD.html#u${"羊".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
+            ${tr({linzklar: "豊", kana: "ホウ→", latin: "ho1", file_name: "2_12_%E3%83%95"})}
+            ${tr({linzklar: "骨", kana: "ホウ⤴", latin: "ho2", file_name: "2_07_%E5%A4%A9"})}
+            ${tr({linzklar: "軟", kana: "ホウ·", latin: "ho", file_name: "1_02_%E4%B8%8B"})}
+            ${tr({linzklar: "満", kana: "ボウ→", latin: "bo1", file_name: "2_04_%E4%B9%8B"})}
+            ${tr({linzklar: "道", kana: "ポウ→", latin: "po1", file_name: "1_03_%E5%85%AD"})}
+            ${tr({linzklar: "羊", kana: "ポウ→", latin: "po1", file_name: "2_10_%E3%83%BD%E3%83%BD"})}
             ${行('ま')}
             <tr>
                 <td colspan="2"><span class="kana-index-ja" lang="ja">ムン→ホアイ⤴</span></td>
                 <td><span class="kana-index-linzklar">妙</span><span class="kana-index-ja" lang="ja">【妙】</span></td>
                 <td class="link_to_char"><a href="2_03_%E3%83%8E%E3%83%8E.html#u${"妙".codePointAt(0).toString(16).toLowerCase()}"></a></td>
             </tr>
-            <tr>
-                <td><span class="kana-index-ja" lang="ja">モウ→</span></td>
-                <td class="kana-index-latin">(mo1)</td>
-                <td><span class="kana-index-linzklar">米</span><span class="kana-index-ja" lang="ja">【米】</span></td>
-                <td class="link_to_char"><a href="2_14_%E9%87%9D.html#u${"米".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
-            <tr>
-                <td><span class="kana-index-ja" lang="ja">モㇰ→</span></td>
-                <td class="kana-index-latin">(mok1)</td>
-                <td><span class="kana-index-linzklar">行</span><span class="kana-index-ja" lang="ja">【行】</span></td>
-                <td class="link_to_char"><a href="1_03_%E5%85%AD.html#u${"行".codePointAt(0).toString(16).toLowerCase()}"></a></td>
-            </tr>
+            ${tr({linzklar: "米", kana: "モウ→", latin: "mo1", file_name: "2_14_%E9%87%9D"})}
+            ${tr({linzklar: "行", kana: "モㇰ→", latin: "mok1", file_name: "1_03_%E5%85%AD"})}
             <tr>
                 <td colspan="2"><span class="kana-index-ja" lang="ja">モㇰ→タウン→</span></td>
                 <td><span class="kana-index-linzklar">増</span><span class="kana-index-ja" lang="ja">【増】</span></td>
