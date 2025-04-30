@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { to_kana, from_latin } from 'pekzep_syllable';
 
 const pronunciation2_table = fs.readFileSync("PRONUNCIATIONS2.tsv", { encoding: 'utf-8' })
     .split(/\r?\n/)
@@ -18,10 +19,15 @@ function getPercentEncodedFileName(linzklar) {
 }
 
 const trlist =
-    pronunciation2_table.flatMap(([linzklar, latin, kana]) => {
+    pronunciation2_table.flatMap(([linzklar, latin_, kana]) => {
         if (linzklar === "座") {
             return [];
         }
+
+        const latin = latin_.startsWith("z") ? (
+            from_latin(latin_).onset + latin_.slice(1) // replace the z with z-acute if necessary
+        ) : latin_;
+
         if (latin.trim().includes(" ")) {
             // 2-syllable word
             return [{ initial_kana: kana[0], content: tr_2syllable({ linzklar, kana, file_name: getPercentEncodedFileName(linzklar) }) }]
