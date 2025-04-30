@@ -33,7 +33,7 @@ async function cut_up(source, rows) {
     }
 }
 
-// cut_up('楷1', 10);
+cut_up('楷1', 10);
 cut_up('楷2', 6);
 cut_up('楷3', 5);
 cut_up('草1', 10);
