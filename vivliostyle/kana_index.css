@@ -51,7 +51,7 @@ a {
 
 .kana-index-latin {
     font-size: calc(8pt * var(--scale));
-    font-family: "Source Han Serif";
+    font-family: "Times New Roman";
     position: relative;
     top: -.15em;
 }
