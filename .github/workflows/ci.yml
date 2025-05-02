@@ -72,7 +72,7 @@ jobs:
 
       - name: PDF の存在確認とアーティファクト登録
         run: |
-          if not exist "言将机戦人等定引之字言集.pdf" (
+          if not exist "言将机戦人等_網別清字言書.pdf" (
             echo PDF not found!
             exit /b 1
           )
@@ -82,5 +82,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pdf-output
-          path: 言将机戦人等定引之字言集.pdf
+          path: 言将机戦人等_網別清字言書.pdf
 
