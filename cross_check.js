@@ -84,6 +84,8 @@ let result = "";
 
 const fix_now_set = new Set();
 
+console.log(`Cross-checking ${GLOBAL_MAP.size} unique entries...`);
+
 for (const [key_, { parents }] of GLOBAL_MAP.entries()) {
     const key = key_.replaceAll(/[«»]/g, "");
     // Check if all the linzklars in `key` are present in the parent list
