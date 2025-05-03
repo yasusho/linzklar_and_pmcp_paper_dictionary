@@ -115,6 +115,17 @@ header {
     float-reference: page;
 }
 
+.redirect_to_char a::after {
+    content: target-counter(attr(href url), page);
+}
+
+.redirect_to_char a {
+    font-size: calc(9pt * var(--scale));
+    font-family: "Source Han Serif";
+    text-decoration: none;
+    color: inherit;
+}
+
 @page {
     size: 128mm 182mm
         /* JIS B6 */
