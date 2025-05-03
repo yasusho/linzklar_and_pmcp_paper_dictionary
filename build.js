@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { to_kana, from_latin } from 'pekzep_syllable';
+import { getPercentEncodedFileNameOfSection } from './gen_kana_index.js';
 
 const variant_table = fs.readFileSync("VARIANTS.tsv", { encoding: 'utf-8' })
     .trimEnd()
@@ -79,9 +80,9 @@ function group_entries_tsv(ungrouped) {
     // First, group by the first column (linzklar)
     // But keep the order of the original array
     const grouped = ungrouped.reduce((acc, entry) => {
-        const [linzklar, second_column, third_column] = entry;
-        if (acc[acc.length - 1]?.linzklar !== linzklar) {
-            acc.push({ linzklar, definitions: [], sentences: [] });
+        const [linzklar_or_command, second_column, third_column] = entry;
+        if (acc[acc.length - 1]?.linzklar !== linzklar_or_command) {
+            acc.push({ linzklar: linzklar_or_command, definitions: [], sentences: [] });
         }
         if (!second_column && !third_column) {
             // ignore
@@ -196,13 +197,14 @@ ${kana}`);
 
 function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
     if (linzklar_.startsWith("#REDIRECT")) {
+        const o = JSON.parse(linzklar_.slice("#REDIRECT".length));
         return `<div class="group-char-entry-with-the-following">
 <div class="char-entry redirection-entry">
-    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/混.png" style="height: 1em"><img src="../SY_handwriting/風字/混.png" style="height: 1em"></span> 
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/${o.src}.png" style="height: 1em"><img src="../SY_handwriting/風字/${o.src}.png" style="height: 1em"></span> 
 </div>
 
 <div class="entry">
-    <span class="redirect_to_char"><a href="2_05_%E5%9B%9B.html#u6df7">⇒ p.</a></span>
+    <span class="redirect_to_char"><a href="${getPercentEncodedFileNameOfSection(o.dest)}.html#u${o.dest.codePointAt(0).toString(16).toLowerCase()}">⇒ p.</a></span>
 </div>
 </div> <!-- .group-char-entry-with-the-following -->`;
     }
