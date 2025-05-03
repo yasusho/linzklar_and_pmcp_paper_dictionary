@@ -111,7 +111,7 @@ function build(main_index) {
         LINZKLARS_IN_ROUNDED += value.left + value.right;
     });
 
-    const resulting_file_content = `<link rel="stylesheet" href="common.css">
+    const resulting_file_content = `<link rel="stylesheet" href="section.css">
 
 <style>
     @page:left { 
