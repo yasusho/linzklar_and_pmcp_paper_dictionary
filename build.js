@@ -195,6 +195,18 @@ ${kana}`);
 }
 
 function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
+    if (linzklar_.startsWith("#REDIRECT")) {
+        return `<div class="group-char-entry-with-the-following">
+<div class="char-entry redirection-entry">
+    <span class="char-entry-linzklar"><img src="../SY_handwriting/官字/混.png" style="height: 1em"><img src="../SY_handwriting/風字/混.png" style="height: 1em"></span> 
+</div>
+
+<div class="entry">
+    <span class="redirect_to_char"><a href="2_05_%E5%9B%9B.html#u6df7">⇒ p.</a></span>
+</div>
+</div> <!-- .group-char-entry-with-the-following -->`;
+    }
+
     const pronunciation_ = gen_pronunciation(linzklar_);
     const linzklar = linzklar_.replace(/«(.+?)»/g, "$1"); // remove the markers of idiomatic multichar
 

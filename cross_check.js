@@ -43,6 +43,10 @@ function populate(main_index) {
 
     const grouped = ungrouped.reduce((acc, entry) => {
         const [entry_word, second_column, third_column] = entry;
+        if (entry_word.startsWith("#REDIRECT")) {
+            // Ignore redirect lines
+            return acc;
+        } 
         if ([...entry_word].length === 1) {
             current_parent_linzklar = entry_word;
             EXISTING_PARENTS.push(current_parent_linzklar);
