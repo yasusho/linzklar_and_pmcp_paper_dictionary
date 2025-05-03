@@ -5,7 +5,7 @@ const pronunciation2_table = fs.readFileSync("PRONUNCIATIONS2.tsv", { encoding: 
     .split(/\r?\n/)
     .map(line => line.split("\t"));
 
-function getPercentEncodedFileName(linzklar) {
+export function getPercentEncodedFileNameOfSection(linzklar) {
     const file_names = fs.readFileSync("main_indexes.txt", { encoding: 'utf-8' })
         .trim()
         .split(/\r?\n/);
@@ -30,10 +30,10 @@ const trlist =
 
         if (latin.trim().includes(" ")) {
             // 2-syllable word
-            return [{ initial_kana: kana[0], content: tr_2syllable({ linzklar, kana, file_name: getPercentEncodedFileName(linzklar) }) }]
+            return [{ initial_kana: kana[0], content: tr_2syllable({ linzklar, kana, file_name: getPercentEncodedFileNameOfSection(linzklar) }) }]
         } else {
             // 1-syllable word
-            return [{ initial_kana: kana[0], content: tr({ linzklar, kana, latin, file_name: getPercentEncodedFileName(linzklar) }) }]
+            return [{ initial_kana: kana[0], content: tr({ linzklar, kana, latin, file_name: getPercentEncodedFileNameOfSection(linzklar) }) }]
         }
     });
 

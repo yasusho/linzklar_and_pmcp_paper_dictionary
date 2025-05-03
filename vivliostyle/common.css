@@ -115,6 +115,26 @@ header {
     float-reference: page;
 }
 
+.redirect_to_char a::after {
+    content: target-counter(attr(href url), page);
+}
+
+.redirect_to_char a {
+    font-size: calc(9pt * var(--scale));
+    font-family: "Source Han Serif";
+    text-decoration: none;
+    color: inherit;
+}
+
+.redirect_to_char .target-linzklar {
+    font-size: calc(12pt * var(--scale));
+    font-weight: normal;
+    font-family: "linzklar_rounded";
+    position: relative;
+    top: .2em;
+    padding-left: .2em;
+}
+
 @page {
     size: 128mm 182mm
         /* JIS B6 */
