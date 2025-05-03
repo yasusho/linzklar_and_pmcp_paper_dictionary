@@ -126,6 +126,15 @@ header {
     color: inherit;
 }
 
+.redirect_to_char .target-linzklar {
+    font-size: calc(12pt * var(--scale));
+    font-weight: normal;
+    font-family: "linzklar_rounded";
+    position: relative;
+    top: .2em;
+    padding-left: .2em;
+}
+
 @page {
     size: 128mm 182mm
         /* JIS B6 */

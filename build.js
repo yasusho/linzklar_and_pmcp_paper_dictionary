@@ -204,7 +204,8 @@ function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
 </div>
 
 <div class="entry">
-    <span class="redirect_to_char"><a href="${getPercentEncodedFileNameOfSection(o.dest)}.html#u${o.dest.codePointAt(0).toString(16).toLowerCase()}">⇒ p.</a></span>
+    <span class="redirect_to_char"><a href="${getPercentEncodedFileNameOfSection(o.dest)}.html#u${o.dest.codePointAt(0).toString(16).toLowerCase()}">⇒ p.</a>${
+        o.src === o.dest ? "" : `<span class="target-linzklar">${o.dest}</span>` }</span>
 </div>
 </div> <!-- .group-char-entry-with-the-following -->`;
     }
