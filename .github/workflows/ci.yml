@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, ci-debug-2 ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, ci-debug-2 ]
 
 jobs:
   build:
@@ -60,7 +60,7 @@ jobs:
 
       - name: Vivliostyle CLI のインストール
         run: |
-          npm install --no-save @vivliostyle/cli
+          npm install --no-save @vivliostyle/cli@8.19.0
 
       - name: ビルドスクリプトの実行
         run: node build.js
