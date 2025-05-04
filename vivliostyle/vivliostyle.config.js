@@ -16,11 +16,10 @@ const vivliostyleConfig = {
     //   theme: '@vivliostyle/theme-whatever' // theme can be set individually. default to root 'theme'
     // },
 
-    '0_01_useful2.html',
-    '0_02_blank.html',
-    '0_03_title.html',
-    '0_04_authors.html',
-    '0_05_foreword.html',
+    '0_01_title.html',
+    '0_02_authors.html',
+    '0_03_foreword.html',
+    '0_04_05_pmcp_map.html',
     '0_07_how_to_use.html',
     '0_08_index.html',
     '1_01_処.html',
@@ -55,7 +54,7 @@ const vivliostyleConfig = {
     '2_14_針.html',
     '2_15_神十位.html',
 
-    '3_02_kana_index.html'
+    '3_02_kana_index.html',
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
   // entryContext: './manuscripts', // default to '.' (relative to 'vivliostyle.config.js')
   output: [ "../言将机戦人等_網別清字言書.pdf" ] // path to generate draft file(s). default to '{title}.pdf'
