@@ -60,7 +60,7 @@ jobs:
 
       - name: Vivliostyle CLI のインストール
         run: |
-          npm install --no-save @vivliostyle/cli@8.19.0 --force
+          npm install --no-save @vivliostyle/cli@8.20.0 --force
 
       - name: ビルドスクリプトの実行
         run: node build.js
