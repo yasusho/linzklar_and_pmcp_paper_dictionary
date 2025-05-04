@@ -58,7 +58,7 @@ const trlist_with_headers = trlist.flatMap((tr, i) => {
     return [tr.content];
 })
 
-fs.writeFileSync('vivliostyle/kana_index.html',
+fs.writeFileSync('vivliostyle/3_02_kana_index.html',
 
     `<!doctype html>
 <html lang="ja">
