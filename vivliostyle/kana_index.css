@@ -5,7 +5,6 @@
 body {
     font-family: "Source Han Serif";
     column-count: 2;
-    break-after: right;
 }
 
 a::after {
