@@ -20,10 +20,9 @@ export function getPercentEncodedFileNameOfSection(linzklar) {
 
 const trlist =
     pronunciation2_table.flatMap(([linzklar, latin_, kana]) => {
-        if (linzklar === "座") {
-            return [];
+        if (latin_ === "") {
+            return []; // ignore when the pronunciation is empty
         }
-
         const latin = latin_.startsWith("z") ? (
             from_latin(latin_).onset + latin_.slice(1) // replace the z with z-acute if necessary
         ) : latin_;

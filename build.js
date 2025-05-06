@@ -159,24 +159,29 @@ function gen_pronunciation(linzklar) {
             return `<span style="color: red">発音を提供せよ:【${c}】</span>`;
         }
     }
-    return [...linzklar].map(c => {
-        // search from the pronunciation table
-        const entry = pronunciation2_table.find(([c_, _]) => c_ === c);
-        if (entry) {
-            const latin_pronunciation = entry[1];
-            const kana_pronunciation = entry[2];
 
-            check_consistency({ context: c, latin: latin_pronunciation, kana: kana_pronunciation });
-            if (!kana_pronunciation && linzklar.length > 1) {
-                console.log(`Empty pronunciation for ${c}, used in a multichar context ${linzklar}`);
-                return `<span style="color: red">発音が定義されていない字【${c}】の熟語</span>`;
+    try {
+        return [...linzklar].map(c => {
+            // search from the pronunciation table
+            const entry = pronunciation2_table.find(([c_, _]) => c_ === c);
+            if (entry) {
+                const latin_pronunciation = entry[1];
+                const kana_pronunciation = entry[2];
+
+                check_consistency({ context: c, latin: latin_pronunciation, kana: kana_pronunciation });
+                if (!kana_pronunciation && linzklar.length > 1) {
+                    console.log(`Empty pronunciation for ${c}, used in a multichar context ${linzklar}. Hiding the pronunciation.`);
+                    throw new Error(`<span style="color: red">発音が定義されていない字【${c}】の熟語</span>`);
+                }
+                return kana_pronunciation;
+            } else {
+                console.log(`Missing pronunciation for ${c}. Provide it in the PRONUNCIATIONS.tsv file.`);
+                return `<span style="color: red">発音を提供せよ:【${c}】</span>`;
             }
-            return kana_pronunciation;
-        } else {
-            console.log(`Missing pronunciation for ${c}. Provide it in the PRONUNCIATIONS.tsv file.`);
-            return `<span style="color: red">発音を提供せよ:【${c}】</span>`;
-        }
-    }).join("");
+        }).join("");
+    } catch (e) {
+        return "";
+    }
 }
 
 function check_consistency({ context, latin, kana }) {
@@ -204,8 +209,7 @@ function gen_entry({ linzklar: linzklar_, definitions, sentences }) {
 </div>
 
 <div class="entry">
-    <span class="redirect_to_char"><a href="${getPercentEncodedFileNameOfSection(o.dest)}.html#u${o.dest.codePointAt(0).toString(16).toLowerCase()}">⇒ p.</a>${
-        o.src === o.dest ? "" : `<span class="target-linzklar">${o.dest}</span>` }</span>
+    <span class="redirect_to_char"><a href="${getPercentEncodedFileNameOfSection(o.dest)}.html#u${o.dest.codePointAt(0).toString(16).toLowerCase()}">⇒ p.</a>${o.src === o.dest ? "" : `<span class="target-linzklar">${o.dest}</span>`}</span>
 </div>
 </div> <!-- .group-char-entry-with-the-following -->`;
     }
