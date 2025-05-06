@@ -1,8 +1,18 @@
 # 燐字紙辞書組版
 
+プロジェクトの全体像は「[日本机戦連盟 厳選燐字辞書・日本机戦連盟 厳選東島通商語辞書](https://github.com/sozysozbot/nclc_paper_dictionary)」リポジトリを参照。
+
+このリポジトリでは、
+
+- 燐字辞書目次
+- 燐字辞書本文
+- 燐字辞書仮名索引
+
+を担当する。
+
 ## PDF を見たい人のための注意
 
-リポジトリ内の `言将机戦人等定引之字言集.pdf` は多少古いことがある。最新は [Actions の workflow runs](https://github.com/sozysozbot/linzklar_paper_dictionary/actions) の最新を選んで Artifacts の pdf-output をダウンロードして見ること。
+リポジトリ内の `言将机戦人等_網別清字言書.pdf` は多少古いことがある。最新は [Actions の workflow runs](https://github.com/sozysozbot/linzklar_paper_dictionary/actions) の最新を選んで Artifacts の pdf-output をダウンロードして見ること。
 
 ## 全体の流れ
 

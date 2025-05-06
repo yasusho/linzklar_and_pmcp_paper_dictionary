@@ -16,12 +16,6 @@ const vivliostyleConfig = {
     //   theme: '@vivliostyle/theme-whatever' // theme can be set individually. default to root 'theme'
     // },
 
-    '0_01_grand_title.html',
-    '0_02_03_foreword.html',
-    '0_04_05_pmcp_map.html',
-    '0_06_authors.html',
-    '0_07_linzklar_start.html',
-    '0_08_how_to_use.html',
     '0_09_index.html',
     '1_01_処.html',
     '1_02_下.html',
