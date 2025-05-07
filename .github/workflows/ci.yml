@@ -28,6 +28,10 @@ jobs:
         run: |
           curl -L -o fonts/SourceHanSerif-Regular.otf "https://github.com/adobe-fonts/source-han-serif/raw/release/OTF/Japanese/SourceHanSerif-Regular.otf"
 
+      - name: Source Han Sans Bold のダウンロード
+        run: |
+          curl -L -o fonts/SourceHanSans-Bold.otf "https://github.com/adobe-fonts/source-han-sans/raw/release/OTF/Japanese/SourceHanSans-Bold.otf"
+
       - name: M+ 1p Heavy のダウンロード
         run: |
           curl -L -o fonts/Mplus1p-Heavy.ttf "https://github.com/rayshan/mplus-fonts/raw/refs/heads/master/fonts/mplus-1p-heavy.ttf"
