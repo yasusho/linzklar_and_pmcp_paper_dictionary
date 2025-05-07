@@ -51,6 +51,9 @@ const vivliostyleConfig = {
 
     '3_02_kana_index.html',
     '3_99_force_even_page.html',
+    '4_01_pmcp_start.html',
+    '4_02_how_to_use_pmcp.html',
+    '4_03_grammar_pmcp.html',
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
   // entryContext: './manuscripts', // default to '.' (relative to 'vivliostyle.config.js')
   output: [ "../言将机戦人等_網別清字言書.pdf" ] // path to generate draft file(s). default to '{title}.pdf'
