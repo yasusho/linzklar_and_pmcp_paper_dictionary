@@ -2,7 +2,8 @@
 パイㇰレネ		paiklene			名詞	ファイクレオネ（惑星名）	
 パイケ		paike			名詞	パイグ【牌】（言語・民族名）	
 パウィㇽ		pawil			名詞	旗	
-パウィレㇲ		pawilec			動詞	旗を掲げる	
+パウィレㇲ	*	pawilec			動詞	旗を掲げる	
+パウィレㇲ	*	pawilec	パウィレスィㇳ	pawilecit	他動詞	～（旗）を掲げる	
 パウベ		paube			名詞	代わり、代理人、代替品	
 パウユン		paujun			名詞	基準	
 パキレ		pakile			名詞	秋	
@@ -30,7 +31,8 @@
 パメㇲ		PAMEC	パメスィㇳ	PAMECIT	他動詞	〜を許可する、〜を許す	
 パリヤ		palija			名詞	ファリーア、パリヤ（人名）	
 バㇽ		bal			名詞	茶	
-パㇽビㇲ		palbic			動詞	つながる	
+パㇽビㇲ	*	palbic			動詞	つながる	
+パㇽビㇲ	*	palbic	パルビスィㇳ	palbicit	他動詞	～をつなげる	
 パㇽビティシュモ		PALBITIXUMO			名詞	経路	
 パㇽベㇽタ		palbelta			名詞	バージョン	
 パン	*	pan			前置助動詞	一人で、単独で、孤立して	
@@ -42,11 +44,14 @@
 パンカ	*	panka	パンカレティ	pankaleti	形容詞	良い	
 パンキヤ	*	PANKIJA			動詞	梱包をほどく	
 パンキヤ	*	PANKIJA			名詞	梱包ほどき、開封	
+パンキヤ	*	PANKIJA	パンキヤイㇳ	pankijait	動詞	～の梱包をほどく	
 パンシェン		PANXEN			形容詞	ずさんな	
 パンシェンソ	*	PANXENCO			名詞	乱数	
 パンシェンソ	*	PANXENCO			前置助動詞	ずさんに	
 バンニン		BANNIN			名詞	バンニン【闇族】（地名）	
-ビ		bi			動詞	祝福する	
+ビ	*	bi			動詞	祝福する	
+ビ	*	bi	ビレティ	bileti	形容詞	恵みの	
+ビ	*	bi	ビイㇳ	biit	他動詞	～を祝福する、～に恵みを与える	
 ピ		pi			文接続詞	～して、～したが、～すると	
 ピイィ		piji			名詞	春	
 ピイェン		pijen			動詞	東である	
@@ -62,7 +67,8 @@
 ピユㇲ	*	pijuc			名詞	目	
 ピユㇲ	*	pijuc	ピユㇲ レティ カパ	pijuc leti kapa	名詞	視線、方向	
 ピユメ		pijume			名詞	船	
-ビラテ		BILATE			動詞	組み合わさる	
+ビラテ	*	BILATE			動詞	組み合わさる	
+ビラテ	*	BILATE	ビラテイㇳ	bilateit	他動詞	～を組み合わせる	
 ビㇽカニㇳ		bilkanit			動詞	追い払う、駆逐する、駆除する	
 ビロ		bilo			名詞	ブイロ島【享島】（地名）	
 プシ		PUXI			名詞	余り、余計なもの	
@@ -83,7 +89,8 @@
 プレン		PULEN			動詞	好意を抱いている、興味や関心や情熱を持っている	
 プレンツァ		pulenza			名詞	自由	
 ブロ		BULO			名詞	鉄	
-プロン		pulon			動詞	演じる、代用する	
+プロン	*	pulon			動詞	演じる、代用する	
+プロン	*	pulon	プロニㇳ	pulonit	他動詞	～を演じる、～を代用する	
 ペカタ		PEKATA	ペカタイㇳ	PEKATAIT	他動詞	～を囲む	
 ペカンペ		PEKANPE			名詞	技術	
 ベㇰ		bek			名詞	スモモ	
@@ -96,6 +103,7 @@
 ペㇲタ		pecta			間投詞	じゃあ	
 ペㇲテㇽ	*	pectel			動詞	適用する	
 ペㇲテㇽ	*	PECTEL			動詞	（〖pectel jo [1]〗の形で）　　〖[1]〗 に作用する	
+ペㇲテㇽ	*	pectel	ペㇲテリㇳ	pectelit	他動詞	～を適用させる	
 ペセラ		pecela			名詞	系統	
 ペデ		pede			名詞	ペドゥ、ペデ【闇島】（島名）、バート【闇】（言語・民族名）	
 ペㇳ		pet			名詞	プㇳ、ペㇳ【星】（人名）
@@ -122,7 +130,8 @@
 ベㇽピㇲカンテㇽ		belpickantel			名詞	棋譜	
 ベㇽピㇲタタ		BELPICTATA			名詞	ゲームの面白さ、ゲーム性、ゲームの楽しみ	
 ベン		ben			名詞	油	
-ペン		pen			動詞	開く	
+ペン	*	pen			動詞	開く	
+ペン	*	pen	ペニㇳ	penit	他動詞	～を開ける、～を開く	
 ペンシェ		PENXE	ペンシェイㇳ	PENXEIT	他動詞	～を運ぶ	
 ペンタㇷ゚		pentap			名詞	ヴェンタフ、ペンタㇷ゚（人名）	
 ペンテ		pente			前置詞	～に反対して	
