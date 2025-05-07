@@ -12,6 +12,10 @@
             break-before: left;
         }
 
+        b {
+            font-family: "Source Han Serif Heavy";
+        }
+
         h1 {
             text-align: center;
             font-size: 20pt;
@@ -77,6 +81,14 @@
 
         p+h3 {
             margin-top: 1em;
+        }
+
+        .linzklar-in-text b,
+        b.linzklar-in-text,
+        b .linzklar-in-text {
+            font-family: "linzklar_rounded" !important;
+            -webkit-text-stroke: 0.03em #000;
+            letter-spacing: 0.06em;
         }
     </style>
 </head>
@@ -291,20 +303,20 @@
             <td> <span class="linzklar-in-text">汝</span> </td>
             <td> <span class="linzklar-in-text">口</span> </td>
             <td> <span class="linzklar-in-text">米</span> </td>
-            <td> <span class="linzklar-in-text">乎</span> </td>
+            <td> <span class="linzklar-in-text"><b>乎</b></span> </td>
         </tr>
 
         <tr>
             <td>ムアー⤴</td>
             <td>ヤㇺ→</td>
             <td>モウ→</td>
-            <td>ユン⤴</td>
+            <td><b>ユン⤴</b></td>
         </tr>
         <tr>
             <td>あなた</td>
             <td>食べる</td>
             <td>米</td>
-            <td>～か？</td>
+            <td><b>～か？</b></td>
         </tr>
         <tr>
             <td colspan="4">あなたは米を食べるか？</td>
@@ -323,18 +335,18 @@
         <tr>
             <td> <span class="linzklar-in-text">汝</span> </td>
             <td> <span class="linzklar-in-text">口</span> </td>
-            <td> <span class="linzklar-in-text">何</span> </td>
+            <td> <span class="linzklar-in-text"><b>何</b></span> </td>
         </tr>
 
         <tr>
             <td>ムアー⤴</td>
             <td>ヤㇺ→</td>
-            <td>ナン⤴</td>
+            <td><b>ナン⤴</b></td>
         </tr>
         <tr>
             <td>あなた</td>
             <td>食べる</td>
-            <td>何</td>
+            <td><b>何</b></td>
         </tr>
         <tr>
             <td colspan="3">あなたは何を食べる？</td>
@@ -799,19 +811,19 @@
     <table class="simple-table">
         <tr>
             <td> <span class="linzklar-in-text">彼</span> </td>
-            <td> <span class="linzklar-in-text">加</span> </td>
+            <td> <span class="linzklar-in-text"><b>加</b></span> </td>
             <td> <span class="linzklar-in-text">我</span> </td>
             <td> <span class="linzklar-in-text">労</span> </td>
         </tr>
         <tr>
             <td>チャㇷ゚⤴</td>
-            <td>アㇳ・</td>
+            <td><b>アㇳ・</b></td>
             <td>パイ⤴</td>
             <td>ナイㇷ゚⤴</td>
         </tr>
         <tr>
             <td>あの人</td>
-            <td>～と～</td>
+            <td><b>～と～</b></td>
             <td>私</td>
             <td>働く</td>
         </tr>
@@ -873,7 +885,7 @@
             <td>キー→</td>
             <td>カー→</td>
             <td>ムアー⤴</td>
-            <td><b>クアㇰ→</b></td>
+            <td>クアㇰ→</td>
         </tr>
         <tr>
             <td>あの</td>
@@ -881,7 +893,7 @@
             <td>会話する</td>
             <td><b>～の</b></td>
             <td>男性</td>
-            <td><b>～は～です</b></td>
+            <td>～は～です</td>
             <td>あなた</td>
             <td>父</td>
         </tr>
@@ -967,7 +979,7 @@
         <tr>
             <td> <span class="linzklar-in-text">彼</span> </td>
             <td> <span class="linzklar-in-text">失</span> </td>
-            <td> <span class="linzklar-in-text">終</span> </td>
+            <td> <span class="linzklar-in-text"><b>終</b></span> </td>
             <td> <span class="linzklar-in-text">輪</span> </td>
         </tr>
         <tr>
@@ -1020,7 +1032,7 @@
             <td> <span class="linzklar-in-text">此</span> </td>
             <td> <span class="linzklar-in-text">車</span> </td>
             <td> <span class="linzklar-in-text">我</span> </td>
-            <td> <span class="linzklar-in-text">噫</span> </td>
+            <td> <span class="linzklar-in-text"><b>噫</b></span> </td>
         </tr>
         <tr>
             <td>カー→</td>
@@ -1142,16 +1154,9 @@
 
         <h3>数量表現</h3>
         <div style="font-size: 200%; color: blue">書け</div>
-    <div style="font-size: 200%; color: blue">書け</div>
-    <div style="font-size: 200%; color: blue">書け</div>
-    <div style="font-size: 200%; color: blue">書け</div>
-    <div style="font-size: 200%; color: blue">書け</div>
-    <div style="font-size: 200%; color: blue">書け</div>
-    <div style="font-size: 200%; color: blue">書け</div>
-    <div style="font-size: 200%; color: blue">書け</div>
 
-        <h3>読解</h3>
-        <span style="font-size: 200%; color: blue">（最後にデカい文を置いて、品詞分解・グロスだけしておく、とかやってもいいかも）</span>
+        <!--<h3>読解</h3>
+        <span style="font-size: 200%; color: blue">（最後にデカい文を置いて、品詞分解・グロスだけしておく、とかやってもいいかも）</span>-->
 
         <h2>第3部：仮名表記の細則とラテン字転写</h2>
         <p>パイグ語のカタカナ表記について、もう少し細かいことを書いておきましょう。</p>
