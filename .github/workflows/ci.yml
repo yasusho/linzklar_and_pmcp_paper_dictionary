@@ -62,8 +62,11 @@ jobs:
         run: |
           npm install --no-save @vivliostyle/cli@8.20.0 --force
 
-      - name: ビルドスクリプトの実行
+      - name: 燐字辞書側のビルドスクリプトの実行
         run: node build_linzklar.js
+      
+      - name: 東島通商語辞書側のビルドスクリプトの実行
+        run: node build_pmcp.js
 
       - name: Vivliostyle による PDF 出力
         run: |
@@ -72,7 +75,7 @@ jobs:
 
       - name: PDF の存在確認とアーティファクト登録
         run: |
-          if not exist "言将机戦人等_網別清字言書.pdf" (
+          if not exist "言将机戦人等_網別_清字_島言_言書.pdf" (
             echo PDF not found!
             exit /b 1
           )
@@ -82,5 +85,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pdf-output
-          path: 言将机戦人等_網別清字言書.pdf
+          path: 言将机戦人等_網別_清字_島言_言書.pdf
 
