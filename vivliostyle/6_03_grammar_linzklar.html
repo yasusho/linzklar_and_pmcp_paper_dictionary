@@ -90,6 +90,19 @@
             -webkit-text-stroke: 0.03em #000;
             letter-spacing: 0.06em;
         }
+
+        @page {
+            size: 128mm 182mm
+                /* JIS B6 */
+            ;
+            margin: 4% 10% 2% 10%;
+
+            @top-center {
+                content: counter(page);
+                font-family: "Times New Roman";
+                font-size: 14pt;
+            }
+        }
     </style>
 </head>
 

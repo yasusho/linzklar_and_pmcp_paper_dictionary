@@ -32,6 +32,19 @@
         nav td a::after {
             content: target-counter(attr(href url), page);
         }
+
+        @page {
+            size: 128mm 182mm
+                /* JIS B6 */
+            ;
+            margin: 4% 10% 2% 10%;
+
+            @top-center {
+                content: counter(page);
+                font-family: "Times New Roman";
+                font-size: 14pt;
+            }
+        }
     </style>
 </head>
 
