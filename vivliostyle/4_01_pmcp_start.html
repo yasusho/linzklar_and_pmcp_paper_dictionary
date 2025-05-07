@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>言将机戦人等 網別言書_別</title>
     <style>
-        @page {
+        @page: right {
             background-image: url("pmcp_start.png");
             background-size: 128mm 182mm;
             background-repeat: no-repeat;
@@ -14,6 +14,11 @@
         nav {
             break-before: page;
             break-after: page;
+        }
+
+        body {
+            /* 右ページから始まるように */
+            break-before: right;
         }
     </style>
 </head>

@@ -50,7 +50,6 @@ const vivliostyleConfig = {
     '2_15_神十位.html',
 
     '3_02_kana_index.html',
-    '3_99_force_even_page.html',
     '4_01_pmcp_start.html',
     '4_02_how_to_use_pmcp.html',
     '4_03_grammar_pmcp.html',
