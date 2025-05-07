@@ -17,12 +17,12 @@ const vivliostyleConfig = {
     // },
     '0_01_grand_title.html',
     '0_02_03_foreword.html',
-    '0_04_05_pmcp_map.html',
-    '0_06_authors.html',
-    '0_07_linzklar_start.html',
-    '0_08_how_to_use_linzklar.html',
-    '0_09_grammar_linzklar.html',
-    '0_99_index.html',
+    '0_04_authors.html',
+    '0_05_grand_index.html',
+    '0_06_07_pmcp_map.html',
+    '0_08_09_linzklar_start.html',
+    '0_10_how_to_use_linzklar.html',
+    '0_99_linzklar_index.html',
     '1_01_処.html',
     '1_02_下.html',
     '1_03_六.html',
@@ -58,8 +58,7 @@ const vivliostyleConfig = {
     '3_02_kana_index.html',
     '4_01_pmcp_start.html',
     '4_02_how_to_use_pmcp.html',
-    '4_03_grammar_pmcp.html',
-    '4_99_index.html',
+    '4_99_pmcp_index.html',
     '5_01_ア.html',
     '5_02_カ.html',
     '5_03_サ.html',
@@ -70,6 +69,11 @@ const vivliostyleConfig = {
     '5_08_ヤ.html',
     '5_09_ラ.html',
     '5_10_ワ.html',
+
+    '6_00_appendix_index.html',
+    '6_03_grammar_linzklar.html',
+    '6_06_grammar_pmcp.html',
+
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
   // entryContext: './manuscripts', // default to '.' (relative to 'vivliostyle.config.js')
   output: [ "../言将机戦人等_網別_清字_島言_言書.pdf" ] // path to generate draft file(s). default to '{title}.pdf'
