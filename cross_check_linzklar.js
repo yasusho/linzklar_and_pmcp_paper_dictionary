@@ -111,6 +111,12 @@ for (const [key_, { parents }] of GLOBAL_MAP.entries()) {
     }
 }
 
+// Delete the content of the directory if it exists, then create it again
+if (fs.existsSync("cross_check_linzklar")) {
+    fs.rmSync("cross_check_linzklar", { recursive: true, force: true });
+}
+fs.mkdirSync("cross_check_linzklar", { recursive: true });
+
 for (const s of fix_now_set) {
     if (!s) continue; 
     let report = "";
@@ -120,8 +126,8 @@ for (const s of fix_now_set) {
             report += lines.map(l => `${key_}\t${l.second_column}\t${l.third_column}`).join("\n") + "\n";
         }
     }
-    fs.writeFileSync(`cross_check/${s}.tsv`, report, { encoding: 'utf8' });
+    fs.writeFileSync(`cross_check_linzklar/${s}.tsv`, report, { encoding: 'utf8' });
 }
 
-fs.writeFileSync("cross_check.jsonl", result, { encoding: 'utf8' });
-console.log("Cross-checking completed. Results written to cross_check.jsonl.");
+fs.writeFileSync("cross_check_linzklar.jsonl", result, { encoding: 'utf8' });
+console.log("Cross-checking completed. Results written to cross_check_linzklar.jsonl.");

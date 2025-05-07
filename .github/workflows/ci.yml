@@ -63,7 +63,7 @@ jobs:
           npm install --no-save @vivliostyle/cli@8.20.0 --force
 
       - name: ビルドスクリプトの実行
-        run: node build.js
+        run: node build_linzklar.js
 
       - name: Vivliostyle による PDF 出力
         run: |
