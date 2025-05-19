@@ -73,6 +73,8 @@ const vivliostyleConfig = {
     '6_00_appendix_index.html',
     '6_03_grammar_linzklar.html',
     '6_06_grammar_pmcp.html',
+    '6_07_40_most_important_pmcp.html',
+    '6_08_pmcp_50on.html',
     '6_09_colophon.html',
 
   ], // 'entry' can be 'string' or 'object' if there's only single markdown file
